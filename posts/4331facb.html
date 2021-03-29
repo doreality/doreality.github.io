@@ -129,7 +129,6 @@
 <p>为什么选择用 GitHub 来搭载博客？</p>
 <p>至少我可以不用先花钱买个域名，再学习怎么搭个服务器，怎么写个网页，这一系列繁琐的事情都能迅速解决，我能很快投入到纯粹的写作中来。</p>
 <p>既然到了这里，那么最基础的要求，就是拥有一个 GitHub 账号和一台能联网的电脑，最好是会一点命令行操作。接下来要怎么办，本文都可以试着帮你解决。</p>
-<hr>
 <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>下载安装如下工具：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git 客户端</a>（适合你的操作系统的）</li>
@@ -187,7 +186,7 @@
 <li>CNAME：主机名是<code>www</code>，值为<code>username.github.io</code></li>
 </ul>
 </li>
-<li><p>添加 CNAME 文件<br> 在博客的目录下，找到<code>source</code>文件夹，添加文件<code>CNAME</code>（无后缀名），在里面写上刚刚购买的域名地址，保存即可。</p>
+<li><p>添加 CNAME 文件<br> 在博客的目录下，找到<code>source</code>文件夹，添加文件<code>CNAME</code>（无后缀名），在里面写上刚刚购买的域名地址（加上<code>https://</code>前缀），保存即可。</p>
 </li>
 <li><p>上传发布</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
