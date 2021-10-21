@@ -106,6 +106,33 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/posts/e01b0c7d.html">Git的日常积累（二）</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-10-17
+        </span><span class="post-category">
+            <a href="/categories/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>发现了一个<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/">神奇的网站</a>，可以图形化交互式学习 Git。</p>
+<p>趁此机会，好好学习了一下关于分支操作的命令～</p>
+<p>本期重点：</p>
+<ul>
+<li>  简单的分支操作：创建、跳转、合并</li>
+<li>  在分支上前进和后退</li>
+<li>  修改提交树的结构</li>
+<li>  高级技巧</li>
+</ul>
+          <div class="read-more">
+            <a href="/posts/e01b0c7d.html" class="read-more-link">阅读更多</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/posts/e471ba7e.html">根据Python源代码生成UML类图和包图</a>
         </h1>
 
@@ -138,65 +165,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/posts/0.html"></a>
+      <h1 class="post-title"><a class="post-link" href="/posts/5cd6b5b7.html">Android Studio中SDK配置</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2021-10-10
-        </span></div>
+        </span><span class="post-category">
+            <a href="/categories/app%E4%B9%8B%E8%B7%AF/">app之路</a>
+            </span>
+        </div>
     </header>
 
-    <div class="post-content"><h3 id="SDK-Platform"><a href="#SDK-Platform" class="headerlink" title="SDK Platform"></a>SDK Platform</h3><p>官方手册看<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platforms">这里</a></p>
-<p>对于每个 SDK Platform 版本，必须至少安装一下三个选项：</p>
-<ul>
-<li>  Android SDK Platform：必须下载</li>
-<li>  System Image：下载对应自己电脑体系结构的版本即可（至少要有一个）</li>
-<li>  Sources for Android：Platform 的源代码。在调试时可能会显示其中的代码行。</li>
-</ul>
-<h3 id="SDK-Tools"><a href="#SDK-Tools" class="headerlink" title="SDK Tools"></a>SDK Tools</h3><p>官方手册看<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools">这里</a></p>
-<p>一些必要的工具，每个版本都向后兼容，所以只需要下载安装一个最新的即可。</p>
-<h3 id="配置命令行-aapt"><a href="#配置命令行-aapt" class="headerlink" title="配置命令行 aapt"></a>配置命令行 aapt</h3><p>aapt 是 SDK Tools 中的一个工具，用于解析应用的资源文件，并翻译成<code>R.java</code>。</p>
-<ol>
-<li><p>找到 SDK 所在的路径</p>
-<p>  Mac环境下，安装过 Android Studio 并进行上述配置后，SDK的目录如下：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/your-username/Library/Android/sdk</span><br></pre></td></tr></table></figure>
-
-<p>  <code>your-username</code>替换为自己实际的用户名即可。</p>
-</li>
-<li><p>查看 build-tools 版本</p>
-<p>  在 SDK 目录下，执行如下：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">$ <span class="built_in">cd</span> build-tools</span><br><span class="line">$ ls</span><br><span class="line">$ <span class="built_in">cd</span> 31.0.0 <span class="comment">#就是上面在 Android Studio 中配置的 SDK Tools 版本</span></span><br></pre></td></tr></table></figure>
-
-<p>  在此目录下就可以看到aapt工具了。此时，执行<code>pwd</code>，可以打印出当前路径。</p>
-</li>
-<li><p>回到用户目录，配置Shell</p>
-<ol>
-<li><p>如果是用的 Mac 自带的 bash，打开<code>~/.bash_profile</code>：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br><span class="line">$ vi .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果是使用的 zsh，打开<code>~/.zshrc</code>：</p>
-  <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br><span class="line">$ vi .zshrc</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>  之后，在打开的文件中，加入以下内容：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Android aapt</span><br><span class="line">AAPT_HOME&#x3D;&#x2F;Users&#x2F;your-username&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;build-tools&#x2F;31.0.0</span><br><span class="line">export AAPT_HOME</span><br><span class="line">export PATH&#x3D;$PATH:$AAPT_HOME</span><br><span class="line"></span><br><span class="line"># 还可以顺便把其他工具也加入环境中</span><br><span class="line">ANDROID_HOME&#x3D;&#x2F;Users&#x2F;your-username&#x2F;Library&#x2F;Android&#x2F;sdk</span><br><span class="line">export PATH&#x3D;$PATH:$ANDROID_HOME&#x2F;tools</span><br><span class="line">export PATH&#x3D;$PATH:$ANDROID_HOME&#x2F;platform-tools</span><br></pre></td></tr></table></figure>
-
-<p>  如图所示：</p>
-  <img src="/Users/doreality/Documents/notes/A.Pre-blog/images/Android%20Studio%E4%B8%ADSDK%E9%85%8D%E7%BD%AE//image-20211010172043691.png" alt="image-20211010172043691" style="zoom:50%;" />
-
-<blockquote>
-<p>  Vim 操作：</p>
-<ol>
-<li>  按<code>i</code>进行插入</li>
-<li>  按<code>esc</code>退出插入模式</li>
-<li>  输入<code>:wq</code>再回车，即保存</li>
-</ol>
-</blockquote>
-</li>
-<li><p>保存完毕后，重新启动终端，输入<code>aapt v</code>，显示版本号即可。</p>
-  <img src="/Users/doreality/Documents/notes/A.Pre-blog/images/Android%20Studio%E4%B8%ADSDK%E9%85%8D%E7%BD%AE//image-20211010172206119.png" alt="image-20211010172206119" style="zoom:50%;" /></li>
-</ol>
-
+    <div class="post-content"><p>刚开始学习 Android 开发，比较迷惑。不想安装太多SDK，还有想知道各个版本的SDK的区别，就了解了一下。</p>
+<p>最后结论就是，M1 的 macOS，看来最低版本的 SDK 只能是 7.0 了，因为从 7.0 才开始有ARM64的支持。</p>
+          <div class="read-more">
+            <a href="/posts/5cd6b5b7.html" class="read-more-link">阅读更多</a>
+          </div>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -332,26 +317,6 @@
 <p>今天打开发现之前设置好的主题不能用了。</p>
           <div class="read-more">
             <a href="/posts/93ed9593.html" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/posts/9fda10db.html">同一主机下使用多个的GitHub账号搭建Hexo博客</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2021-03-08
-        </span><span class="post-category">
-            <a href="/categories/blog-%E7%9B%B8%E5%85%B3/">blog 相关</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>在一台电脑，一个 GitHub 账号的情况下，来搭建 Hexo 博客，只需要按照<a href="https://doreality.xyz/posts/4331facb.html">第N次：从零搭建Hexo博客并部署到GitHub</a>中所述，马上就可以解决。</p>
-<p>可是……我又有了一个新的 GitHub 账号，还是这台电脑，要在新账号上搭建一个新的博客（也就是说，要在一台电脑上同时操作两个GitHub账号），就要解决不同的SSH下的远程连接的问题。</p>
-          <div class="read-more">
-            <a href="/posts/9fda10db.html" class="read-more-link">阅读更多</a>
           </div>
         </div></article>
       <nav class="pagination"><a class="next" href="/page/2/">
