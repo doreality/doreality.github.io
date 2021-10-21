@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="同一主机下使用多个的GitHub账号搭建Hexo博客"/><meta name="keywords" content="Hexo, GitHub, SSH, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/9fda10db.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>同一主机下使用多个的GitHub账号搭建Hexo博客 - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">同一主机下使用多个的GitHub账号搭建Hexo博客
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-03-08
+        </span><span class="post-category">
+            <a href="/categories/blog-%E7%9B%B8%E5%85%B3/">blog 相关</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-new-%E8%B4%A6%E5%8F%B7%E7%9A%84-Hexo-%E5%8D%9A%E5%AE%A2"><span class="toc-text">建立 new 账号的 Hexo 博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90-new-%E8%B4%A6%E5%8F%B7%E7%9A%84-SSH"><span class="toc-text">生成 new 账号的 SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0-new-GitHub"><span class="toc-text">部署到 new GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%EF%BC%9A%E5%A4%9A-GitHub-%E8%B4%A6%E5%8F%B7%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">附：多 GitHub 账号的文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>在一台电脑，一个 GitHub 账号的情况下，来搭建 Hexo 博客，只需要按照<a href="https://doreality.xyz/posts/4331facb.html">第N次：从零搭建Hexo博客并部署到GitHub</a>中所述，马上就可以解决。</p>
+<p>可是……我又有了一个新的 GitHub 账号，还是这台电脑，要在新账号上搭建一个新的博客（也就是说，要在一台电脑上同时操作两个GitHub账号），就要解决不同的SSH下的远程连接的问题。</p>
+<span id="more"></span>
+
+<p>在这里，默认已经学会了一台电脑一个账号的情况下，搭建 Hexo 博客的方法。</p>
+<p>假设：</p>
+<ul>
+<li>旧 GitHub 账号，简称 <strong>old</strong>，邮箱：<a href="mailto:&#x6f;&#108;&#x64;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#x6f;&#108;&#x64;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></li>
+<li>新 GitHub 账号，简称 <strong>new</strong>，邮箱：<a href="mailto:&#110;&#x65;&#x77;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#109;">&#110;&#x65;&#x77;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#109;</a></li>
+</ul>
+<p>在 <strong>old</strong> 已经搭建了 Hexo 的情况下：</p>
+<ul>
+<li>git 已经进行过如下设置：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;old&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;old@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在用户目录的<code>.ssh</code>路径下默认配置了 old 账号的 SSH（敲了三个回车），其中私钥的文件名是id_rsa，公钥文件名是id_rsa.pub。</li>
+</ul>
+<p>我需要做两件事：</p>
+<ul>
+<li>部署 <strong>new</strong> 账号的 SSH；</li>
+<li>利用 <strong>new</strong> 的 SSH，将新博客部署到 <strong>new</strong> 账号的 new.github.io 仓库。</li>
+</ul>
+<h2 id="建立-new-账号的-Hexo-博客"><a href="#建立-new-账号的-Hexo-博客" class="headerlink" title="建立 new 账号的 Hexo 博客"></a>建立 new 账号的 Hexo 博客</h2><p>此处为大致步骤，详细请见<a href="https://doreality.xyz/posts/4331facb.html">这里</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>此处<code>&lt;folder&gt;</code>假设为<code>new_blog</code>，下面会用到。</p>
+<h2 id="生成-new-账号的-SSH"><a href="#生成-new-账号的-SSH" class="headerlink" title="生成 new 账号的 SSH"></a>生成 new 账号的 SSH</h2><p>SSH 用于本地主机和远程服务器交流，对账户和密码进行加密，直接在本机上生成即可。</p>
+<p>本部分的操作在用户目录的<code>.ssh</code>目录下，使用<code>git bash</code>运行命令行。</p>
+<ol>
+<li><p>创建 SSH key</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;new@example.com&quot;</span> -f <span class="string">&quot;id_rsa_new&quot;</span></span><br></pre></td></tr></table></figure>
+<p> 第一个引号中，填写 GitHub 的账号地址；<br> 第二个引号中，自定义填写，不能默认，否则会覆盖之前已经存在的<code>id_rsa</code>和<code>id_rsa.pub</code>。<br> 之后，敲两次回车，默认即可。</p>
+</li>
+<li><p>添加私钥<br> 由于使用 SSH 时，默认使用<code>id_rsa</code>的私钥，所以要把新建的私钥添加到系统中：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-agent bash</span><br><span class="line">$ ssh-add ~/.ssh/rsa_name</span><br></pre></td></tr></table></figure>
+<p> 此时提示<code>Identity added:……</code>即完成。</p>
+</li>
+<li><p>设置 SSH config<br> 依旧在<code>.ssh</code>路径下，新建config文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch config</span><br></pre></td></tr></table></figure>
+<p> 打开config文件（用文本编辑器），输入以下内容：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host          newgithub # 名称，自定义，会影响后续指令，用于连接 GitHub 仓库</span><br><span class="line">HostName      github.com # 主机名，用于 GitHub 连接的 SSH，HostName 必须是“github.com&quot;</span><br><span class="line">User          newgit # 用户名，自己决定</span><br><span class="line">IdentityFile  C:\Users\Administrater\.ssh\id_rsa_new # 刚才新建的 rsa 私钥路径，具体看文件夹中路径</span><br></pre></td></tr></table></figure>
+<p> 注意，对于默认生成的 SSH，<code>Host</code>条目的默认值是<code>github.com</code>，所以不要使用，会冲突。<br> 此外，如果是用于别的服务器连接，HostName 可以是其他的域名，例如：gitgee.com 等。</p>
+</li>
+<li><p>部署 SSH 到 GitHub<br> 用文本编辑器打开<code>id_rsa_new.pub</code>，复制公钥内容。<br> 打开 new GitHub 账号 - 右上角头像 - Settings - SSH and GPG Keys 页面，新建一个 SSH 条目，Title 自定义，Key 处粘贴公钥。</p>
+</li>
+<li><p>远程测试</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@newgithub <span class="comment"># @后面是3.中Host的名字</span></span><br></pre></td></tr></table></figure>
+<p> 显示<code>You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>说明设置成功。</p>
+</li>
+</ol>
+<p>至此，new 的 SSH 的部署完成。</p>
+<h2 id="部署到-new-GitHub"><a href="#部署到-new-GitHub" class="headerlink" title="部署到 new GitHub"></a>部署到 new GitHub</h2><p>接下来，就要把新的 hexo 博客部署到相应的 new GitHub账号了。</p>
+<ol>
+<li><p>修改 deploy 设置<br> 如下设置<code>new_blog</code>目录下的<code>_config.yml</code>即可：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@newgithub:new&#x2F;new.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p> 注意：@的后面是设置 SSH 时的 Host，并且不要忘记最末尾的<code>.git</code>。</p>
+</li>
+<li><p>添加 hexo 的 git 部署工具<br> 在<code>new_blog</code>目录中，右键打开<code>git bash</code>，添加<code>hexo-git-deployer</code>工具，用于部署：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git –-save</span><br></pre></td></tr></table></figure></li>
+<li><p>部署<br> 现在，就可以部署了：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p> 此时，应该会成功部署到<strong>new</strong>账号的仓库中，但是上传的用户却是<strong>old</strong>用户。<br> 原因是之前把<strong>old</strong>用户设置成了<code>global</code>全局权限，而 Hexo 博客在部署时，默认使用的是全局用户，所以操作时出现了问题。<br> 如果不修改<code>global</code>权限，可以打开<code>new_blog/.deploy_git/.git</code>目录，在<code>config</code>文件中添加下面的内容即可：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">  name &#x3D; new</span><br><span class="line">  email &#x3D; new@example.com		</span><br></pre></td></tr></table></figure>
+<p> 之后再对博客更新，就是<strong>new</strong>用户了。</p>
+</li>
+</ol>
+<p>到这里，在一台电脑上，就可以用不同的 GitHub 账号分别操作不同的 Hexo 博客了。</p>
+<h2 id="附：多-GitHub-账号的文件操作"><a href="#附：多-GitHub-账号的文件操作" class="headerlink" title="附：多 GitHub 账号的文件操作"></a>附：多 GitHub 账号的文件操作</h2><p>如果不是搭建博客，而是多个账号分别进行项目管理的话，大致思路是一样的。</p>
+<p>首先，也要对新账号建立 SSH 的部署，见正文第二部分。</p>
+<p>之后，只要设置好相应的<code>git config</code>的用户信息，就可以正常操作了。</p>
+<ol>
+<li><p>建立 git 仓库<br> 打开项目的目录，新建 git 仓库。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></li>
+<li><p>设置 git config<br> 给仓库设置用户和邮箱，在提交时会用到。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">$ git config user.email <span class="string">&quot;useremail&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>将本地仓库和远程仓库连接</p>
+<ul>
+<li>如果要从远程仓库中下载原有的项目：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git <span class="built_in">clone</span> git@newgithub:new/newproject.git</span><br></pre></td></tr></table></figure>
+  @后面也要使用设置 SSH 时的 Host。</li>
+<li>如果要新建项目，利用前文建立好的 SSH，和远程仓库连接：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@newgithub:yourName/yourRepo.git</span><br></pre></td></tr></table></figure>
+  其中，yourName是 GitHub 的用户名，yourRepo 是相连的仓库（需提前建立）。<br>  可以测试一下是否连接成功：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+  之后正常操作，例如：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status <span class="comment"># 查看文件状态</span></span><br><span class="line">$ git add . <span class="comment"># 添加所有文件</span></span><br><span class="line">$ git commit -m <span class="string">&#x27;a new commit&#x27;</span> <span class="comment"># 记录</span></span><br><span class="line">$ git push origin master <span class="comment"># 上传，master是主分支，按情况修改</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li> <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000007466317">git连接github总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/popfisher/p/5731232.html">Windows下Git多账号配置，同一电脑多个ssh-key的管理</a></li>
+<li><a target="_blank" rel="noopener" href="https://hui-shao.cn/hexo-git-user/">不想使用全局用户？教你为Hexo博客单独配置指定的git用户</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/christine95/article/details/50753532">如何生成多个ssh并将hexo博客布置到github</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a7a557e235c7">一台电脑使用两个git账号</a></li>
+</ul>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/9fda10db.html">https://doreality.xyz/posts/9fda10db.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Hexo/">Hexo</a>
+            <a href="/tags/GitHub/">GitHub</a>
+            <a href="/tags/SSH/">SSH</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/posts/93ed9593.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">oh-my-zsh更新之后主题不能用</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/4331facb.html">
+        <span class="next-text nav-default">第N次：从零搭建Hexo博客并部署到GitHub</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
