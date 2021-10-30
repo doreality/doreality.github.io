@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Git 分支（三）"/><meta name="keywords" content="GitHub, Git, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/476d1e25.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Git 分支（三） - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Git 分支（三）
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-10-30
+        </span><span class="post-category">
+            <a href="/categories/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%B7%9F%E8%B8%AA%E5%88%86%E6%94%AF"><span class="toc-text">远程跟踪分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Push"><span class="toc-text">Git Push</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%90%8C%E5%90%8D"><span class="toc-text">分支同名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E4%B8%8D%E5%90%8C%E5%90%8D"><span class="toc-text">分支不同名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Fetch"><span class="toc-text">Git Fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%90%8C%E5%90%8D-1"><span class="toc-text">分支同名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E4%B8%8D%E5%90%8C%E5%90%8D-1"><span class="toc-text">分支不同名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89-source-%E7%9A%84-source"><span class="toc-text">没有 source 的 source</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Pull"><span class="toc-text">Git Pull</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>前面学习了下载远程仓库（clone）、下载最新更新（fetch）并同步（pull）、上传更新并同步（push）这些命令的缺省用法。</p>
+<p>那么 <code>o/main</code> 和 <code>main</code> 到底有什么关系？为什么 <code>git clone</code> 会有本地分支和远程分支，为什么可以同步更新？</p>
+<p>还有，使用 GitHub 的时候，那些 push 后面加的参数是什么意思？</p>
+<p>这篇继续学习<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/">神奇的网站</a>，最后一点内容。</p>
+<span id="more"></span>
+
+
+
+<h3 id="远程跟踪分支"><a href="#远程跟踪分支" class="headerlink" title="远程跟踪分支"></a>远程跟踪分支</h3><blockquote>
+<p>  <code>main</code> 和 <code>o/main</code> 的关联关系是由分支的“remote tracking”属性决定的。<code>main</code> 被设定为跟踪 <code>o/main</code> —— 这意味着为 <code>main</code> 分支指定了推送的目的地以及拉取后合并的目标。</p>
+<p>  当你克隆时, Git 会为远程仓库中的每个分支在本地仓库中创建一个远程分支（比如 <code>o/main</code>）。然后再创建一个跟踪远程仓库中活动分支的本地分支，默认情况下这个本地分支会被命名为 <code>main</code>。</p>
+<p>  克隆完成后，你会得到一个本地分支（如果没有这个本地分支的话，你的目录就是“空白”的），但是可以查看远程仓库中所有的分支（如果你好奇心很强的话）。这样做对于本地仓库和远程仓库来说，都是最佳选择。</p>
+</blockquote>
+<ul>
+<li>  pull 操作时, 提交记录会被先下载到 <code>o/main</code> 上，之后再合并到本地的 <code>main</code> 分支。</li>
+<li>  push 操作时, 我们把工作从 <code>main</code> 推到远程仓库中的 <code>main</code> 分支(同时会更新远程分支 <code>o/main</code>) 。</li>
+</ul>
+<p>两种方式，指定分支去跟踪远程分支：</p>
+<ol>
+<li><p><code>git checkout -b</code></p>
+<ul>
+<li><p><code>git checkout -b totallyNotMain o/main</code></p>
+<p>  创建一个名为 <code>totallyNotMain</code> 的分支，它跟踪远程分支 <code>o/main</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>git branch -u</code></p>
+<ul>
+<li><p><code>git branch -u o/main foo</code></p>
+<p>  让 <code>foo</code> 分支跟踪 <code>o/main</code></p>
+</li>
+<li><p><code>git branch -u o/main</code></p>
+<p>  让当前分支跟踪 <code>o/main</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>有了远程跟踪分支的概念，就可以解释之前的 push、fetch、pull 的缺省参数了。</p>
+<h3 id="Git-Push"><a href="#Git-Push" class="headerlink" title="Git Push"></a>Git Push</h3><h4 id="分支同名"><a href="#分支同名" class="headerlink" title="分支同名"></a>分支同名</h4><ul>
+<li><p>  语法：<code>git push &lt;remote&gt; &lt;place&gt;</code></p>
+</li>
+<li><p>示例：<code>git push origin main</code></p>
+<ul>
+<li>  切到本地仓库中的 <code>main</code> 分支，获取所有的提交</li>
+<li>  再到远程仓库 <code>origin</code> 中找到 <code>main</code> 分支</li>
+<li>  将远程仓库中没有的提交记录都添加上去</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>  通过 <code>&lt;place&gt;</code>，就是提交记录来自 <code>&lt;place&gt;</code>，并且要提交到远程仓库的 <code>&lt;place&gt;</code></li>
+<li>指定 <code>&lt;place&gt;</code>，可以忽略当前的检出分支的属性。</li>
+</ul>
+</li>
+</ul>
+<h4 id="分支不同名"><a href="#分支不同名" class="headerlink" title="分支不同名"></a>分支不同名</h4><ul>
+<li>  语法：<code>git push &lt;remote&gt; &lt;source&gt;:&lt;destination&gt;</code></li>
+<li>示例：<ul>
+<li><code>git push origin foo:main</code><ul>
+<li>  把本地仓库中的 <code>foo</code> 分支所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
+</ul>
+</li>
+<li><code>git push origin foo^:main</code><ul>
+<li>  把本地仓库中的 <code>foo</code> 分支的父提交节点所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
+</ul>
+</li>
+<li><code>git push origin main:newBranch</code><ul>
+<li>  把本地仓库中的 <code>main</code> 分支的父提交节点所有更新，提交到远程仓库中的新创建的 <code>newBranch</code> 分支</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h3><p>参数缺省：<code>git fetch</code>，下载所有更新。</p>
+<h4 id="分支同名-1"><a href="#分支同名-1" class="headerlink" title="分支同名"></a>分支同名</h4><ul>
+<li>  语法：<code>git fetch &lt;remote&gt; &lt;place&gt;</code></li>
+<li>示例：<code>git fetch origin foo</code><ul>
+<li>  下载了远程仓库中 <code>foo</code> 分支中的最新提交记录</li>
+<li>  并更新了 <code>o/foo</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="分支不同名-1"><a href="#分支不同名-1" class="headerlink" title="分支不同名"></a>分支不同名</h4><ul>
+<li>  语法：<code>git fetch &lt;remote&gt; &lt;source&gt;:&lt;destination&gt;</code></li>
+<li>示例：<code>git fetch origin foo~1:bar</code><ul>
+<li>  将 <code>foo~1</code> 解析成一个 origin 仓库的位置，然后将那些提交记录下载到了本地的 <code>bar</code> 分支（一个本地分支）上。</li>
+<li>  注意由于指定了目标分支，<code>foo</code> 和 <code>o/foo</code> 都没有被更新。</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>  不能在当前检出分支使用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="没有-source-的-source"><a href="#没有-source-的-source" class="headerlink" title="没有 source 的 source"></a>没有 source 的 source</h3><ul>
+<li><p>push <code>&lt;source&gt;</code> 部分留空，可以用来删除远程仓库的分支。</p>
+<ul>
+<li>示例：<code>git push origin :foo</code><ul>
+<li>  通过给 push 传空值 source，删除远程仓库中的 <code>foo</code> 分支，远程分支 <code>o/foo</code> 也没了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>fetch <code>&lt;source&gt;</code> 部分留空，可以用来在本地仓库创建分支。</p>
+<ul>
+<li>示例：<code>git fetch origin :bar</code><ul>
+<li>  在本地创建一个 <code>bar</code> 分支</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h3><ul>
+<li><p><code>git pull origin foo</code> </p>
+<p>  == <code>git fetch origin foo; git merge o/foo</code></p>
+<ul>
+<li>  通过 <code>foo</code> 更新 <code>o/foo</code> </li>
+<li>  <code>o/foo</code>合并到 <strong>当前检出分支</strong></li>
+</ul>
+</li>
+<li><p><code>git pull origin bar~1:bugFix</code> </p>
+<p>  == <code>git fetch origin bar~1:bugFix; git merge bugFix</code></p>
+<ul>
+<li>  在本地创建 <code>bugFix</code>的分支</li>
+<li>  从远程仓库中的 <code>bar~1</code> 分支中下载提交记录，并合并到 <code>bugFix</code></li>
+<li>  然后再 merge 到<strong>当前检出分支</strong>上</li>
+</ul>
+</li>
+<li><p>  <code>git pull</code> 唯一关注的是提交最终合并到哪里（也就是为 <code>git fetch</code> 所提供的 <code>&lt;destination&gt;</code> 参数）</p>
+</li>
+</ul>
+<p>好了，这套教程走了一遍。</p>
+<p>第一遍的学习最难，简直就是教程复制机器，还得多用！用！用！</p>
+<p>Proactice makes perfect，加油。</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/476d1e25.html">https://doreality.xyz/posts/476d1e25.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/GitHub/">GitHub</a>
+            <a href="/tags/Git/">Git</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/posts/a73bd77.html">
+        <span class="next-text nav-default">Git 分支（二）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

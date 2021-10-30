@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Git 分支（二）"/><meta name="keywords" content="GitHub, Git, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/a73bd77.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Git 分支（二） - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Git 分支（二）
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-10-22
+        </span><span class="post-category">
+            <a href="/categories/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">创建远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-text">远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0"><span class="toc-text">从远程仓库获取更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="toc-text">合并更新到本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="toc-text">上传到远程仓库并合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%8F%E7%A6%BB%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4"><span class="toc-text">偏离的历史提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8B%92%E7%BB%9D"><span class="toc-text">远程服务器拒绝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88rebase%EF%BC%89"><span class="toc-text">合并特性分支（rebase）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88merge%EF%BC%89"><span class="toc-text">合并特性分支（merge）</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>根据<a href="https://doreality.xyz/posts/e01b0c7d.html">上一篇</a>提到的教程，学习一下第二部分：远程仓库。</p>
+<p>学习的内容一多起来，就发现好难管理，而且容易到处新建，到处分类。快点掌握远程仓库的用法吧！</p>
+<p>大喊一句：当然要CLI！</p>
+<span id="more"></span>
+
+
+
+<h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><p>使用命令：<code>git clone</code></p>
+<ul>
+<li><p>  在<strong>本地</strong>创建一个远程仓库的拷贝。</p>
+</li>
+<li><p>在任意一个要保存这个仓库的目录下 <code>git clone</code>，会出现仓库的文件夹，同时会有两个分支：本地分支 <code>main</code> 和远程分支 <code>o/main</code>。</p>
+</li>
+</ul>
+<h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><blockquote>
+<p>  远程分支反映了在你<strong>最后一次</strong>与远程仓库通信时，远程仓库的状态。</p>
+</blockquote>
+<ul>
+<li><p>远程仓库</p>
+<ul>
+<li><p>  默认名字是 <code>origin</code>，常用缩写 <code>o</code> 表示。</p>
+</li>
+<li><p>远程分支</p>
+<ul>
+<li><p>  使用 <code>git clone</code> 后，在本地仓库出现的分支。</p>
+</li>
+<li><p>命名方式：<code>&lt;remote name&gt;/&lt;branch name&gt;</code></p>
+<p>  如果分支名字为 <code>main</code>，那么远程分支就是 <code>origin/main</code>，常用缩写 <code>o/main</code> 表示。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>远程分支的特点</p>
+<p>  对远程分支检出（<code>git checkout o/main</code>），则会自动进入 <code>HEAD</code> 分离状态。</p>
+<p>  这个时候添加提交，远程分支 <code>o/main</code> 并不会移动到新的提交上，因为要和远程仓库中相应的分支同步更新。</p>
+<p>  （注意：本地分支 <code>main</code> 与此无关，在 <code>main</code> 上提交后，分支指针保持正常移动。）</p>
+</li>
+</ul>
+<h3 id="从远程仓库获取更新"><a href="#从远程仓库获取更新" class="headerlink" title="从远程仓库获取更新"></a>从远程仓库获取更新</h3><blockquote>
+<p>  当我们从远程仓库获取数据时，远程分支也会更新，以反映最新的远程仓库。</p>
+</blockquote>
+<p>使用命令：<code>git fetch</code></p>
+<ul>
+<li>  把远程仓库 <code>origin</code> 的分支 <code>main</code> 中有，而本地仓库的远程分支 <code>origin/main</code> 中没有的提交下载下来，并且更新远程分支。</li>
+<li>  通常通过互联网（使用 <code>http://</code> 或 <code>git://</code> 协议）与远程仓库通信。</li>
+<li>简单说，这条命令做了两件事：<ul>
+<li>  从远程仓库<strong>下载</strong>本地仓库缺失的提交记录</li>
+<li>  更新<strong>远程分支</strong>指针 <code>o/main</code></li>
+</ul>
+</li>
+<li>这条命令<strong>没有</strong>做的事情：<ul>
+<li>  同步更新本地分支 <code>main</code></li>
+<li>  同步更新本地仓库和远程仓库 <code>origin</code></li>
+</ul>
+</li>
+</ul>
+<p>再简单点说：<code>git fetch</code> 仅仅把更新下载到了 <code>o/main</code> 中，没有对 <code>main</code> 做任何操作。</p>
+<h3 id="合并更新到本地分支"><a href="#合并更新到本地分支" class="headerlink" title="合并更新到本地分支"></a>合并更新到本地分支</h3><ol>
+<li>  两步走：<code>git fetch</code> + 任意合并分支指令 </li>
+</ol>
+<ul>
+<li>  第一步，获取远程仓库的更新，同步远程分支：<code>git fetch</code></li>
+<li>第二步，把本地分支和远程分支同步到远程分支（检出 <code>main</code>）（任一条即可）：<ul>
+<li>  <code>git merge o/main</code></li>
+<li>  <code>git rebase o/main</code></li>
+<li>  <code>git cherry-pick o/main</code></li>
+<li>  等等</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>  一步到位：<code>git pull</code></li>
+</ol>
+<ul>
+<li>  一步下载更新，并同步更新本地分支。</li>
+<li>  <code>git pull</code> 等价于 <code>git fetch</code> + <code>git merge o/main</code></li>
+<li>  <code>git pull --rebase</code> 等价于 <code>git fetch</code> + <code>git rebase o/main</code></li>
+</ul>
+<h3 id="上传到远程仓库并合并"><a href="#上传到远程仓库并合并" class="headerlink" title="上传到远程仓库并合并"></a>上传到远程仓库并合并</h3><blockquote>
+<p>  <code>git push</code> 不带任何参数时的行为与 Git 的一个名为 <code>push.default</code> 的配置有关。</p>
+<p>  它的默认值取决于你正使用的 Git 的版本，但是在教程中我们使用的是 <code>upstream</code>。 </p>
+<p>  这没什么太大的影响，但是在你的项目中进行推送之前，最好检查一下这个配置。</p>
+</blockquote>
+<p>使用命令：<code>git push</code></p>
+<ul>
+<li>  把本地分支<code>main</code>的更新提交到远程仓库</li>
+<li>  更新远程仓库的分支</li>
+<li>  同时远程分支<code>o/main</code>也更新到本地分支<code>main</code>的位置</li>
+</ul>
+<p>就是说，所有的分支都同步了。</p>
+<h3 id="偏离的历史提交"><a href="#偏离的历史提交" class="headerlink" title="偏离的历史提交"></a>偏离的历史提交</h3><blockquote>
+<p>  无法<code>git push</code>：本地的工作基于旧的提交，Git 会拒绝你直接推送到远程仓库。</p>
+</blockquote>
+<p>方法：让本地的新工作，和远程仓库的更新，合并，再提交。</p>
+<ul>
+<li><p><code>git fetch</code> -&gt; <code>git rebase o/main</code> -&gt; <code>git push</code></p>
+<ul>
+<li>  <code>git rebase</code> 让本地更新移到了最新的工作记录下</li>
+</ul>
+</li>
+<li><p><code>git fetch</code> -&gt; <code>git merge o/main</code> -&gt; <code>git push</code></p>
+<ul>
+<li>  <code>git merge</code> 创建新的提交，包含了本地更新和远程仓库最新的工作记录</li>
+</ul>
+</li>
+<li><p>  <code>git pull --rebase</code> -&gt; <code>git push</code></p>
+</li>
+<li><p>  <code>git pull</code> -&gt; <code>git push</code></p>
+</li>
+</ul>
+<p>总之，就是要把远程仓库的最新情况下载下来，把自己的更新和最新的合并，然后才能再发布到远程仓库。</p>
+<h3 id="远程服务器拒绝"><a href="#远程服务器拒绝" class="headerlink" title="远程服务器拒绝"></a>远程服务器拒绝</h3><blockquote>
+<p>  ! [远程服务器拒绝] main -&gt; main (TF402455: 不允许推送(push)这个分支; 你必须使用pull request来更新这个分支.)</p>
+</blockquote>
+<p>在一个大的项目里，<code>main</code>可能会被锁定。</p>
+<p>正确做法：</p>
+<ol>
+<li>  创建一个新的分支</li>
+<li>  <code>git push</code></li>
+<li>  提交<code>Pull Request</code></li>
+</ol>
+<p>如果忘记创建分支，直接提交，就会卡住：</p>
+<ol>
+<li>  回退：<code>git reset HEAD^</code> / <code>git reset C1</code> （<code>C1</code> 是 <code>o/main</code> 所指节点）</li>
+<li>  创建新分支：<code>git checkout -b feature C2</code></li>
+<li>  提交：<code>git push</code></li>
+</ol>
+<h3 id="合并特性分支（rebase）"><a href="#合并特性分支（rebase）" class="headerlink" title="合并特性分支（rebase）"></a>合并特性分支（rebase）</h3><blockquote>
+<p>  特性分支是指为一个特定的需求/任务/缺陷创建的分支，在其上完成相应开发后，一般会把它合并到集成/发布分支，与其他改动(若有)一起集成并最终发布。</p>
+</blockquote>
+<ol>
+<li><p>当前分支为 <code>main</code></p>
+<p>  <code>git checkout main</code></p>
+</li>
+<li><p>将特性分支集成到 <code>main</code> 上</p>
+<p>   <code>git rebase feature1</code> -&gt; <code>git rebase feature2</code> -&gt; …</p>
+</li>
+<li><p>推送并更新远程分支</p>
+<p>  <code>git pull --rebase</code> -&gt; <code>git push</code></p>
+<ul>
+<li><p>  将我们的工作 rebase 到远程分支的最新提交记录</p>
+</li>
+<li><p>  向远程仓库推送我们的工作</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><em><strong>Tips</strong>：因为 rebase 是在一条线上不断更新，所以最后一步 rebase 一定是要 rebase 到远程仓库的最新记录。</em></p>
+<h3 id="合并特性分支（merge）"><a href="#合并特性分支（merge）" class="headerlink" title="合并特性分支（merge）"></a>合并特性分支（merge）</h3><blockquote>
+<p>  在开发社区里，有许多关于 merge 与 rebase 的讨论。以下是关于 rebase 的优缺点：</p>
+<p>  优点:</p>
+<ul>
+<li>  Rebase 使你的提交树变得很干净, 所有的提交都在一条线上</li>
+</ul>
+<p>  缺点:</p>
+<ul>
+<li>  Rebase 修改了提交树的历史</li>
+</ul>
+<p>  一些开发人员喜欢保留提交历史，因此更偏爱 merge。而其他人（比如我自己）可能更喜欢干净的提交树，于是偏爱 rebase。</p>
+</blockquote>
+<p>使用<code>git merge</code>完成合并特性分支：</p>
+<ol>
+<li><p>当前分支为 <code>main</code></p>
+<p>  <code>git checkout main</code></p>
+</li>
+<li><p>获取远程更新</p>
+<p>  <code>git pull</code></p>
+</li>
+<li><p>合并特性分支到 <code>main</code></p>
+<p>   <code>git merge side1</code> -&gt; <code>git merge side2</code> -&gt; <code>git merge side3</code> -&gt; …</p>
+</li>
+<li><p>推送并更新远程仓库</p>
+<p>  <code>git push</code></p>
+</li>
+</ol>
+<p><em><strong>Tips</strong>：merge 需要父节点，所以一定要注意，在祖先节点里包含远程仓库的最新纪录。</em></p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/a73bd77.html">https://doreality.xyz/posts/a73bd77.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/GitHub/">GitHub</a>
+            <a href="/tags/Git/">Git</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/posts/476d1e25.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Git 分支（三）</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/e01b0c7d.html">
+        <span class="next-text nav-default">Git 分支（一）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

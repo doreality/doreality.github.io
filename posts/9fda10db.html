@@ -130,8 +130,8 @@
 <p>在这里，默认已经学会了一台电脑一个账号的情况下，搭建 Hexo 博客的方法。</p>
 <p>假设：</p>
 <ul>
-<li>旧 GitHub 账号，简称 <strong>old</strong>，邮箱：<a href="mailto:&#x6f;&#108;&#100;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x6f;&#108;&#100;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a></li>
-<li>新 GitHub 账号，简称 <strong>new</strong>，邮箱：<a href="mailto:&#110;&#101;&#119;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">&#110;&#101;&#119;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;</a></li>
+<li>旧 GitHub 账号，简称 <strong>old</strong>，邮箱：<a href="mailto:&#111;&#x6c;&#100;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;">&#111;&#x6c;&#100;&#64;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;</a></li>
+<li>新 GitHub 账号，简称 <strong>new</strong>，邮箱：<a href="mailto:&#110;&#x65;&#119;&#64;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#110;&#x65;&#119;&#64;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;</a></li>
 </ul>
 <p>在 <strong>old</strong> 已经搭建了 Hexo 的情况下：</p>
 <ul>
@@ -142,6 +142,12 @@
 <ul>
 <li>在用户目录的<code>.ssh</code>路径下默认配置了 old 账号的 SSH（敲了三个回车），其中私钥的文件名是id_rsa，公钥文件名是id_rsa.pub。</li>
 </ul>
+<blockquote>
+<ul>
+<li>  Windows的用户目录：<code>C:\Users\username\.ssh\</code></li>
+<li>  macOS和Linux的用户目录：<code>/users/username/.ssh/</code>（也就是<code>~/.ssh/</code>）</li>
+</ul>
+</blockquote>
 <p>我需要做两件事：</p>
 <ul>
 <li>部署 <strong>new</strong> 账号的 SSH；</li>
@@ -155,19 +161,26 @@
 <ol>
 <li><p>创建 SSH key</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;new@example.com&quot;</span> -f <span class="string">&quot;id_rsa_new&quot;</span></span><br></pre></td></tr></table></figure>
-<p> 第一个引号中，填写 GitHub 的账号地址；<br> 第二个引号中，自定义填写，不能默认，否则会覆盖之前已经存在的<code>id_rsa</code>和<code>id_rsa.pub</code>。<br> 之后，敲两次回车，默认即可。</p>
+<p> 第一个引号中，填写 GitHub 的账号地址；</p>
+<p> 第二个引号中，自定义填写，不能默认，否则会覆盖之前已经存在的<code>id_rsa</code>和<code>id_rsa.pub</code>。<br> 之后，敲两次回车，默认即可。</p>
 </li>
-<li><p>添加私钥<br> 由于使用 SSH 时，默认使用<code>id_rsa</code>的私钥，所以要把新建的私钥添加到系统中：</p>
+<li><p>添加私钥</p>
+<p> 由于使用 SSH 时，默认使用<code>id_rsa</code>的私钥，所以要把新建的私钥添加到系统中：</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-agent bash</span><br><span class="line">$ ssh-add ~/.ssh/rsa_name</span><br></pre></td></tr></table></figure>
 <p> 此时提示<code>Identity added:……</code>即完成。</p>
 </li>
-<li><p>设置 SSH config<br> 依旧在<code>.ssh</code>路径下，新建config文件：</p>
+<li><p>设置 SSH config</p>
+<p> 依旧在<code>.ssh</code>路径下，新建config文件：</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch config</span><br></pre></td></tr></table></figure>
 <p> 打开config文件（用文本编辑器），输入以下内容：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host          newgithub # 名称，自定义，会影响后续指令，用于连接 GitHub 仓库</span><br><span class="line">HostName      github.com # 主机名，用于 GitHub 连接的 SSH，HostName 必须是“github.com&quot;</span><br><span class="line">User          newgit # 用户名，自己决定</span><br><span class="line">IdentityFile  C:\Users\Administrater\.ssh\id_rsa_new # 刚才新建的 rsa 私钥路径，具体看文件夹中路径</span><br></pre></td></tr></table></figure>
-<p> 注意，对于默认生成的 SSH，<code>Host</code>条目的默认值是<code>github.com</code>，所以不要使用，会冲突。<br> 此外，如果是用于别的服务器连接，HostName 可以是其他的域名，例如：gitgee.com 等。</p>
+<p> 注意，对于默认生成的 SSH，<code>Host</code>条目的默认值是<code>github.com</code>，所以不要使用，会冲突。</p>
+<p> 此外，如果是用于别的服务器连接，HostName 可以是其他的域名，例如：gitgee.com 等。</p>
 </li>
-<li><p>部署 SSH 到 GitHub<br> 用文本编辑器打开<code>id_rsa_new.pub</code>，复制公钥内容。<br> 打开 new GitHub 账号 - 右上角头像 - Settings - SSH and GPG Keys 页面，新建一个 SSH 条目，Title 自定义，Key 处粘贴公钥。</p>
+<li><p>部署 SSH 到 GitHub</p>
+<p> 用文本编辑器打开<code>id_rsa_new.pub</code>，复制公钥内容。</p>
+<p> 打开 「new GitHub 账号」 - 「右上角头像」 - 「Settings」 - 「SSH and GPG Keys」 页面；</p>
+<p> 然后，新建一个 SSH 条目，Title 自定义，Key 处粘贴公钥。</p>
 </li>
 <li><p>远程测试</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@newgithub <span class="comment"># @后面是3.中Host的名字</span></span><br></pre></td></tr></table></figure>
@@ -195,16 +208,19 @@
 <p>首先，也要对新账号建立 SSH 的部署，见正文第二部分。</p>
 <p>之后，只要设置好相应的<code>git config</code>的用户信息，就可以正常操作了。</p>
 <ol>
-<li><p>建立 git 仓库<br> 打开项目的目录，新建 git 仓库。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></li>
-<li><p>设置 git config<br> 给仓库设置用户和邮箱，在提交时会用到。</p>
+<li><p>建立 git 仓库</p>
+<p> 打开项目的目录，新建 git 仓库。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置 git config</p>
+<p> 给仓库设置用户和邮箱，在提交时会用到。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">$ git config user.email <span class="string">&quot;useremail&quot;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>将本地仓库和远程仓库连接</p>
 <ul>
 <li>如果要从远程仓库中下载原有的项目：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git <span class="built_in">clone</span> git@newgithub:new/newproject.git</span><br></pre></td></tr></table></figure>
   @后面也要使用设置 SSH 时的 Host。</li>
 <li>如果要新建项目，利用前文建立好的 SSH，和远程仓库连接：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@newgithub:yourName/yourRepo.git</span><br></pre></td></tr></table></figure>
-  其中，yourName是 GitHub 的用户名，yourRepo 是相连的仓库（需提前建立）。<br>  可以测试一下是否连接成功：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+  其中，yourName是 GitHub 的用户名，yourRepo 是相连的仓库（需提前建立）。  可以测试一下是否连接成功：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
   之后正常操作，例如：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status <span class="comment"># 查看文件状态</span></span><br><span class="line">$ git add . <span class="comment"># 添加所有文件</span></span><br><span class="line">$ git commit -m <span class="string">&#x27;a new commit&#x27;</span> <span class="comment"># 记录</span></span><br><span class="line">$ git push origin master <span class="comment"># 上传，master是主分支，按情况修改</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
