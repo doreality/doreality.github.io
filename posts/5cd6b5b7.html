@@ -58,11 +58,11 @@
       </a><a href="/archives/">
         <li class="mobile-menu-item">归档
           </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
           </li>
       </a><a href="/about/">
         <li class="mobile-menu-item">关于
@@ -85,13 +85,13 @@
             </a>
         </li>
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
+          <a class="menu-item-link" href="/categories/">
+            分类
             </a>
         </li>
       <li class="menu-item">
-          <a class="menu-item-link" href="/categories/">
-            分类
+          <a class="menu-item-link" href="/tags/">
+            标签
             </a>
         </li>
       <li class="menu-item">
@@ -162,7 +162,7 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Android aapt</span><br><span class="line">AAPT_HOME&#x3D;&#x2F;Users&#x2F;your-username&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;build-tools&#x2F;31.0.0</span><br><span class="line">export AAPT_HOME</span><br><span class="line">export PATH&#x3D;$PATH:$AAPT_HOME</span><br><span class="line"></span><br><span class="line"># 还可以顺便把其他工具也加入环境中</span><br><span class="line">ANDROID_HOME&#x3D;&#x2F;Users&#x2F;your-username&#x2F;Library&#x2F;Android&#x2F;sdk</span><br><span class="line">export PATH&#x3D;$PATH:$ANDROID_HOME&#x2F;tools</span><br><span class="line">export PATH&#x3D;$PATH:$ANDROID_HOME&#x2F;platform-tools</span><br></pre></td></tr></table></figure>
 
 <p>  如图所示：</p>
-<p>  <img src="/.zshrc%E9%85%8D%E7%BD%AEandroid%E5%B7%A5%E5%85%B7.png" alt="修改.zshrc配置的截图"></p>
+<p>  <img src="/posts/5cd6b5b7/zshrc%E9%85%8D%E7%BD%AEandroid%E5%B7%A5%E5%85%B7.png" alt="修改.zshrc配置的截图"></p>
 <blockquote>
 <p>  Vim 操作：</p>
 <ol>
@@ -208,7 +208,8 @@
         <i class="iconfont icon-right"></i>
       </a>
     </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
@@ -234,7 +235,19 @@
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>

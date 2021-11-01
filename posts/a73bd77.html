@@ -58,11 +58,11 @@
       </a><a href="/archives/">
         <li class="mobile-menu-item">归档
           </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
           </li>
       </a><a href="/about/">
         <li class="mobile-menu-item">关于
@@ -85,13 +85,13 @@
             </a>
         </li>
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
+          <a class="menu-item-link" href="/categories/">
+            分类
             </a>
         </li>
       <li class="menu-item">
-          <a class="menu-item-link" href="/categories/">
-            分类
+          <a class="menu-item-link" href="/tags/">
+            标签
             </a>
         </li>
       <li class="menu-item">
@@ -332,7 +332,8 @@
         <i class="iconfont icon-right"></i>
       </a>
     </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
@@ -358,7 +359,19 @@
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
