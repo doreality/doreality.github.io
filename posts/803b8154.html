@@ -123,32 +123,34 @@
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-brew-%E5%AE%89%E8%A3%85-md5sum"><span class="toc-text">用 brew 安装 md5sum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="toc-text">用源码安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
     </div>
-  </div><div class="post-content"><h2 id="用-brew-安装-md5sum"><a href="#用-brew-安装-md5sum" class="headerlink" title="用 brew 安装 md5sum"></a>用 brew 安装 md5sum</h2><p>起因是<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/lcthw-zh/ex4.md">《Learn C The Hard Way》</a>的练习 4 里，要使用 Valgrind 工具。安装该工具的时候，作者写着要用源代码方式安装，并且用到了 md5sum 进行匹配，由于之前用过 <a target="_blank" rel="noopener" href="https://brew.sh/">brew</a> ，所以优先用这个方法安装。</p>
+  </div><div class="post-content"><h2 id="用-brew-安装-md5sum">用 brew 安装 md5sum</h2>
+<p>起因是<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/lcthw-zh/ex4.md">《Learn C The Hard Way》</a>的练习 4 里，要使用 Valgrind 工具。安装该工具的时候，作者写着要用源代码方式安装，并且用到了 md5sum 进行匹配，由于之前用过 <a target="_blank" rel="noopener" href="https://brew.sh/">brew</a> ，所以优先用这个方法安装。</p>
 <span id="more"></span>
-
 <p>在百度搜到的方法命令，一行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install md5sha1sum</span><br></pre></td></tr></table></figure>
-<p>然而我的运行结果：<br><img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE.png" alt="brew搜索不到该方法，并且下载时报错"></p>
+<p>然而我的运行结果：</p>
+<img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE.png" class="" title="brew搜索不到该方法，并且下载时报错">
 <p>照着这条错误提示：<code>Not a valid ref: refs/remotes/origin/master</code>，找到的方法是卸载 brew，重新安装。</p>
 <p>运行卸载命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p>提示信息如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL <span class="keyword">in</span> connection to raw.githubusercontent.com:443</span><br></pre></td></tr></table></figure>
-
 <p>尝试修改代理方法（失败）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global --<span class="built_in">unset</span> http.proxy</span><br></pre></td></tr></table></figure>
-
 <p>根据<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/16aa1e84dfc3">这篇文章</a>，使用国内源：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /bin/zsh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p>运行截图如下（会卸载老版本，然后安装新的）：</p>
-<p><img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE2.png" alt="国内源安装brew开始"></p>
-<p><img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE3.png" alt="国内源安装brew结束"></p>
-<p>再次搜索<code>md5sha1sum</code>，搜索出来啦，安装成功～<br><img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE4.png" alt="brew安装md5sha1sum成功"></p>
-<h2 id="用源码安装"><a href="#用源码安装" class="headerlink" title="用源码安装"></a>用源码安装</h2><p>去<a target="_blank" rel="noopener" href="http://microbrew.org/tools/md5sha1sum/">官方网站</a>获取源码，地址如下：<br><a target="_blank" rel="noopener" href="http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz">http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz</a></p>
+<img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE2.png" class="" title="国内源安装brew开始">
+<img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE3.png" class="" title="国内源安装brew结束">
+<p>再次搜索<code>md5sha1sum</code>，搜索出来啦，安装成功～</p>
+<img src="/posts/803b8154/brew%E6%88%AA%E5%9B%BE4.png" class="" title="brew安装md5sha1sum成功">
+<h2 id="用源码安装">用源码安装</h2>
+<p>去<a target="_blank" rel="noopener" href="http://microbrew.org/tools/md5sha1sum/">官方网站</a>获取源码，地址如下：<br>
+<a target="_blank" rel="noopener" href="http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz">http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz</a></p>
 <p>之后，在下载目录进行如下操作：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvfz md5sha1sum-0.9.5.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> md5sha1sum-0.9.5</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h2 id="参考">参考</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/exmyth/p/13657346.html">Macos 安装md5sum、sha1sum、md5deep、sha1deep</a></li>
 </ul>
 

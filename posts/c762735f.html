@@ -125,20 +125,23 @@
     </div>
   </div><div class="post-content"><p>Hexo 支持的永久链接的格式会把中文转换成一长串编码，修改标题或者引用链接都会很麻烦。</p>
 <span id="more"></span>
-
 <p>还好，有提供支持编码的插件，安装再修改配置文件即可。</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在博客的根目录下，安装插件：</p>
+<h2 id="安装插件">安装插件</h2>
+<p>在博客的根目录下，安装插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>安装成功之后，打开<code>_config.yml</code>修改如下：</p>
+<h2 id="修改配置">修改配置</h2>
+<p>安装成功之后，打开<code>_config.yml</code>修改如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line"># permalink_defaults:</span><br><span class="line">permalink: posts&#x2F;:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: hex    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure>
-
-<h2 id="重新生成"><a href="#重新生成" class="headerlink" title="重新生成"></a>重新生成</h2><p>配置好之后：</p>
+<h2 id="重新生成">重新生成</h2>
+<p>配置好之后：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
 <p>此时，每一篇博客的<code>.md</code>文件的首部都加入<code>abbrlink</code>条目，说明成功生成了这篇文章的永久链接，之后再修改标题都不会影响了。</p>
-<p>发布之后，就会看到每篇博客的标题变成了：<br><code>https://your_domain_name/posts/abbrlink.html</code><br>其中，<code>your_domain_name</code>是你的网站域名，<code>abbrlink</code>是这篇文章的永久链接编码。</p>
+<p>发布之后，就会看到每篇博客的标题变成了：<br>
+<code>https://your_domain_name/posts/abbrlink.html</code><br>
+其中，<code>your_domain_name</code>是你的网站域名，<code>abbrlink</code>是这篇文章的永久链接编码。</p>
 <p>这样，永久链接就搞定了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h2 id="参考">参考</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29654777/article/details/108228155">Hexo折腾系列——永久链接优化</a></li>
 </ul>
 
@@ -161,9 +164,9 @@
             <a href="/tags/hexo/">hexo</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/posts/18866f9.html">
+        <nav class="post-nav"><a class="prev" href="/posts/d00de0a5.html">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">C语言动态数组的创建以及初始化</span>
+        <span class="prev-text nav-default">Git的日常积累（一）</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/posts/93ed9593.html">

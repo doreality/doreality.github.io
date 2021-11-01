@@ -125,190 +125,246 @@
     </div>
   </div><div class="post-content"><p>讲座来自IBM SPSS公司。</p>
 <ol>
-<li>  简单介绍机器学习的概念、常用的流程和指标</li>
-<li>  开源Scikit-learn的介绍和使用方法</li>
-<li>  高维数据可视化的介绍</li>
-<li>  行业前辈的经验分享</li>
+<li>简单介绍机器学习的概念、常用的流程和指标</li>
+<li>开源Scikit-learn的介绍和使用方法</li>
+<li>高维数据可视化的介绍</li>
+<li>行业前辈的经验分享</li>
 </ol>
 <span id="more"></span>
-
-
-
-<h2 id="What-is-machine-learning"><a href="#What-is-machine-learning" class="headerlink" title="What is machine learning?"></a>What is machine learning?</h2><ul>
-<li>  Data</li>
-<li>  Model</li>
-<li>  Predict</li>
-</ul>
+<h2 id="What-is-machine-learning">What is machine learning?</h2>
 <ul>
-<li><p>KNN：</p>
+<li>Data</li>
+<li>Model</li>
+<li>Predict</li>
+</ul>
+<ol>
+<li>
+<p>KNN：</p>
 <ul>
-<li>  K Nearest Neighbor</li>
-<li>  物以类聚，人以群分。</li>
-</ul>
-<p>  <img src="/posts/c04c3a43/image-20211101142523906.png" alt="KNN model"></p>
+<li>
+<p>K Nearest Neighbor</p>
 </li>
-<li><p>K-Means</p>
-<p>  无监督学习，根据均值</p>
-<p>  <img src="/posts/c04c3a43/image-20211101142820476.png" alt="K-Means 图片压缩举例"></p>
+<li>
+<p>物以类聚，人以群分。</p>
 </li>
 </ul>
+<img src="/posts/c04c3a43/image-20211101142523906.png" class="" title="KNN model">
+</li>
+<li>
+<p>K-Means</p>
+<p>无监督学习，根据均值</p>
+<img src="/posts/c04c3a43/image-20211101142820476.png" class="" title="K-Means 图片压缩举例">
+</li>
+</ol>
 <ul>
-<li>  分类——决策</li>
+<li>分类——决策</li>
 </ul>
-<h2 id="Scikit-learn"><a href="#Scikit-learn" class="headerlink" title="Scikit-learn"></a>Scikit-learn</h2><ul>
-<li>语言<ul>
-<li>  Python</li>
-<li>  R</li>
+<h2 id="Scikit-learn">Scikit-learn</h2>
+<ol>
+<li>
+<p>语言</p>
+<ul>
+<li>
+<p>Python</p>
+</li>
+<li>
+<p>R</p>
+</li>
 </ul>
 </li>
-<li>软件<ul>
-<li>  MATLAB</li>
-<li>  Octave Forge：开源</li>
-</ul>
+<li>
+<p>软件</p>
+<ul>
+<li>
+<p>MATLAB</p>
+</li>
+<li>
+<p>Octave Forge：开源</p>
 </li>
 </ul>
+</li>
+</ol>
 <p>Python中的：</p>
-<ul>
-<li>数据处理库<ul>
-<li>  numpy</li>
-<li>  scipy</li>
-<li>  pandas</li>
-</ul>
-</li>
-<li>图形化展示<ul>
-<li>  matplotlib</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>  scikit-learn cheet sheet </li>
-</ul>
-<p><img src="/posts/c04c3a43/image-20211101143441043.png" alt="scikit-learn cheet sheet"></p>
-<ul>
-<li>  Evaluation 常见指标</li>
-</ul>
-<p><img src="/posts/c04c3a43/image-20211101143950566.png" alt="评估模型"></p>
-<h3 id="举例：雷达兵"><a href="#举例：雷达兵" class="headerlink" title="举例：雷达兵"></a>举例：雷达兵</h3><ul>
-<li><p>混淆矩阵</p>
-<p>  <img src="/posts/c04c3a43/image-20211101144213773.png" alt="雷达兵的混淆矩阵"></p>
-</li>
-<li><p>混淆矩阵衍生出的评价指标</p>
-<p>  <img src="/posts/c04c3a43/image-20211101144253917.png" alt="评价指标1"></p>
-<p>  <img src="/posts/c04c3a43/image-20211101144314331.png" alt="评价指标2"></p>
-<ul>
-<li><p>  阿里天池：F<del>1</del>score</p>
-</li>
-<li><p>  Pics from Wiki：Confusion Matrix / ROC</p>
-</li>
-</ul>
-</li>
-<li><p>可信度</p>
-<p>  <img src="/posts/c04c3a43/image-20211101144456865.png" alt="分类预测的概率——信心"></p>
-<ul>
-<li><p>ROC/AUC</p>
-<p>  <img src="/posts/c04c3a43/image-20211101144600167.png" alt="ROC 示意图"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Why-Should-I-Trust-You？"><a href="#Why-Should-I-Trust-You？" class="headerlink" title="Why Should I Trust You？"></a>Why Should I Trust You？</h2><ul>
-<li><p>  LIME</p>
-</li>
-<li><p>举例：分类结果正确，但是分类的原因和原本设想的不同</p>
-<p>  <img src="/posts/c04c3a43/image-20211101145037782.png" alt="LIME举例"></p>
-</li>
-<li><p>  不光是指标，还要关注具体分类的原因</p>
-</li>
-</ul>
-<h2 id="Visualize-High-Dimension-Datasets"><a href="#Visualize-High-Dimension-Datasets" class="headerlink" title="Visualize High Dimension Datasets"></a>Visualize High Dimension Datasets</h2><ul>
-<li><p>  Agenda</p>
-</li>
-<li><p>  高维信息投射到低维空间，肯定会丢掉高维坐标的信息，但是还想保留用来比较的相似信息，很难。</p>
-</li>
-</ul>
-<ul>
-<li><p>把一个手写字符，分成 8 * 8 个field</p>
-<p>  <img src="/posts/c04c3a43/image-20211101145450891.png" alt="把一个字符化成 64 个维度"></p>
-</li>
-<li><p>  通过算法可以高维降低到二维，很好地分类</p>
-</li>
-</ul>
-<ul>
-<li>为了增强可信度，除了 LIME，可以让过程变得透明，可视化</li>
-<li>Machine learning needs more transparency</li>
-<li>网站：<a target="_blank" rel="noopener" href="https://distll.pub/">https://distll.pub</a></li>
-</ul>
-<h2 id="Experience"><a href="#Experience" class="headerlink" title="Experience"></a>Experience</h2><p><img src="/posts/c04c3a43/image-20211101145958617.png" alt="三条经验分享"></p>
 <ol>
-<li><p>对于学生：编程 + 算法 + 行业知识</p>
-<ol>
-<li><p>  既懂编程又会算法——降维打击，行业知识：实际收益</p>
-</li>
-<li><p>  数学统计算法、数学分析课程：加强竞争能力</p>
-</li>
-<li><p>  工作时，学习行业的知识，在行业里产生价值，学以致用</p>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li><p>工作经验</p>
-<ol>
-<li><p>准时 &gt; 提早：不是提前多久完成，就算好了</p>
+<li>
+<p>数据处理库</p>
 <ul>
-<li><p>  除了编程，还要测试（性能测试、压力测试）、翻译、法律风险</p>
-</li>
-<li><p>  许多步骤已经按照日程安排    </p>
-</li>
-<li><p>  提早是没有意义的，准时按质提交</p>
-</li>
+<li>numpy</li>
+<li>scipy</li>
+<li>pandas</li>
 </ul>
 </li>
-<li><p>项目有时间、资源、人员能力的压力</p>
+<li>
+<p>图形化展示</p>
 <ul>
-<li><p>  不能一直追求完美，影响自己的生活</p>
-</li>
-<li><p>  会有各种限制，所以<strong>相对最优</strong></p>
-</li>
-</ul>
-</li>
-<li><p>项目失败很可能是项目管理</p>
-<ul>
-<li><p>  一两个加班</p>
-</li>
-<li><p>  大多数人加班：项目管理出现问题</p>
-</li>
-</ul>
-</li>
-<li><p>复盘</p>
-<ul>
-<li>  如果回到最初，项目管理是否能够更好</li>
+<li>matplotlib</li>
 </ul>
 </li>
 </ol>
+<ul>
+<li>
+<p>scikit-learn cheet sheet</p>
+<img src="/posts/c04c3a43/image-20211101143441043.png" class="" title="scikit-learn cheet sheet">
 </li>
-</ol>
-<ol start="3">
-<li><p>平衡 Work Balance</p>
+<li>
+<p>Evaluation 常见指标</p>
+</li>
+</ul>
+<p>​	<img src="/posts/c04c3a43/image-20211101143950566.png" class="" title="评估模型"></p>
+<h3 id="举例：雷达兵">举例：雷达兵</h3>
 <ol>
-<li><p>  在工作时间，把工作完成</p>
+<li>
+<p>混淆矩阵</p>
+<img src="/posts/c04c3a43/image-20211101144213773.png" class="" title="雷达兵的混淆矩阵">
 </li>
-<li><p>  不要把工作带回家，不要让工作称为生活的全部</p>
+<li>
+<p>混淆矩阵衍生出的评价指标</p>
+<img src="/posts/c04c3a43/image-20211101144253917.png" class="" title="评价指标1">
+<img src="/posts/c04c3a43/image-20211101144314331.png" class="" title="评价指标2">
+<ul>
+<li>
+<p>阿里天池：F<sub>1</sub>score</p>
+</li>
+<li>
+<p>Pics from Wiki：Confusion Matrix / ROC</p>
+</li>
+</ul>
+</li>
+<li>
+<p>可信度</p>
+<img src="/posts/c04c3a43/image-20211101144456865.png" class="" title="分类预测的概率——信心">
+<ul>
+<li>ROC/AUC</li>
+</ul>
+<img src="/posts/c04c3a43/image-20211101144600167.png" class="" title="ROC 示意图">
 </li>
 </ol>
+<h2 id="Why-Should-I-Trust-You？">Why Should I Trust You？</h2>
+<ul>
+<li>
+<p>LIME</p>
 </li>
-</ol>
-<ol start="4">
-<li><p>勇于接纳</p>
+<li>
+<p>举例：分类结果正确，但是分类的原因和原本设想的不同</p>
+<img src="/posts/c04c3a43/image-20211101145037782.png" class="" title="LIME举例">
+</li>
+<li>
+<p>不光是指标，还要关注具体分类的原因</p>
+</li>
+</ul>
+<h2 id="Visualize-High-Dimension-Datasets">Visualize High Dimension Datasets</h2>
+<ul>
+<li>
+<p>Agenda</p>
+</li>
+<li>
+<p>高维信息投射到低维空间，肯定会丢掉高维坐标的信息，但是还想保留用来比较的相似信息，很难。</p>
+</li>
+<li>
+<p>把一个手写字符，分成 8 * 8 个field</p>
+<img src="/posts/c04c3a43/image-20211101145450891.png" class="" title="把一个字符化成 64 个维度">
+</li>
+<li>
+<p>通过算法可以高维降低到二维，很好地分类</p>
+</li>
+<li>
+<p>为了增强可信度，除了 LIME，可以让过程变得透明，可视化</p>
+</li>
+<li>
+<p>Machine learning needs more transparency</p>
+</li>
+<li>
+<p>网站：<a target="_blank" rel="noopener" href="https://distll.pub">https://distll.pub</a></p>
+</li>
+</ul>
+<h2 id="Experience">Experience</h2>
+<img src="/posts/c04c3a43/image-20211101145958617.png" class="" title="三条经验分享">
 <ol>
-<li><p>  努力学好基础知识</p>
+<li>
+<p>对于学生：编程 + 算法 + 行业知识</p>
+<ol>
+<li>
+<p>既懂编程又会算法——降维打击，行业知识：实际收益</p>
 </li>
-<li><p>  创造更美好的未来</p>
+<li>
+<p>数学统计算法、数学分析课程：加强竞争能力</p>
+</li>
+<li>
+<p>工作时，学习行业的知识，在行业里产生价值，学以致用</p>
 </li>
 </ol>
 </li>
+<li>
+<p>工作经验</p>
+<ol>
+<li>
+<p>准时 &gt; 提早：不是提前多久完成，就算好了</p>
+<ul>
+<li>
+<p>除了编程，还要测试（性能测试、压力测试）、翻译、法律风险</p>
+</li>
+<li>
+<p>许多步骤已经按照日程安排</p>
+</li>
+<li>
+<p>提早是没有意义的，准时按质提交</p>
+</li>
+</ul>
+</li>
+<li>
+<p>项目有时间、资源、人员能力的压力</p>
+<ul>
+<li>
+<p>不能一直追求完美，影响自己的生活</p>
+</li>
+<li>
+<p>会有各种限制，所以<strong>相对最优</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>项目失败很可能是项目管理</p>
+<ul>
+<li>
+<p>一两个加班</p>
+</li>
+<li>
+<p>大多数人加班：项目管理出现问题</p>
+</li>
+</ul>
+</li>
+<li>
+<p>复盘</p>
+<ul>
+<li>如果回到最初，项目管理是否能够更好</li>
+</ul>
+</li>
 </ol>
-<p><img src="/posts/c04c3a43/image-20211101150625126.png" alt="Ending 展望"></p>
+</li>
+<li>
+<p>平衡 Work Balance</p>
+<ol>
+<li>
+<p>在工作时间，把工作完成</p>
+</li>
+<li>
+<p>不要把工作带回家，不要让工作称为生活的全部</p>
+</li>
+</ol>
+</li>
+<li>
+<p>勇于接纳</p>
+<ol>
+<li>
+<p>努力学好基础知识</p>
+</li>
+<li>
+<p>创造更美好的未来</p>
+</li>
+</ol>
+<img src="/posts/c04c3a43/image-20211101150625126.png" class="" title="Ending 展望">
+</li>
+</ol>
 
       </div>
       <div class="post-copyright">
