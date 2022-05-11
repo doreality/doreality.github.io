@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Docker 基本使用（macOS）"/><meta name="keywords" content="Linux, Docker, macOS, Ubuntu, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/726dca2.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Docker 基本使用（macOS） - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Docker 基本使用（macOS）
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-12-23
+        </span><span class="post-category">
+            <a href="/categories/Development/">Development</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-text">简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLI-%E6%96%B9%E5%BC%8F"><span class="toc-text">CLI 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Desktop-%E6%96%B9%E5%BC%8F"><span class="toc-text">Docker Desktop 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E6%9B%B4%E6%96%B0%E9%95%9C%E5%83%8F"><span class="toc-text">修改并更新镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-text">命令行进入容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%91%BD%E5%90%8D%E5%92%8C%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-text">容器命名和重命名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>Docker 的简单使用：镜像、容器、Ubuntu。</p>
+<span id="more"></span>
+<p>问题来自学 C 语言要使用的一个工具 <strong>Valgrind</strong>，但是它现在还没有支持 M1 的版本。</p>
+<p>所以可以在 Docker 虚拟出一个 Linux 环境，跑一下。</p>
+<p>（暂时用不到完整的虚拟机）</p>
+<h2 id="环境准备">环境准备</h2>
+<p>下载安装 Docker Desktop for Mac 就可以了。</p>
+<h2 id="简单使用">简单使用</h2>
+<h3 id="CLI-方式">CLI 方式</h3>
+<p>使用参考：<a target="_blank" rel="noopener" href="https://www.gungorbudak.com/blog/2018/06/13/memory-leak-testing-with-valgrind-on-macos-using-docker-containers/">Memory Leak Testing with Valgrind on macOS using Docker Containers</a></p>
+<ol>
+<li>
+<p>创建一个文件夹，写一个 <code>Dockerfile</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:16.04</span><br><span class="line"></span><br><span class="line">RUN apt-get update</span><br><span class="line">RUN apt-get upgrade -y</span><br><span class="line">RUN apt-get install g++ valgrind -y</span><br></pre></td></tr></table></figure>
+<p>具体安装什么命令，可以根据需求修改（后面创建好之后也可以使用容器更新镜像）。</p>
+</li>
+<li>
+<p>在当前目录，打开终端，运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build -t image-name .</span></span><br></pre></td></tr></table></figure>
+<p><code>image-name</code> 是自定义的镜像名称。</p>
+</li>
+<li>
+<p>创建好之后可以查看镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker images</span></span><br></pre></td></tr></table></figure>
+<p>在 Docker Desktop 中也可以查看</p>
+</li>
+<li>
+<p>运行，即使用镜像创建容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -ti image-name /bin/bash</span></span><br></pre></td></tr></table></figure>
+<p><code>docker run -ti</code> 是基础的交互运行 Docker 镜像的命令；</p>
+<p><code>/bin/bash</code> 这个位置是容器要执行的命令，此处是打开命令行。</p>
+<ul>
+<li>如果需要挂载目录：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -ti -v host-mount-path:container-mount-path image-name /bin/bash</span></span><br></pre></td></tr></table></figure>
+<p><code>-v</code> 指令用于挂载主机文件到容器中，具体是把主机的 <code>host-mount-path</code> 目录，通过冒号 <code>:</code> 分隔，挂载到容器的 <code>container-mount-path</code> 目录。</p>
+<p>例如，要把当前目录挂载到容器的 <code>/home/</code> 目录，就可以写：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -ti -v <span class="variable">$PWD</span>:/home/ image-name /bin/bash</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Docker-Desktop-方式">Docker Desktop 方式</h3>
+<p>第一次打开 Docker Desktop，会有一个新手教程。</p>
+<ol>
+<li>
+<p>镜像获取：<a target="_blank" rel="noopener" href="https://hub.docker.com">https://hub.docker.com</a></p>
+</li>
+<li>
+<p>搜索镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker search ubuntu <span class="comment"># 搜索镜像</span></span></span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<img src="/posts/726dca2/image-20211223201043007.png" class="" title="列举出包含「ubuntu」关键字的镜像选项">
+</li>
+<li>
+<p>拉取（下载）镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker pull ubuntu <span class="comment"># 下载镜像</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者指定版本的下载</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker pull ubuntu:16.04</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>下载镜像之后在客户端里就可以看到了，打开使用即可。</p>
+<p>需要注意的是，创建容器时，挂载本地的目录：</p>
+<img src="/posts/726dca2/image-20211223194905321.png" class="">
+<p>在 <code>Host Path</code> 中填写本地目录，在 <code>Container Path</code> 中填写挂载到的容器中的目录。</p>
+</li>
+<li>
+<p>从客户端打开命令行之后，输入<code>bash</code>，之后就可以正常使用一些功能，例如记录之前执行的命令、<code>source</code> 命令等。</p>
+</li>
+</ol>
+<h3 id="修改并更新镜像">修改并更新镜像</h3>
+<p>如果当前镜像的环境有修改，并且需要保存经常使用，可以把当前容器保存为新的镜像。</p>
+<ol>
+<li>
+<p>查看容器的 ID</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker containers ls</span></span><br></pre></td></tr></table></figure>
+<p>会有如下显示：</p>
+<img src="/posts/726dca2/image-20211223200655276.png" class="" title="显示容器的 ID 信息">
+</li>
+<li>
+<p>根据容器创建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker commit -m=<span class="string">&quot;commit info&quot;</span> -a=<span class="string">&quot;committer name&quot;</span> container-id new-image-name</span></span><br></pre></td></tr></table></figure>
+<p>然后再使用 <code>docker images</code> 就可以查看到新的镜像 <code>new-image-name</code> 了。</p>
+</li>
+</ol>
+<h3 id="命令行进入容器">命令行进入容器</h3>
+<ol>
+<li>
+<p>查看容器的ID</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it container-id /bin/bash</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="容器命名和重命名">容器命名和重命名</h3>
+<ol>
+<li>
+<p>创建时命名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -ti --name [容器名称] [镜像名称] /bin/bash</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重命名</p>
+<p>查看旧名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps -a</span></span><br></pre></td></tr></table></figure>
+<p>修改容器名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rename [旧容器名] [新容器名]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用情况如下：</p>
+<img src="/posts/726dca2/image-20211223224334879.png" class="" title="显示修改之后的容器列表">
+<h2 id="参考">参考</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.gungorbudak.com/blog/2018/06/13/memory-leak-testing-with-valgrind-on-macos-using-docker-containers/">Memory Leak Testing with Valgrind on macOS using Docker Containers</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39873356/article/details/110488751">docker update_docker 镜像的使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiangxianghehe/article/details/77131962">Docker和宿主机之间共享文件</a></li>
+</ol>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/726dca2.html">https://doreality.xyz/posts/726dca2.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Linux/">Linux</a>
+            <a href="/tags/Docker/">Docker</a>
+            <a href="/tags/macOS/">macOS</a>
+            <a href="/tags/Ubuntu/">Ubuntu</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/posts/8a332699.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Docker Linux 中使用 GDB 出现警告</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/541346c5.html">
+        <span class="next-text nav-default">Socket 网络程序设计</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

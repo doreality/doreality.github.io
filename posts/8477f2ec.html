@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="JavaScript 网络程序设计（一）：搭建环境"/><meta name="keywords" content="JavaScript, Express, Front End, Vue, Back End, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/8477f2ec.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>JavaScript 网络程序设计（一）：搭建环境 - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">JavaScript 网络程序设计（一）：搭建环境
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-11-29
+        </span><span class="post-category">
+            <a href="/categories/Development/">Development</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Lab 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">前端环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue"><span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack"><span class="toc-text">Webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex"><span class="toc-text">Vuex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Element"><span class="toc-text">Element+</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">后端环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Express"><span class="toc-text">Express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MongoDB"><span class="toc-text">MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB-2"><span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB-Compass"><span class="toc-text">MongoDB Compass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongoose"><span class="toc-text">mongoose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>JavaScript 网络程序设计的 Lab 简介和开发环境搭建。</p>
+<p>From 2021《网络程序设计》</p>
+<span id="more"></span>
+<h1>Lab 介绍</h1>
+<p>先学习 Web 网络编程的热门技术，然后选做一个课程设计：基于Web的聊天室系统设计与实现。</p>
+<ul>
+<li>
+<p>技术要点</p>
+<ol>
+<li>Vue 组件化响应式编程</li>
+<li>Express（node.js）</li>
+<li>异步调用</li>
+<li>Ajax</li>
+<li>Session</li>
+<li>Websocket</li>
+</ol>
+</li>
+<li>
+<p>开发流程</p>
+<ol>
+<li>环境搭建（Lab + Pro）</li>
+<li>工具入门（Lab）</li>
+<li>Demo 实现（Lab）</li>
+<li>需求分析与设计（Pro）</li>
+<li>代码实现（Pro）</li>
+<li>测试（Pro）</li>
+</ol>
+</li>
+<li>
+<p>开发环境：macOS 12（Apple Silicon）</p>
+</li>
+</ul>
+<blockquote>
+<p>开始之前的准备：</p>
+<ol>
+<li>主机安装了最新版的 <strong>Node.js</strong>，可以通过命令行使用<code>npm</code>工具</li>
+<li>使用 <strong>VScode</strong> 作为开发环境
+<ul>
+<li>安装插件 <code>es6-string-html</code></li>
+</ul>
+</li>
+<li>使用 <strong>Chrome</strong> 作为运行调试环境</li>
+<li>使用 <strong>git</strong> 进行版本管理</li>
+</ol>
+</blockquote>
+<h1>前端环境</h1>
+<p>建立 Vue 的开发环境，需要使用如下工具：</p>
+<ul>
+<li>Vue-CLI</li>
+<li>Webpack</li>
+<li>Vuex</li>
+<li>Element UI</li>
+</ul>
+<h2 id="Vue">Vue</h2>
+<p>Vue 的官方文档给出了几种<a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/guide/installation.html">安装使用方法</a>（CDN、下载自托管、npm下载、Vue-CLI等）。</p>
+<p>这里记录<strong>两种</strong>最常用的使用方法：</p>
+<ol>
+<li>
+<p>CDN</p>
+<p>通过<code>&lt;script&gt;</code>在 HTML 中引用，是最简单的方式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vue@next&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>对于生产环境，推荐链接到明确版本号和构建文件。</p>
+</li>
+<li>
+<p>Vue-CLI</p>
+<p>CLI（Command Line Interface」）是命令行工具，Vue-CLI 是官方提供的「为单页面应用 (SPA) 快速搭建繁杂的脚手架」。</p>
+<ul>
+<li>安装：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g @vue/cli</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> OR</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn global add @vue/cli</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个项目：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vue create my-project</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> OR</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vue ui</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行一个项目</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vue serve</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Webpack">Webpack</h2>
+<p>打包工具。</p>
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g webpack</span></span><br></pre></td></tr></table></figure>
+<h2 id="Vuex">Vuex</h2>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式 + 库</strong>。</p>
+<p>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<ol>
+<li>
+<p>CDN</p>
+<ul>
+<li><code>https://unpkg.com/vuex@4</code></li>
+<li>或者指定版本：<code>https://unpkg.com/vuex@4.0.0/dist/vuex.global.js</code></li>
+</ul>
+<p>使用时，在 Vue 后直接引用即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/path/to/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/path/to/vuex.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 例如都使用 unpkg 的版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vue@next&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vuex@4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>npm</p>
+<p>在项目的目录下安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install vuex@next --save</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Element">Element+</h2>
+<p>Element Plus 是基于 Vue 3 的桌面端组件库。</p>
+<p><a target="_blank" rel="noopener" href="https://element-plus.gitee.io/zh-CN/guide/installation.html">安装</a>：</p>
+<ol>
+<li>
+<p>npm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install element-plus --save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>unpkg CDN</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 导入样式 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//unpkg.com/element-plus/dist/index.css&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 导入 Vue 3 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//unpkg.com/vue@next&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 导入组件库 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//unpkg.com/element-plus&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在 Vue-CLI 中使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vue create my-app</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> my-app</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vue add element-plus</span></span><br></pre></td></tr></table></figure>
+<h1>后端环境</h1>
+<ul>
+<li>Express</li>
+<li>mongodb</li>
+<li>mysql</li>
+</ul>
+<h2 id="Express">Express</h2>
+<ol>
+<li>
+<p>通过 npm 安装</p>
+<p>在本地任意路径下，新建一个文件夹 <em>myapp</em> (任意名称）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir myapp</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myapp</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>npm init</code> 命令，创建 <code>package.json</code>，用于配置依赖。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm init</span></span><br></pre></td></tr></table></figure>
+<p>命令执行后，会提示输入若干参数（应用的名称、版本等信息），根据情况填写即可。</p>
+<p>注意其中一个参数 <code>entry point</code>，它的值是当前 App 的入口文件（需要自己手动创建）。</p>
+<p>可以使用默认的 <code>index.js</code>，或者根据实际情况使用相应的。</p>
+<p>然后在 <em>myapp</em> 目录下，安装 Express：</p>
+<ul>
+<li>
+<p>保存到依赖列表</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install express --save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>临时安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install express --no-save</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>Express 应用程序生成器</p>
+<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/starter/generator.html">生成器</a>工具是 <code>express-generator</code>，可以快速创建一个应用的蓝本。</p>
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g express-generator</span></span><br></pre></td></tr></table></figure>
+<p>创建应用（目录名为 <em>myapp</em>，路径为当前目录下）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> express ./myapp</span></span><br></pre></td></tr></table></figure>
+<p>之后，会自动创建一个规范的目录结构和相关依赖。</p>
+<p>进入 <em>myapp</em> 目录，执行命令启动应用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myapp</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> DEBUG=myapp:* npm start</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000/</a> 就可以查看该应用了。</p>
+</li>
+</ol>
+<h2 id="MongoDB">MongoDB</h2>
+<h3 id="MongoDB-2">MongoDB</h3>
+<ol>
+<li>
+<p>检查x-code</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> xcode-select --install</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装包管理器 Homebrew</p>
+</li>
+<li>
+<p>使用 brew 安装 mongodb</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew tap mongodb/brew</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install mongodb-community@5.0</span></span><br></pre></td></tr></table></figure>
+<p>安装失败可能是由于某些依赖需要手动安装：</p>
+<ul>
+<li>
+<p>c-ares：<code>brew install c-ares</code></p>
+</li>
+<li>
+<p>libnghttp2：<code>brew intall libnghttp2</code></p>
+</li>
+<li>
+<p>ca-certificates：</p>
+</li>
+<li>
+<p>node@14</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/opt/homebrew/opt/node@14/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> LDFLAGS=<span class="string">&quot;-L/opt/homebrew/opt/node@14/lib&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> CPPFLAGS=<span class="string">&quot;-I/opt/homebrew/opt/node@14/include&quot;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>mongosh</p>
+</li>
+</ul>
+<p>成功安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Summary</span><br><span class="line">🍺  /opt/homebrew/Cellar/mongodb-community/5.0.4: 11 files, 181.4MB, built in 2 seconds</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行</p>
+<blockquote>
+<p>注意：</p>
+<p>因为某种原因，安装的是默认的x86版本（安装时也提醒了不兼容 macOS 12），在开启服务前使用 Roseta：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> softwareupdate --install-rosetta</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>
+<p><strong>（推荐用法）</strong> 作为服务运行：As a macOS Service</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew services start mongodb-community@5.0</span></span><br><span class="line"></span><br><span class="line">==&gt; Successfully started `mongodb-community` (label: homebrew.mxcl.mongodb-commu</span><br><span class="line"><span class="meta">$</span><span class="bash"> brew services stop mongodb-community@5.0</span></span><br><span class="line">Stopping `mongodb-community`... (might take a while)</span><br><span class="line">==&gt; Successfully stopped `mongodb-community` (label: homebrew.mxcl.mongodb-commu</span><br></pre></td></tr></table></figure>
+<p>通过 <code>brew services list</code> 可以查看是否开启成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew services list</span></span><br><span class="line">Name              Status  User      Plist</span><br><span class="line">mongodb-community started doreality /Users/doreality/Library/LaunchAgents/homebrew.mxcl.mongodb-community.plist</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>作为后台进程运行：As a background process</p>
+<p>on Intel processors：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mongod --config /usr/<span class="built_in">local</span>/etc/mongod.conf --fork</span></span><br></pre></td></tr></table></figure>
+<p>on Apple M1 processors:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mongod --config /opt/homebrew/etc/mongod.conf --fork</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="MongoDB-Compass">MongoDB Compass</h3>
+<p>MongoDB 的 GUI 应用程序。</p>
+<p>在<a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/compass">下载页面</a>安装需要的版本：</p>
+<ul>
+<li>1.29.5</li>
+<li>OS X 64bit</li>
+<li>dmg</li>
+</ul>
+<h3 id="mongoose">mongoose</h3>
+<h2 id="参考资料">参考资料</h2>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn">http://nodejs.cn</a></p>
+<p><a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org">https://v3.cn.vuejs.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3">https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3</a></p>
+<p><a target="_blank" rel="noopener" href="https://element-plus.gitee.io/zh-CN/guide/design.html">https://element-plus.gitee.io/zh-CN/guide/design.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn">https://www.expressjs.com.cn</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mongodb.com">https://www.mongodb.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://webpack.docschina.org">https://webpack.docschina.org</a></p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/8477f2ec.html">https://doreality.xyz/posts/8477f2ec.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/JavaScript/">JavaScript</a>
+            <a href="/tags/Express/">Express</a>
+            <a href="/tags/Front-End/">Front End</a>
+            <a href="/tags/Vue/">Vue</a>
+            <a href="/tags/Back-End/">Back End</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/posts/797f6d09.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">JavaScript 网络程序设计（二）：Vue 入门</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/8eb87749.html">
+        <span class="next-text nav-default">Android Kotlin 项目构建报错：No native library</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

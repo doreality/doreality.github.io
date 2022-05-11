@@ -13,31 +13,17 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="Git的日常积累（一）"/><meta name="keywords" content="GitHub, Git, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<meta name="description" content="Git 日常积累（一）"/><meta name="keywords" content="GitHub, Git, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
 <link rel="canonical" href="https://doreality.xyz/posts/d00de0a5.html"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
 
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 <script>
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
 
-    <title>Git的日常积累（一） - DoReality</title>
+    <title>Git 日常积累（一） - DoReality</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -106,14 +92,14 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">Git的日常积累（一）
+      <h1 class="post-title">Git 日常积累（一）
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2021-04-02
         </span><span class="post-category">
-            <a href="/categories/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+            <a href="/categories/Git/">Git</a>
             </span>
         </div>
     </header>
@@ -148,7 +134,7 @@
 <h3 id="使用-gitignore-管理目录">使用 .gitignore 管理目录</h3>
 <p>使用 .gitignore 可以把不想上传的文件屏蔽掉。</p>
 <p>只需要在文件目录下建立一个名为<code>.gitignore</code>的文件即可，内容格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># comment</span><br><span class="line"></span><br><span class="line"># 屏蔽掉当前目录下后缀为 .a 的所有文件</span><br><span class="line">*.a        </span><br><span class="line"></span><br><span class="line"># 屏蔽当前目录下所有文件和目录</span><br><span class="line">*          </span><br><span class="line"></span><br><span class="line"># 屏蔽 dir 目录</span><br><span class="line">&#x2F;dir&#x2F;     </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># comment</span><br><span class="line"></span><br><span class="line"># 屏蔽掉当前目录下后缀为 .a 的所有文件</span><br><span class="line">*.a        </span><br><span class="line"></span><br><span class="line"># 屏蔽当前目录下所有文件和目录</span><br><span class="line">*          </span><br><span class="line"></span><br><span class="line"># 屏蔽 dir 目录</span><br><span class="line">&#x2F;dir&#x2F;     </span><br><span class="line"></span><br><span class="line"># 屏蔽每一个目录下的相同文件</span><br><span class="line">*&#x2F;.DS_Store</span><br></pre></td></tr></table></figure>
 <p>除了屏蔽功能，还有可以增加的功能：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 增加 dir 目录以及其下所有子目录和文件</span><br><span class="line">!&#x2F;dir&#x2F; </span><br><span class="line">!&#x2F;dir&#x2F;**&#x2F;</span><br></pre></td></tr></table></figure>
 <p>需要注意的一点是，如果进行过<code>git push</code>后再新增或者修改<code>.gitignore</code>，如果不起作用的话，可以先清空缓存：</p>
@@ -177,11 +163,11 @@
         
         <nav class="post-nav"><a class="prev" href="/posts/803b8154.html">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">macOS安装md5sum命令</span>
+        <span class="prev-text nav-default">macOS 安装 md5sum 命令</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/posts/c762735f.html">
-        <span class="next-text nav-default">如何设置Hexo博客的永久链接</span>
+        <span class="next-text nav-default">如何设置 Hexo 博客的永久链接</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -202,7 +188,7 @@
     <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
-  <span class="copyright-year">&copy;2021<span class="heart">
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
     <span class="author">doreality</span>

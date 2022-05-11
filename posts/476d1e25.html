@@ -19,20 +19,6 @@
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
 
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 <script>
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
@@ -113,7 +99,7 @@
         <span class="post-time">
           2021-10-30
         </span><span class="post-category">
-            <a href="/categories/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+            <a href="/categories/Git/">Git</a>
             </span>
         </div>
     </header>
@@ -154,7 +140,7 @@
 <ul>
 <li>
 <p><code>git branch -u o/main foo</code></p>
-<p>让 <code>foo</code> 分支跟踪 <code>o/main</code></p>
+<p>让 <code>foo</code> 分支跟踪 <code>o/main</code></p>
 </li>
 <li>
 <p><code>git branch -u o/main</code></p>
@@ -193,7 +179,7 @@
 <ul>
 <li><code>git push origin foo:main</code>
 <ul>
-<li>把本地仓库中的 <code>foo</code> 分支所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
+<li>把本地仓库中的 <code>foo</code> 分支所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
 </ul>
 </li>
 <li><code>git push origin foo^:main</code>
@@ -239,11 +225,11 @@
 <h3 id="没有-source-的-source">没有 source 的 source</h3>
 <ul>
 <li>
-<p>push <code>&lt;source&gt;</code> 部分留空，可以用来删除远程仓库的分支。</p>
+<p>push <code>&lt;source&gt;</code> 部分留空，可以用来删除远程仓库的分支。</p>
 <ul>
 <li>示例：<code>git push origin :foo</code>
 <ul>
-<li>通过给 push 传空值 source，删除远程仓库中的 <code>foo</code> 分支，远程分支 <code>o/foo</code> 也没了。</li>
+<li>通过给 push 传空值 source，删除远程仓库中的 <code>foo</code> 分支，远程分支 <code>o/foo</code> 也没了。</li>
 </ul>
 </li>
 </ul>
@@ -265,7 +251,7 @@
 <p><code>git pull origin foo</code></p>
 <p>== <code>git fetch origin foo; git merge o/foo</code></p>
 <ul>
-<li>通过 <code>foo</code> 更新 <code>o/foo</code></li>
+<li>通过 <code>foo</code> 更新 <code>o/foo</code></li>
 <li><code>o/foo</code>合并到 <strong>当前检出分支</strong></li>
 </ul>
 </li>
@@ -308,7 +294,7 @@
         
         <nav class="post-nav"><a class="prev" href="/posts/c04c3a43.html">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">讲座《开源技术在机器学习中的应用》</span>
+        <span class="prev-text nav-default">「讲座」开源技术在机器学习中的应用</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/posts/a73bd77.html">
@@ -333,7 +319,7 @@
     <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
-  <span class="copyright-year">&copy;2021<span class="heart">
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
     <span class="author">doreality</span>

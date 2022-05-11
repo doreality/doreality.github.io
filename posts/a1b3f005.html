@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="JavaScript 网络程序设计（三）：Express 入门"/><meta name="keywords" content="Network Programming, JavaScript, Express, Node, Mongodb, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/a1b3f005.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>JavaScript 网络程序设计（三）：Express 入门 - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">JavaScript 网络程序设计（三）：Express 入门
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-12-03
+        </span><span class="post-category">
+            <a href="/categories/Development/">Development</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node"><span class="toc-text">Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Express"><span class="toc-text">Express</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RESTful-API"><span class="toc-text">RESTful API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1"><span class="toc-text">基本路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>Node，Express 基本使用方法，介绍 ReSTful API</p>
+<span id="more"></span>
+<h2 id="基本使用">基本使用</h2>
+<h3 id="Node">Node</h3>
+<p>Node 是 JavaScript 的<strong>运行环境</strong>，不同于浏览器，不使用 <code>document</code> 或者 <code>window</code> 对象，但是添加了关于操作系统、文件、网络等内容。</p>
+<p>Node 是使用 C++ 封装了 Chrome V8 引擎的客户端，可以执行 JavaScript 程序。</p>
+<ol>
+<li>
+<p>使用 npm 进行包管理，生成 <code>package.json</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm init</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者 直接全部默认</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm init --yes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install package_name</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i package_name</span></span><br></pre></td></tr></table></figure>
+<p>会自动添加到 <code>package.json</code> 的 <code>dependencies</code> 中，并保存在 <code>node_modules</code> 文件夹中。</p>
+</li>
+<li>
+<p>Semantic Versioning - SemVer</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;mongoose&quot;</span>: <span class="string">&quot;^4.13.6&quot;</span>, <span class="comment">// 4.x, Major.Minor.Patch</span></span><br><span class="line">        <span class="attr">&quot;underscore&quot;</span>: <span class="string">&quot;~1.8.3&quot;</span> <span class="comment">// 1.8.x</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm list</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm list --depth=0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看某个package的依赖</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm view mongoose</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm view mongoose dependencies</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看package的历史版本</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm view mongoose versions</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前安装的包版本是否过时</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm outdated</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm update <span class="comment"># 只更新次版本号和补丁版本</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i -g npm-check-updates</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm-check-updates</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu -u <span class="comment"># upgrade package.json</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 开发环境的依赖，不打包到生产环境</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i jshint --save-dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>卸载包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm uninstall mongoose</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm un mongoose</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Express">Express</h3>
+<h4 id="Hello-World">Hello World</h4>
+<ol>
+<li>
+<p>创建目录和依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir myapp</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myapp</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm init</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> entry point 填 app.js，其他全部回车</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install express</span> </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Hello World</p>
+<p>在 <em>myapp</em> 目录下创建 <code>app.js</code>，填入内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.send(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node app.js</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="RESTful-API">RESTful API</h4>
+<ol>
+<li>
+<p>http module</p>
+<p>使用 node 的 builtin module， <code>http</code> 模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.url === <span class="string">&#x27;/&#x27;</span> ) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (req.url === <span class="string">&#x27;/api/course&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>RESTful API</p>
+<p>REST = <strong>Re</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer</p>
+<p>使用 REST 实现 Http 的 CRUD（Create、Update、Read、Delete）。</p>
+<p>例如：<code>http://vidly.com/api/customers</code></p>
+<p>把 <code>customers</code> 看作是一种资源，对于该资源的增删改查都是通过向这个 end point 发送请求完成的。</p>
+<p>请求的种类（HTTP METHODS）对应着操作的类型：</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>DELETE</li>
+</ul>
+<p>使用有语义的地址来公开资源，可以使用 HTTP 的规则来对资源操作。</p>
+</li>
+<li>
+<p>创建目录并安装 express</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir express-demo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> express-demo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm init --yes</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i express</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>新建 <code>index.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// route handler 或者 callback </span></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.send(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/api/courses&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 实际要从数据库读出数据并返回</span></span><br><span class="line">    res.send([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// PORT</span></span><br><span class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">3000</span>;</span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Listening on <span class="subst">$&#123;port&#125;</span>...`</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>不再使用 <code>if</code> 作为路由，而是通过 <code>app.get()</code> 的方式，这样可以方便归类。</p>
+</li>
+<li>
+<p>查询某一个数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">&#x27;/api/posts/:year/:month&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.send(req.params);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 访问 /api/posts/2021/12</span></span><br><span class="line"><span class="comment">// 返回：&#123;&quot;year&quot;:&quot;2021&quot;,&quot;month&quot;:&quot;12&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>query string</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">&#x27;/api/posts/:year/:month&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.send(req.query);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 访问 /api/posts/2021/12?sortBy=name</span></span><br><span class="line"><span class="comment">// 返回：&#123;&quot;sortBy&quot;:&quot;name&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>处理 GET 请求</p>
+<p>如果请求一个资源，但是在服务器中没有，应该返回 <code>404</code> 状态码。</p>
+<p><code>cmd + R</code> 刷新，在开发者工具中选择 <code>Network</code> 可看状态码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> courses = [</span><br><span class="line">    &#123; <span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;course1&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>:<span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;course2&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>:<span class="number">3</span>, <span class="attr">name</span>: <span class="string">&#x27;course3&#x27;</span> &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// get all courses</span></span><br><span class="line">app.get(<span class="string">&#x27;/api/courses&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 实际要从数据库读出数据并返回</span></span><br><span class="line">    res.send(courses);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// get single course </span></span><br><span class="line">app.get(<span class="string">&#x27;/api/courses/:id&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> course = courses.find(<span class="function"><span class="params">c</span> =&gt;</span> c.id === <span class="built_in">parseInt</span>(req.params.id));</span><br><span class="line">    <span class="keyword">if</span> (!course) <span class="keyword">return</span> res.status(<span class="number">404</span>).send(<span class="string">&#x27;The course with the given ID was not found.&#x27;</span>);</span><br><span class="line">    res.send(course);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>处理 POST 请求</p>
+<p>为了向终端发送请求，需要使用 Chrome 的扩展 <code>Postman</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="string">&#x27;/api/courses&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 读取req的消息体，获得新的数据，来创建新的对象</span></span><br><span class="line">    <span class="keyword">const</span> course = &#123;</span><br><span class="line">        id: courses.length + <span class="number">1</span>,</span><br><span class="line">        name: req.body.name</span><br><span class="line">    &#125;;</span><br><span class="line">    courses.push(course);</span><br><span class="line">    <span class="comment">// 惯例，当我们让服务器创建了新的对象或资源，服务器应该在反馈中包含创建的新资源</span></span><br><span class="line">    res.send(course);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 Postman 中发送一个 POST 请求到终端 <code>http://localhost:3000/api/course</code>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;new course&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;id&quot;</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;new course&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>状态码 <code>200</code> OK。</p>
+</li>
+<li>
+<p>使用 Joi 进行输入验证</p>
+<p>在项目目录中安装 Joi：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i joi</span></span><br></pre></td></tr></table></figure>
+<p>在 index.js 中使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Joi = <span class="built_in">require</span>(<span class="string">&#x27;joi&#x27;</span>); <span class="comment">// class </span></span><br><span class="line"></span><br><span class="line">app.post(<span class="string">&#x27;/api/courses&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> schema = &#123; </span><br><span class="line">        name: Joi.string().min(<span class="number">3</span>).required()</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> result =  Joi.validate(req.body, schema);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result.error) <span class="keyword">return</span> res.status(<span class="number">400</span>).send(result.error.details[<span class="number">0</span>].message);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取req的消息体，获得新的数据，来创建新的对象</span></span><br><span class="line">    <span class="keyword">const</span> course = &#123;</span><br><span class="line">        id: courses.length + <span class="number">1</span>,</span><br><span class="line">        name: req.body.name</span><br><span class="line">    &#125;;</span><br><span class="line">    courses.push(course);</span><br><span class="line">    <span class="comment">// 惯例，当我们让服务器创建了新的对象或资源，服务器应该在反馈中包含创建的新资源</span></span><br><span class="line">    res.send(course);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>处理 PUT 请求</p>
+<p>进行一些复用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">app.put(<span class="string">&#x27;/api/courses/:id&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// Look up the course</span></span><br><span class="line">    <span class="comment">// if not existing ,return 404</span></span><br><span class="line">    <span class="keyword">const</span> course = courses.find(<span class="function"><span class="params">c</span> =&gt;</span> c.id === <span class="built_in">parseInt</span>(req.params.id));</span><br><span class="line">    <span class="keyword">if</span> (!course) <span class="keyword">return</span> res.status(<span class="number">404</span>).send(<span class="string">&#x27;The course with the given ID was not found.&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Validate</span></span><br><span class="line">    <span class="comment">// If invalid, return 400 - bad request</span></span><br><span class="line">    <span class="keyword">const</span> schema = &#123; </span><br><span class="line">        name: Joi.string().min(<span class="number">3</span>).required()</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> result =  Joi.validate(req.body, schema);</span><br><span class="line">    <span class="keyword">if</span> (result.error) <span class="keyword">return</span> res.status(<span class="number">400</span>).send(result.error.details[<span class="number">0</span>].message);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update course</span></span><br><span class="line">    course.name = req.body.name;</span><br><span class="line">    <span class="comment">// return the updated course</span></span><br><span class="line">    res.send(course);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>处理 DELETE 请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.delete(<span class="string">&#x27;/api/courses/:id&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// Look up the course</span></span><br><span class="line">    <span class="comment">// Not existing, return 404</span></span><br><span class="line">    <span class="keyword">const</span> course = courses.find(<span class="function"><span class="params">c</span> =&gt;</span> c.id === <span class="built_in">parseInt</span>(req.params.id));</span><br><span class="line">    <span class="keyword">if</span> (!course) <span class="keyword">return</span> res.status(<span class="number">404</span>).send(<span class="string">&#x27;The course with the given ID was not found.&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Delete</span></span><br><span class="line">    <span class="keyword">const</span> index = courses.indexOf(course);</span><br><span class="line">    courses.splice(index, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Return the same course</span></span><br><span class="line">    res.send(course);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="基本路由">基本路由</h3>
+<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/starter/basic-routing.html">https://www.expressjs.com.cn/starter/basic-routing.html</a></p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>关于 package.json ： <a target="_blank" rel="noopener" href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json">https://docs.npmjs.com/cli/v8/configuring-npm/package-json</a></li>
+</ul>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/a1b3f005.html">https://doreality.xyz/posts/a1b3f005.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Network-Programming/">Network Programming</a>
+            <a href="/tags/JavaScript/">JavaScript</a>
+            <a href="/tags/Express/">Express</a>
+            <a href="/tags/Node/">Node</a>
+            <a href="/tags/Mongodb/">Mongodb</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/posts/5ed7d52f.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Node Sass 版本问题</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/797f6d09.html">
+        <span class="next-text nav-default">JavaScript 网络程序设计（二）：Vue 入门</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
