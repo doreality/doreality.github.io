@@ -104,13 +104,18 @@
         </div>
     </header>
 
-    <div class="post-content"><p>在 Docker 容器中使用 GDB 调试出现警告：</p>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%88%AA%E5%9B%BE"><span class="toc-text">问题截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>在 Docker 容器中使用 GDB 调试出现警告：</p>
 <p><code>warning: Error disabling address space randomization: Operation not permitted</code></p>
 <span id="more"></span>
 <p>参考解决：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bonelee/p/13759054.html">DockerContainer下gdb无法正常工作的解决办法</a></p>
-<p>问题截图：</p>
+<h3 id="问题截图">问题截图</h3>
 <img src="/posts/8a332699/image-20211223215213552.png" class="" title="显示 GDB 的警告">
-<p>解决方案：</p>
+<h3 id="解决方案">解决方案</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --privileged -it -v <span class="variable">$PWD</span>/codes/lcthw:/home/ ubuntu /bin/bash</span></span><br></pre></td></tr></table></figure>
 <p>注意，是创建一个容器，而不是进入之前的容器 <code>docker exec</code>。</p>
 <p>重新创建容器后，进入 GDB 正常：</p>
@@ -143,7 +148,7 @@
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/posts/726dca2.html">
-        <span class="next-text nav-default">Docker 基本使用（macOS）</span>
+        <span class="next-text nav-default">Docker 基本使用</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

@@ -116,8 +116,12 @@
 <span id="more"></span>
 <h3 id="远程跟踪分支">远程跟踪分支</h3>
 <blockquote>
-<p><code>main</code> 和 <code>o/main</code> 的关联关系是由分支的“remote tracking”属性决定的。<code>main</code> 被设定为跟踪 <code>o/main</code> —— 这意味着为 <code>main</code> 分支指定了推送的目的地以及拉取后合并的目标。</p>
-<p>当你克隆时, Git 会为远程仓库中的每个分支在本地仓库中创建一个远程分支（比如 <code>o/main</code>）。然后再创建一个跟踪远程仓库中活动分支的本地分支，默认情况下这个本地分支会被命名为 <code>main</code>。</p>
+<p><code>main</code> 和 <code>o/main</code> 的关联关系是由分支的“<em>remote tracking</em>”属性决定的。<code>main</code> 被设定为跟踪 <code>o/main</code> —— 这意味着为 <code>main</code> 分支指定了推送的目的地以及拉取后合并的目标。</p>
+</blockquote>
+<blockquote>
+<p>当你克隆时，Git 会为远程仓库中的每个分支在本地仓库中创建一个远程分支（比如 <code>o/main</code>）。然后再创建一个跟踪远程仓库中活动分支的本地分支，默认情况下这个本地分支会被命名为 <code>main</code>。</p>
+</blockquote>
+<blockquote>
 <p>克隆完成后，你会得到一个本地分支（如果没有这个本地分支的话，你的目录就是“空白”的），但是可以查看远程仓库中所有的分支（如果你好奇心很强的话）。这样做对于本地仓库和远程仓库来说，都是最佳选择。</p>
 </blockquote>
 <ul>
@@ -127,7 +131,7 @@
 <p>两种方式，指定分支去跟踪远程分支：</p>
 <ol>
 <li>
-<p><code>git checkout -b</code></p>
+<p>方法一：<code>git checkout -b</code></p>
 <ul>
 <li>
 <p><code>git checkout -b totallyNotMain o/main</code></p>
@@ -136,7 +140,7 @@
 </ul>
 </li>
 <li>
-<p><code>git branch -u</code></p>
+<p>方法二： <code>git branch -u</code></p>
 <ul>
 <li>
 <p><code>git branch -u o/main foo</code></p>
@@ -152,7 +156,7 @@
 <p>有了远程跟踪分支的概念，就可以解释之前的 push、fetch、pull 的缺省参数了。</p>
 <h3 id="Git-Push">Git Push</h3>
 <h4 id="分支同名">分支同名</h4>
-<ul>
+<ol>
 <li>
 <p>语法：<code>git push &lt;remote&gt; &lt;place&gt;</code></p>
 </li>
@@ -167,34 +171,32 @@
 <li>
 <p>注意：</p>
 <ul>
-<li>通过 <code>&lt;place&gt;</code>，就是提交记录来自 <code>&lt;place&gt;</code>，并且要提交到远程仓库的 <code>&lt;place&gt;</code></li>
+<li>通过 <code>&lt;place&gt;</code>，就是提交记录来自 <code>&lt;place&gt;</code>，并且要提交到<strong>远程仓库</strong>的 <code>&lt;place&gt;</code></li>
 <li>指定 <code>&lt;place&gt;</code>，可以忽略当前的检出分支的属性。</li>
 </ul>
 </li>
-</ul>
+</ol>
 <h4 id="分支不同名">分支不同名</h4>
-<ul>
-<li>语法：<code>git push &lt;remote&gt; &lt;source&gt;:&lt;destination&gt;</code></li>
-<li>示例：
-<ul>
-<li><code>git push origin foo:main</code>
-<ul>
-<li>把本地仓库中的 <code>foo</code> 分支所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
-</ul>
+<ol>
+<li>
+<p>语法：<code>git push &lt;remote&gt; &lt;source&gt;:&lt;destination&gt;</code></p>
 </li>
-<li><code>git push origin foo^:main</code>
-<ul>
-<li>把本地仓库中的 <code>foo</code> 分支的父提交节点所有更新，提交到远程仓库中的 <code>main</code> 分支</li>
-</ul>
+<li>
+<p>示例：</p>
+<ol>
+<li><code>git push origin foo:main</code></li>
+</ol>
+<p>把本地仓库中的 <code>foo</code> 分支所有更新，提交到远程仓库中的 <code>main</code> 分支</p>
+<ol start="2">
+<li><code>git push origin foo^:main</code></li>
+</ol>
+<p>把本地仓库中的 <code>foo</code> 分支的父提交节点所有更新，提交到远程仓库中的 <code>main</code> 分支</p>
+<ol start="3">
+<li><code>git push origin main:newBranch</code></li>
+</ol>
+<p>把本地仓库中的 <code>main</code> 分支的父提交节点所有更新，提交到远程仓库中的新创建的 <code>newBranch</code> 分支</p>
 </li>
-<li><code>git push origin main:newBranch</code>
-<ul>
-<li>把本地仓库中的 <code>main</code> 分支的父提交节点所有更新，提交到远程仓库中的新创建的 <code>newBranch</code> 分支</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
 <h3 id="Git-Fetch">Git Fetch</h3>
 <p>参数缺省：<code>git fetch</code>，下载所有更新。</p>
 <h4 id="分支同名-2">分支同名</h4>

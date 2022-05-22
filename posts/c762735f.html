@@ -111,7 +111,7 @@
     </div>
   </div><div class="post-content"><p>Hexo 支持的永久链接的格式会把中文转换成一长串编码，修改标题或者引用链接都会很麻烦。</p>
 <span id="more"></span>
-<p>还好，有提供支持编码的插件，安装再修改配置文件即可。</p>
+<p>有提供支持编码的插件，安装再修改配置文件即可。</p>
 <h2 id="安装插件">安装插件</h2>
 <p>在博客的根目录下，安装插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
@@ -122,9 +122,8 @@
 <p>配置好之后：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
 <p>此时，每一篇博客的<code>.md</code>文件的首部都加入<code>abbrlink</code>条目，说明成功生成了这篇文章的永久链接，之后再修改标题都不会影响了。</p>
-<p>发布之后，就会看到每篇博客的标题变成了：<br>
-<code>https://your_domain_name/posts/abbrlink.html</code><br>
-其中，<code>your_domain_name</code>是你的网站域名，<code>abbrlink</code>是这篇文章的永久链接编码。</p>
+<p>发布之后，就会看到每篇博客的标题变成了：<code>https://your_domain_name/posts/abbrlink.html</code></p>
+<p>其中，<code>your_domain_name</code>是你的网站域名，<code>abbrlink</code>是这篇文章的永久链接编码。</p>
 <p>这样，永久链接就搞定了。</p>
 <h2 id="参考">参考</h2>
 <ul>
