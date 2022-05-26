@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="「SNDD」简单网络设备驱动程序"/><meta name="keywords" content="Linux, Network Programming, Device Driver, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<meta name="description" content="「SNDD」简单网络设备驱动程序"/><meta name="keywords" content="Network Programming, Linux, Device Driver, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
 <link rel="canonical" href="https://doreality.xyz/posts/c73d89f1.html"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
@@ -99,7 +99,7 @@
         <span class="post-time">
           2022-01-19
         </span><span class="post-category">
-            <a href="/categories/Projects/">Projects</a>
+            <a href="/categories/Development/">Development</a>
             </span>
         </div>
     </header>
@@ -161,7 +161,7 @@
 <h3 id="网络拓扑">网络拓扑</h3>
 <p>驱动模拟了四个网络接口，接口名：<code>sndd0</code>，<code>sndd1</code>，<code>sndd2</code> 和 <code>sndd3</code></p>
 <p>对应的主机名为 <code>lc0</code>，<code>lc1</code>，<code>lc2</code> 和 <code>lc3</code></p>
-<p>三个接口位于三个不同的子网，网络名分别为 <code>snet0</code>，<code>snet1</code>，<code>snet2</code> 和 <code>snet3</code></p>
+<p>四个接口位于四个不同的子网，网络名分别为 <code>snet0</code>，<code>snet1</code>，<code>snet2</code> 和 <code>snet3</code></p>
 <p>在三个网段中，各自分别有一台主机，主机名：<code>rm0</code>，<code>rm1</code>，<code>rm2</code> 和 <code>rm3</code></p>
 <p>网络结构如下图所示：</p>
 <img src="/posts/c73d89f1/arch.png" class="">
@@ -353,8 +353,8 @@
   </div>
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Linux/">Linux</a>
             <a href="/tags/Network-Programming/">Network Programming</a>
+            <a href="/tags/Linux/">Linux</a>
             <a href="/tags/Device-Driver/">Device Driver</a>
             </div>
         
