@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="「LCTHW」函数与指针篇"/><meta name="keywords" content="C, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/4b675d3.html"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>「LCTHW」函数与指针篇 - DoReality</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">DoReality</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">DoReality</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">「LCTHW」函数与指针篇
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2022-06-01
+        </span><span class="post-category">
+            <a href="/categories/Notes/">Notes</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exercise-14-Writing-and-Using-Functions"><span class="toc-text">Exercise 14. Writing and Using Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ctype-h"><span class="toc-text">ctype.h</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Forward-Declaration"><span class="toc-text">Forward Declaration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exercise-15-Pointers-Dreaded-Pointers"><span class="toc-text">Exercise 15. Pointers, Dreaded Pointers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pointers"><span class="toc-text">Pointers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pointers-NOT-Arrays"><span class="toc-text">Pointers NOT Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84%E5%92%8C%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88"><span class="toc-text">指针数组和数组指针</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exercise-16-Structs-And-Pointers-to-Them"><span class="toc-text">Exercise 16. Structs And Pointers to Them</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Leak"><span class="toc-text">Memory Leak</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exercise-17-Heap-and-Stack-Memory-Allocation"><span class="toc-text">Exercise 17. Heap and Stack Memory Allocation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Heap-and-Stack"><span class="toc-text">Heap and Stack</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>Learn C The Hard Way, notes for ex14 to ex18.</p>
+<span id="more"></span>
+<h2 id="Exercise-14-Writing-and-Using-Functions">Exercise 14. Writing and Using Functions</h2>
+<ul>
+<li>用 for 读一个字符串：不用判断长度，可以判断 <code>\0</code></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; arg[i] != <span class="string">&#x27;\0&#x27;</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">char</span> ch = arg[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ctype-h">ctype.h</h3>
+<table>
+<thead>
+<tr>
+<th>funtion</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isalnum()</code></td>
+<td>checks for an alphanumeric character; it is equivalent to (isalpha© || isdigit©).</td>
+</tr>
+<tr>
+<td><code>isalpha()</code></td>
+<td>checks for an alphabetic character; in the standard “C” locale, it is equivalent to (isupper© || islower©).  In some locales, there may be additional characters for which isalpha() is true–letters which are neither uppercase nor lowercase.</td>
+</tr>
+<tr>
+<td><code>isascii()</code></td>
+<td>checks whether c is a 7-bit unsigned char value that fits into the ASCII character set.</td>
+</tr>
+<tr>
+<td><code>isblank()</code></td>
+<td>checks for a blank character; that is, a space or a tab.</td>
+</tr>
+<tr>
+<td><code>iscntrl()</code></td>
+<td>checks for a control character.</td>
+</tr>
+<tr>
+<td><code>isdigit()</code></td>
+<td>checks for a digit (0 through 9).</td>
+</tr>
+<tr>
+<td><code>isgraph()</code></td>
+<td>checks for any printable character except space.</td>
+</tr>
+<tr>
+<td><code>islower()</code></td>
+<td>checks for a lowercase character.</td>
+</tr>
+<tr>
+<td><code>isprint()</code></td>
+<td>checks for any printable character including space.</td>
+</tr>
+<tr>
+<td><code>ispunct()</code></td>
+<td>checks for any printable character which is not a space or an alphanumeric character.</td>
+</tr>
+<tr>
+<td><code>isspace()</code></td>
+<td>checks for white-space characters.  In the “C” and “POSIX” locales, these are: space, form-feed (‘\f’), newline (‘\n’), carriage return (‘\r’), horizontal  tab(‘\t’), and vertical tab (‘\v’).</td>
+</tr>
+<tr>
+<td><code>isupper()</code></td>
+<td>checks for an uppercase letter.</td>
+</tr>
+<tr>
+<td><code>isxdigit()</code></td>
+<td>checks for hexadecimal digits, that is, one of 0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Forward-Declaration">Forward Declaration</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// forward declarations: solve chicken-and-egg problems</span></span><br><span class="line"><span class="comment">// use it before actually define it.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">can_print_it</span><span class="params">(<span class="keyword">char</span> ch)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_letters</span><span class="params">(<span class="keyword">char</span> arg[], <span class="keyword">int</span> len)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_arguments</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// call can_print_it</span></span><br><span class="line">	<span class="comment">// call print_letters</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	print_letters(argc, argv);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原因：</p>
+<ol>
+<li>最终要创建自己的头文件，头文件中包含的都是前置声明
+<ul>
+<li>headers: declare <code>define</code>， <code>enum</code>， type，funtions</li>
+</ul>
+</li>
+<li>避免 children-and-egg 问题
+<ul>
+<li>如果两个函数互相调用，那么谁先定义呢？</li>
+<li>避免了调用嵌套的困扰，不用按照调用的方式顺序定义 calling order</li>
+<li>可以按照一些逻辑顺序进行函数的定义 logical order：例如实际使用的函数次序</li>
+</ul>
+</li>
+<li><code>main()</code> 放在最后：更习惯的用法</li>
+</ol>
+<ul>
+<li>
+<p><code>can_print_it()</code> 定义成函数的原因：</p>
+<ul>
+<li>可以方便修改里面的内容</li>
+<li>可以多个地方调用</li>
+</ul>
+</li>
+<li>
+<p>不要使用 K&amp;R C 的函数声明方法</p>
+</li>
+</ul>
+<h2 id="Exercise-15-Pointers-Dreaded-Pointers">Exercise 15. Pointers, Dreaded Pointers</h2>
+<ul>
+<li>
+<p><code>ages[i]</code>:</p>
+<ol>
+<li><code>i</code>: an <em>index</em> / <em>address</em> since it’s a <strong>location</strong> <em>inside</em> <code>ages</code> that we want</li>
+<li><code>ages</code>: <em>(base) address</em> a <strong>location</strong> in the computer’s <em>memory</em> where all of these integers start</li>
+<li>C compiler will replace <code>ages</code> anywhere you type it with the <em>address</em> of the very first integer in <code>ages</code></li>
+</ol>
+</li>
+</ul>
+<p>C 把大块的字节数组（也就是内存），抽象为不同<strong>大小</strong>的<strong>类型</strong></p>
+<ul>
+<li>C thinks your whole computer is one <strong>massive array of bytes</strong></li>
+<li>What C does is <em>layer</em> on top of this massive array of bytes the concept of <code>types</code> and <code>sizes</code> of those <code>types</code></li>
+</ul>
+<h3 id="Pointers">Pointers</h3>
+<p>A <strong>pointer</strong> is simply an <em>address</em> pointing somewhere inside the computer’s memory with a <em>type specifier</em> so that you get the <strong>right size of data</strong> with it.</p>
+<p>Pointers are just <strong>numbers</strong>.</p>
+<ol>
+<li>Ask the OS for a chunk of memory and use a pointer to work with it. This includes strings and something you haven’t seen yet, <code>structs</code></li>
+<li>Ask the OS for a chunk of memory and use a pointer to work with it. This includes strings and something you haven’t seen yet, <code>structs</code></li>
+<li>Take the address of a function, so you can use it as a <em>dynamic callback</em>.</li>
+<li>Scan complex chunks of memory, converting bytes off of a <em>network socket</em> into data structures or parsing files.</li>
+</ol>
+<p>其他情况，几乎都可以用 arrays 来解决，用数组的操作方法来使用指针（索引）。</p>
+<p>These days, the syntax to access an array versus a pointer are translated into the same machine code and optimized in the same way.</p>
+<p>只有在十分确定的情况，再用指针来<strong>优化</strong>。</p>
+<h3 id="Pointers-NOT-Arrays">Pointers NOT Arrays</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *ptr = arr;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p><code>sizeof()</code></p>
+<ol>
+<li><code>sizeof(ptr)</code> 得到的是指针的大小，32 位机器是 4 Bytes，64 位机器是 8 Bytes；</li>
+<li><code>sizeof(arr)</code> 得到的是数组的大小，<code>5 * sizeof(int)</code></li>
+</ol>
+</li>
+<li>
+<p>赋值</p>
+<ol>
+<li><code>ptr = arr</code>，是把数组的起始地址给 <code>ptr</code></li>
+<li><code>arr = ptr</code>，error: assignment to expression with array type</li>
+</ol>
+</li>
+<li>
+<p>增减</p>
+<ol>
+<li><code>ptr++</code>，让指针指向接下来一个该类型的元素</li>
+<li><code>arr++</code>，error: lvalue required as increment operand
+<ul>
+<li>数组名 <code>arr</code> 不是<em>左值</em></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>数组名也不是常指针（即指针常量，a const pointer is pointed at a static address）<code>type *const ptr</code>，由上述三点可以判断。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a constant integer A</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> A;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> A; </span><br><span class="line"></span><br><span class="line"><span class="comment">// a pointer B, point at an constant integer </span></span><br><span class="line"><span class="comment">// 常量指针 / 指向常量的指针</span></span><br><span class="line"><span class="comment">// B 可以指向别的常量，B 的值可变</span></span><br><span class="line"><span class="comment">// 但是不能修改其地址内的内容，*B 不可变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *B;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *B;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a constant pointer C </span></span><br><span class="line"><span class="comment">// 常指针/指针常量</span></span><br><span class="line"><span class="comment">// C 指向的地址不再变化，C 的值不可变</span></span><br><span class="line"><span class="comment">// 但是可以修改其地址内的内容，*C 可变</span></span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> C;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a constant pointer D points at a constant integer</span></span><br><span class="line"><span class="comment">// D 和 *D 都不可变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *<span class="keyword">const</span> D;</span><br></pre></td></tr></table></figure>
+<h3 id="指针数组和数组指针">指针数组和数组指针</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指针数组，每个元素 names[i] 是一个指针</span></span><br><span class="line"><span class="keyword">char</span> *names[] = &#123;</span><br><span class="line">	<span class="string">&quot;Alan&quot;</span>, <span class="string">&quot;Frank&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s, %s, %s, %s\n&quot;</span>, names[<span class="number">1</span>], *(names + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组指针，是一个指针，指向一维数组的地址</span></span><br><span class="line"><span class="comment">// name[i] == names + i，移动 i * N 个内存单元</span></span><br><span class="line"><span class="keyword">char</span> <span class="built_in">string</span>[N] = &#123; <span class="string">&quot; &quot;</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> (*names)[N] = &amp;<span class="built_in">string</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;string = %s, names = %s, %s\n&quot;</span>, </span><br><span class="line">	   <span class="built_in">string</span>, *names, names[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="Exercise-16-Structs-And-Pointers-to-Them">Exercise 16. Structs And Pointers to Them</h2>
+<ol>
+<li>
+<p><code>strdup(const char *s)</code>，in <code>string.h</code></p>
+<ul>
+<li>The  <code>strdup()</code>  function  returns  a  pointer to a new string which is a duplicate of the string s.  Memory for the new string is obtained with<code> malloc</code>(3), and can be freed with <code>free</code>(3).</li>
+<li><code>char *a = strdup(&quot;Hello, world&quot;);</code></li>
+<li><code>char a[20]; strcpy(a, &quot;Hello, world&quot;);</code></li>
+</ul>
+</li>
+<li>
+<p><code>free(frank); frank = NULL;</code></p>
+<ul>
+<li>释放之后，把指针置空，否则后面如果还访问这个指针，可能会读到奇怪的内容</li>
+<li><code>free()</code> 把指针指向的内容清空（或者说，告诉 OS 不再使用），但是指针的值没有改，可能还可以正常输出内容</li>
+<li><code>Valgrind</code> 可以提示这个错误 <code>invalid read / invalid free()</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Memory-Leak">Memory Leak</h3>
+<p>使用 Valgrind 检查内存泄漏：</p>
+<p><code>valgrind --leak-check=full --show-reachable=yes -v ./ex16</code></p>
+<h2 id="Exercise-17-Heap-and-Stack-Memory-Allocation">Exercise 17. Heap and Stack Memory Allocation</h2>
+<ul>
+<li>make a prototype to initialize it</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Address</span> <span class="title">addr</span> =</span> &#123;.id = i, .<span class="built_in">set</span> = <span class="number">0</span>&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nested arrow</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Address</span> *<span class="title">addr</span> =</span> &amp;conn-&gt;db-&gt;rows[i];</span><br></pre></td></tr></table></figure>
+<p><code>&amp;conn-&gt;db-&gt;rows[i]</code> that reads “get the <code>i</code> element of <code>rows</code>, which is in <code>db</code>, which is in <code>conn</code>, then get the address of (<code>&amp;</code>) it.”</p>
+<ul>
+<li><code>atoi</code></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atoi</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">atol</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">atoll</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>The <code>atoi()</code> function converts the initial portion of the string pointed to by nptr to int.  The behavior is the same as <code>strtol(nptr, NULL, 10);</code>  except that <code>atoi()</code> does not detect errors.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">int</span> <span class="title">strtol</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *nptr, <span class="keyword">char</span> **endptr, <span class="keyword">int</span> base)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>fread</code></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fread</span><span class="params">(<span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> size, </span></span></span><br><span class="line"><span class="function"><span class="params">			 <span class="keyword">size_t</span> nmemb, FILE *stream)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fwrite</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> size,</span></span></span><br><span class="line"><span class="function"><span class="params">			  <span class="keyword">size_t</span> nmemb, FILE *stream)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">FILE *<span class="title">fopen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *path, <span class="keyword">const</span> <span class="keyword">char</span> *mode)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fclose</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fseek</span><span class="params">(FILE *stream, <span class="keyword">long</span> offset, <span class="keyword">int</span> whence)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">ftell</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rewind</span><span class="params">(FILE *stream)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetpos</span><span class="params">(FILE *stream, <span class="keyword">fpos_t</span> *pos)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fsetpos</span><span class="params">(FILE *stream, <span class="keyword">const</span> <span class="keyword">fpos_t</span> *pos)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>The function <code>fread()</code> reads <code>nmemb</code> items of data, each <code>size</code> bytes long, from the stream pointed to by <code>stream</code>, storing them at the location given by <code>ptr</code>.</p>
+<p>成功返回读写的数据项的个数，失败返回0.</p>
+<p>回到文件开头：<code>rewind(stream)</code> == <code>(void) fseek(stream, 0L, SEEK_SET)</code></p>
+<ul>
+<li><code>strncpy</code></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strncpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">size_t</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>The <code>strncpy()</code> function is similar, except that at most <code>n</code> bytes of <code>src</code> are copied.</p>
+<p>Warning: If there is no <em>null byte</em> among the first <code>n</code> bytes  of  <code>src</code>,  the  string placed in <code>dest</code> will <em><strong>not</strong></em> be null-terminated.</p>
+<p>So add the null byty <code>'\0'</code> manually.</p>
+<h3 id="Heap-and-Stack">Heap and Stack</h3>
+<p>C is using the real CPU’s actual machinery to do its work, and that involves a chunk of RAM called the <strong>stack</strong> and another called the <strong>heap</strong>.</p>
+<ul>
+<li>
+<p>Heap：<code>malloc</code> and <code>free</code>.</p>
+<ol>
+<li>ask OS to register a piece of memory, return a pointer</li>
+<li>after using, give it back to OS, so that won’t <em>leak</em></li>
+</ol>
+</li>
+<li>
+<p>Stack</p>
+<ol>
+<li>Just like a stack data struction, LIFO</li>
+<li>Store the local variables, even those in main function.</li>
+<li>prevent leak</li>
+</ol>
+</li>
+</ul>
+<p>堆和栈的三个主要问题：</p>
+<ol>
+<li>如果在函数中，使用 <code>malloc</code>  申请了一块内存，而指针是在栈上定义的，那么函数结束之后，指针会出栈，然后内存就丢失（泄漏）</li>
+<li>如果在栈上申请了太大的数据（large structs and array），可能会造成 <code>stack overflow</code> 栈溢出，导致错误。这时应该用 <code>malloc</code>。</li>
+<li>如果在函数定义的局部变量，使用指针返回，那么就会得到 <code>segmentation fault</code> 段错误，因为变量在函数结束的时候已经出栈消失，指针指向一个 dead space</li>
+</ol>
+<p>程序结束后，操作系统会回收空间，但是有时候不会立刻回收；所以使用错误退出，<code>exit(1)</code>，让操作系统当作错误，直接回收。</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://doreality.xyz">doreality</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://doreality.xyz/posts/4b675d3.html">https://doreality.xyz/posts/4b675d3.html</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/C/">C</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/posts/5fed90c.html">
+        <span class="next-text nav-default">「LCTHW」C 语言基础篇</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="utterances-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:doreality.jhy@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/doreality" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">doreality</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script>
+    var container = document.getElementById('utterances-container')
+    var script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js'
+    script.setAttribute('repo', 'doreality/doreality-blog-comments')
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('label', 'utterances')
+    script.crossorigin = 'anonymous'
+    script.async = true
+
+    container.appendChild(script)
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
