@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="「LCTHW」函数与指针篇"/><meta name="keywords" content="C, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<meta name="description" content="「LCTHW」函数与指针篇（EX 14-18）"/><meta name="keywords" content="C, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
 <link rel="canonical" href="https://doreality.xyz/posts/4b675d3.html"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
@@ -23,7 +23,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
 
-    <title>「LCTHW」函数与指针篇 - DoReality</title>
+    <title>「LCTHW」函数与指针篇（EX 14-18） - DoReality</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -92,7 +92,7 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">「LCTHW」函数与指针篇
+      <h1 class="post-title">「LCTHW」函数与指针篇（EX 14-18）
         </h1>
 
       <div class="post-meta">
@@ -200,10 +200,10 @@
 <ul>
 <li>
 <p><code>can_print_it()</code> 定义成函数的原因：</p>
-<ul>
+<ol>
 <li>可以方便修改里面的内容</li>
 <li>可以多个地方调用</li>
-</ul>
+</ol>
 </li>
 <li>
 <p>不要使用 K&amp;R C 的函数声明方法</p>
@@ -242,28 +242,24 @@
 <ol>
 <li>
 <p><code>sizeof()</code></p>
-<ol>
+<ul>
 <li><code>sizeof(ptr)</code> 得到的是指针的大小，32 位机器是 4 Bytes，64 位机器是 8 Bytes；</li>
 <li><code>sizeof(arr)</code> 得到的是数组的大小，<code>5 * sizeof(int)</code></li>
-</ol>
+</ul>
 </li>
 <li>
 <p>赋值</p>
-<ol>
+<ul>
 <li><code>ptr = arr</code>，是把数组的起始地址给 <code>ptr</code></li>
 <li><code>arr = ptr</code>，error: assignment to expression with array type</li>
-</ol>
+</ul>
 </li>
 <li>
 <p>增减</p>
-<ol>
-<li><code>ptr++</code>，让指针指向接下来一个该类型的元素</li>
-<li><code>arr++</code>，error: lvalue required as increment operand
 <ul>
-<li>数组名 <code>arr</code> 不是<em>左值</em></li>
+<li><code>ptr++</code>，让指针指向接下来一个该类型的元素</li>
+<li><code>arr++</code>，error: lvalue required as increment operand，数组名 <code>arr</code> 不是<em>左值</em></li>
 </ul>
-</li>
-</ol>
 </li>
 </ol>
 <p>数组名也不是常指针（即指针常量，a const pointer is pointed at a static address）<code>type *const ptr</code>，由上述三点可以判断。</p>
@@ -368,8 +364,13 @@
             <a href="/tags/C/">C</a>
             </div>
         
-        <nav class="post-nav"><a class="next" href="/posts/5fed90c.html">
-        <span class="next-text nav-default">「LCTHW」C 语言基础篇</span>
+        <nav class="post-nav"><a class="prev" href="/posts/e30c74da.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">使用 Pyenv 管理 Python</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/posts/5fed90c.html">
+        <span class="next-text nav-default">「LCTHW」C 语言基础篇（EX 1-13）</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

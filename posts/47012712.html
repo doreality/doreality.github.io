@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="Hexo 报错：Node Sass 版本问题"/><meta name="keywords" content="macOS, Node, Sass, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
-<link rel="canonical" href="https://doreality.xyz/posts/5ed7d52f.html"/>
+<meta name="description" content="终端命令提示符 prompt 样式定制"/><meta name="keywords" content="Terminal, oh-my-zsh, DoReality" /><link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/vvfavi.png?v=2.11.0" />
+<link rel="canonical" href="https://doreality.xyz/posts/47012712.html"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
@@ -23,7 +23,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
 
-    <title>Hexo 报错：Node Sass 版本问题 - DoReality</title>
+    <title>终端命令提示符 prompt 样式定制 - DoReality</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -92,43 +92,29 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">Hexo 报错：Node Sass 版本问题
+      <h1 class="post-title">终端命令提示符 prompt 样式定制
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2021-12-05
+          2022-07-15
         </span><span class="post-category">
             <a href="/categories/Tips/">Tips</a>
             </span>
         </div>
     </header>
 
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">成功的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">失败的方法</span></a></li></ol>
-    </div>
-  </div><div class="post-content"><p>使用 <code>hexo clean</code> 的时候，Sass 报错。</p>
+    <div class="post-content"><p>终端的命令提示符样式定制：macOS / Linux</p>
 <span id="more"></span>
-<p>原因可能是重新配置了一些环境里的 node 的版本。</p>
-<p>然后 <code>hexo clean</code> 的时候报错：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Node Sass does not yet support your current environment: OS X Unsupported architecture (arm64) with Node.js 14.x</span><br></pre></td></tr></table></figure>
-<h3 id="成功的方法">成功的方法</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install node-sass@npm:sass</span></span><br></pre></td></tr></table></figure>
-<p>来自 StackOverFlow 的 问题 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68095626/node-sass-with-apple-m1-big-sur-and-arm64">Node Sass with apple m1, Big Sur and arm64</a>：</p>
-<img src="/posts/5ed7d52f/image-20211205174144709.png" class="" title="答案截图">
-<h3 id="失败的方法">失败的方法</h3>
-<ol>
+<p>如果使用的是 oh-my-zsh，不同的主题就可以对应不同的命令提示符配置，但是要个性化配置可以参考如下：</p>
+<ul>
 <li>
-<p>直接升级（未解决）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install node-sass --dev</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/S_gy_Zetrov/article/details/80158409?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-80158409-blog-119827463.pc_relevant_vip_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-80158409-blog-119827463.pc_relevant_vip_default&amp;utm_relevant_index=2">oh-my-zsh修改主题添加全路径显示</a></p>
 </li>
 <li>
-<p>重新安装（未解决）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm -rf node_modules</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nyist_zxp/article/details/108089181">Linux 终端命令提示符总结</a></p>
 </li>
-</ol>
+</ul>
 
       </div>
       <div class="post-copyright">
@@ -138,7 +124,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="https://doreality.xyz/posts/5ed7d52f.html">https://doreality.xyz/posts/5ed7d52f.html</a>
+      <a href="https://doreality.xyz/posts/47012712.html">https://doreality.xyz/posts/47012712.html</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
@@ -146,18 +132,12 @@
   </div>
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/macOS/">macOS</a>
-            <a href="/tags/Node/">Node</a>
-            <a href="/tags/Sass/">Sass</a>
+            <a href="/tags/Terminal/">Terminal</a>
+            <a href="/tags/oh-my-zsh/">oh-my-zsh</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/posts/73881320.html">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">macOS 下端口占用问题</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/posts/a1b3f005.html">
-        <span class="next-text nav-default">JavaScript 网络程序设计（三）：Express 入门</span>
+        <nav class="post-nav"><a class="next" href="/posts/66790ec6.html">
+        <span class="next-text nav-default">macOS 修改主机名等</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
