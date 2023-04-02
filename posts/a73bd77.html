@@ -107,89 +107,47 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">创建远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-text">远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0"><span class="toc-text">从远程仓库获取更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="toc-text">合并更新到本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="toc-text">上传到远程仓库并合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%8F%E7%A6%BB%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4"><span class="toc-text">偏离的历史提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8B%92%E7%BB%9D"><span class="toc-text">远程服务器拒绝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88rebase%EF%BC%89"><span class="toc-text">合并特性分支（rebase）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88merge%EF%BC%89"><span class="toc-text">合并特性分支（merge）</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">一、创建远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-text">二、远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E8%8E%B7%E5%8F%96%E6%9B%B4%E6%96%B0"><span class="toc-text">三、从远程仓库获取更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%90%88%E5%B9%B6%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="toc-text">四、合并更新到本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="toc-text">五、上传到远程仓库并合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%81%8F%E7%A6%BB%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4"><span class="toc-text">六、偏离的历史提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8B%92%E7%BB%9D"><span class="toc-text">七、远程服务器拒绝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88rebase%EF%BC%89"><span class="toc-text">八、合并特性分支（rebase）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%90%88%E5%B9%B6%E7%89%B9%E6%80%A7%E5%88%86%E6%94%AF%EF%BC%88merge%EF%BC%89"><span class="toc-text">九、合并特性分支（merge）</span></a></li></ol>
     </div>
   </div><div class="post-content"><p>根据<a href="https://doreality.xyz/posts/e01b0c7d.html">上一篇</a>提到的教程，学习一下第二部分：远程仓库。</p>
 <p>学习的内容一多起来，就发现好难管理，而且容易到处新建，到处分类。快点掌握远程仓库的用法吧！</p>
 <p>大喊一句：当然要CLI！</p>
 <span id="more"></span>
-<h3 id="创建远程仓库">创建远程仓库</h3>
-<p>使用命令：<code>git clone</code></p>
+<h3 id="一、创建远程仓库">一、创建远程仓库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>在<strong>本地</strong>创建一个远程仓库的拷贝。</p>
-</li>
-<li>
-<p>在任意一个要保存这个仓库的目录下 <code>git clone</code>，会出现仓库的文件夹，同时会有两个分支：本地分支 <code>main</code> 和远程分支 <code>o/main</code>。</p>
-</li>
+<li>在<strong>本地</strong>创建一个远程仓库的拷贝。</li>
+<li>在任意一个要保存这个仓库的目录下 <code>git clone</code>，会出现仓库的文件夹，同时会有两个分支：本地分支 <code>main</code> 和远程分支 <code>o/main</code>。</li>
+<li>远程仓库的默认名字是 <code>origin</code>，常用缩写 <code>o</code> 表示。</li>
 </ul>
-<h3 id="远程分支">远程分支</h3>
+<h3 id="二、远程分支">二、远程分支</h3>
 <blockquote>
 <p>远程分支反映了在你<strong>最后一次</strong>与远程仓库通信时，远程仓库的状态。</p>
 </blockquote>
-<ol>
-<li>
-<p>远程仓库</p>
-<ul>
-<li>默认名字是 <code>origin</code>，常用缩写 <code>o</code> 表示。</li>
-</ul>
-</li>
-<li>
-<p>远程分支</p>
-<ul>
-<li>
-<p>使用 <code>git clone</code> 后，在本地仓库出现的分支。</p>
-</li>
-<li>
-<p>命名方式：<code>&lt;remote name&gt;/&lt;branch name&gt;</code></p>
+<p>远程分支是使用 <code>git clone</code> 后，在本地仓库出现的分支。</p>
+<p>命名方式：<code>&lt;remote name&gt;/&lt;branch name&gt;</code>。</p>
 <p>如果分支名字为 <code>main</code>，那么远程分支就是 <code>origin/main</code>，常用缩写 <code>o/main</code> 表示。</p>
-</li>
+<p>远程分支的特点：</p>
+<ul>
+<li>对远程分支检出（<code>git checkout o/main</code>），则会自动进入 <code>HEAD</code> 分离状态。</li>
+<li>这个时候添加提交，远程分支 <code>o/main</code> 并不会移动到新的提交上，因为要和远程仓库中相应的分支同步更新。</li>
 </ul>
-</li>
-<li>
-<p>远程分支的特点</p>
-<p>对远程分支检出（<code>git checkout o/main</code>），则会自动进入 <code>HEAD</code> 分离状态。</p>
-<p>这个时候添加提交，远程分支 <code>o/main</code> 并不会移动到新的提交上，因为要和远程仓库中相应的分支同步更新。</p>
-<p>（注意：本地分支 <code>main</code> 与此无关，在 <code>main</code> 上提交后，分支指针保持正常移动。）</p>
-</li>
-</ol>
-<h3 id="从远程仓库获取更新">从远程仓库获取更新</h3>
+<p>注意：本地分支 <code>main</code> 与此无关，在 <code>main</code> 上提交后，分支指针保持正常移动。</p>
+<h3 id="三、从远程仓库获取更新">三、从远程仓库获取更新</h3>
 <blockquote>
 <p>当我们从远程仓库获取数据时，远程分支也会更新，以反映最新的远程仓库。</p>
 </blockquote>
-<ul>
-<li>
-<p>使用命令：<code>git fetch</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> fetch</span><br></pre></td></tr></table></figure>
 <p>把远程仓库 <code>origin</code> 的分支 <code>main</code> 中有，而本地仓库的远程分支 <code>origin/main</code> 中没有的提交下载下来，并且更新远程分支。</p>
 <p>通常通过互联网（使用 <code>http://</code> 或 <code>git://</code> 协议）与远程仓库通信。</p>
-</li>
-<li>
-<p>简单说，这条命令做了两件事：</p>
-<ol>
-<li>
-<p>从远程仓库<strong>下载</strong>本地仓库缺失的提交记录</p>
-</li>
-<li>
-<p>更新<strong>远程分支</strong>指针 <code>o/main</code></p>
-</li>
-</ol>
-</li>
-<li>
-<p>这条命令<strong>没有</strong>做的事情：</p>
-<ol>
-<li>
-<p>同步更新本地分支 <code>main</code></p>
-</li>
-<li>
-<p>同步更新本地仓库和远程仓库 <code>origin</code></p>
-</li>
-</ol>
-</li>
-<li>
+<p>简单说，这条命令做了两件事：<br>
+1. 从远程仓库<strong>下载</strong>本地仓库缺失的提交记录<br>
+2. 更新<strong>远程分支</strong>指针 <code>o/main</code></p>
+<p>这条命令<strong>没有</strong>做的事情：<br>
+1. 没有同步更新本地分支 <code>main</code><br>
+2. 没有同步更新本地仓库和远程仓库 <code>origin</code></p>
 <p>再简单点说：<code>git fetch</code> 仅仅把更新下载到了 <code>o/main</code> 中，没有对 <code>main</code> 做任何操作。</p>
-</li>
-</ul>
-<h3 id="合并更新到本地分支">合并更新到本地分支</h3>
+<h3 id="四、合并更新到本地分支">四、合并更新到本地分支</h3>
 <ol>
 <li>
 <p>两步走：<code>git fetch</code> + 任意合并分支指令</p>
@@ -229,7 +187,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="上传到远程仓库并合并">上传到远程仓库并合并</h3>
+<h3 id="五、上传到远程仓库并合并">五、上传到远程仓库并合并</h3>
 <blockquote>
 <p><code>git push</code> 不带任何参数时的行为与 Git 的一个名为 <code>push.default</code> 的配置有关。</p>
 <p>它的默认值取决于你正使用的 Git 的版本，但是在教程中我们使用的是 <code>upstream</code>。</p>
@@ -242,7 +200,7 @@
 <li>同时远程分支<code>o/main</code>也更新到本地分支<code>main</code>的位置</li>
 </ul>
 <p>就是说，所有的分支都同步了。</p>
-<h3 id="偏离的历史提交">偏离的历史提交</h3>
+<h3 id="六、偏离的历史提交">六、偏离的历史提交</h3>
 <blockquote>
 <p>无法<code>git push</code>：本地的工作基于旧的提交，Git 会拒绝你直接推送到远程仓库。</p>
 </blockquote>
@@ -268,7 +226,7 @@
 </li>
 </ol>
 <p>总之，就是要把远程仓库的最新情况下载下来，把自己的更新和最新的合并，然后才能再发布到远程仓库。</p>
-<h3 id="远程服务器拒绝">远程服务器拒绝</h3>
+<h3 id="七、远程服务器拒绝">七、远程服务器拒绝</h3>
 <blockquote>
 <p>! [远程服务器拒绝] main -&gt; main (TF402455: 不允许推送(push)这个分支; 你必须使用pull request来更新这个分支.)</p>
 </blockquote>
@@ -303,59 +261,24 @@
 </ol>
 </li>
 </ul>
-<h3 id="合并特性分支（rebase）">合并特性分支（rebase）</h3>
+<h3 id="八、合并特性分支（rebase）">八、合并特性分支（rebase）</h3>
 <blockquote>
 <p>特性分支是指为一个特定的需求/任务/缺陷创建的分支，在其上完成相应开发后，一般会把它合并到集成/发布分支，与其他改动(若有)一起集成并最终发布。</p>
 </blockquote>
-<ol>
-<li>
-<p>当前分支为 <code>main</code></p>
-<p><code>git checkout main</code></p>
-</li>
-<li>
-<p>将特性分支集成到 <code>main</code> 上</p>
-<p><code>git rebase feature1</code> -&gt; <code>git rebase feature2</code> -&gt; …</p>
-</li>
-<li>
-<p>推送并更新远程分支</p>
-<p><code>git pull --rebase</code> -&gt; <code>git push</code></p>
-<ul>
-<li>
-<p>将我们的工作 rebase 到远程分支的最新提交记录</p>
-</li>
-<li>
-<p>向远程仓库推送我们的工作</p>
-</li>
-</ul>
-</li>
-</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> checkout main     <span class="comment"># 1. 进入当前分支 main</span></span><br><span class="line"><span class="variable">$git</span> rebase feature1   <span class="comment"># 2. 将特性分支集成到 main 上</span></span><br><span class="line"><span class="variable">$git</span> rebase feature2</span><br><span class="line"><span class="variable">$git</span> pull --rebase     <span class="comment"># 3. 将更新 rebase 到远程分支到最新提交记录</span></span><br><span class="line"><span class="variable">$git</span> push              <span class="comment"># 4. 推送到远程仓库</span></span><br></pre></td></tr></table></figure>
 <p><em><strong>Tips</strong>：因为 <code>rebase</code> 是在一条线上不断更新，所以最后一步 <code>rebase</code> 一定是要 <code>rebase</code> 到远程仓库的最新记录。</em></p>
-<h3 id="合并特性分支（merge）">合并特性分支（merge）</h3>
+<h3 id="九、合并特性分支（merge）">九、合并特性分支（merge）</h3>
 <blockquote>
 <p>在开发社区里，有许多关于 merge 与 rebase 的讨论。以下是关于 rebase 的优缺点：</p>
-<p>优点:  Rebase 使你的提交树变得很干净, 所有的提交都在一条线上</p>
-<p>缺点: Rebase 修改了提交树的历史</p>
-<p>一些开发人员喜欢保留提交历史，因此更偏爱 merge。而其他人可能更喜欢干净的提交树，于是偏爱 rebase。</p>
+<ul>
+<li>优点:  Rebase 使你的提交树变得很干净, 所有的提交都在一条线上</li>
+<li>缺点: Rebase 修改了提交树的历史</li>
+</ul>
+<p>一些开发人员喜欢保留提交历史，因此更偏爱 merge。<br>
+而其他人可能更喜欢干净的提交树，于是偏爱 rebase。</p>
 </blockquote>
 <p>使用<code>git merge</code>完成合并特性分支：</p>
-<ol>
-<li>
-<p>当前分支为 <code>main</code></p>
-<p><code>git checkout main</code></p>
-</li>
-<li>
-<p>获取远程更新</p>
-<p><code>git pull</code></p>
-</li>
-<li>
-<p>合并特性分支到 <code>main</code></p>
-<p><code>git merge side1</code> -&gt; <code>git merge side2</code> -&gt; <code>git merge side3</code> -&gt; …</p>
-</li>
-<li>
-<p>推送并更新远程仓库</p>
-<p><code>git push</code></p>
-</li>
-</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> checkout main <span class="comment"># 1. 进入 main 分支</span></span><br><span class="line"><span class="variable">$git</span> pull          <span class="comment"># 2. 获取远程更新</span></span><br><span class="line"><span class="variable">$git</span> merge side1   <span class="comment"># 3. 将特性分支合并到 main</span></span><br><span class="line"><span class="variable">$git</span> merge side2</span><br><span class="line"><span class="variable">$git</span> push          <span class="comment"># 4. 推送并更新远程仓库 </span></span><br></pre></td></tr></table></figure>
 <p><em><strong>Tips</strong>：merge 需要父节点，所以一定要注意，在祖先节点里包含远程仓库的最新纪录。</em></p>
 
       </div>
@@ -405,7 +328,7 @@
     <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
-  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+  <span class="copyright-year">&copy;2021 - 2023<span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
     <span class="author">doreality</span>
