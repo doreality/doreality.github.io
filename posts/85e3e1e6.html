@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/vvfavi.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/vvfavi.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/vvfavi.png">
+  <link rel="mask-icon" href="/images/vvfavi.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doreality.xyz","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原版课程请访问：Code With Mosh B 站中文字幕版：HTML&amp;CSS 基础篇 - Mosh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML&amp;CSS 基础篇">
+<meta property="og:url" content="https://doreality.xyz/posts/85e3e1e6.html">
+<meta property="og:site_name" content="DoReality">
+<meta property="og:description" content="原版课程请访问：Code With Mosh B 站中文字幕版：HTML&amp;CSS 基础篇 - Mosh">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-17T14:43:54.000Z">
+<meta property="article:modified_time" content="2023-04-17T15:05:26.826Z">
+<meta property="article:author" content="doreality">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doreality.xyz/posts/85e3e1e6.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTML&CSS 基础篇 | DoReality</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">DoReality</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://doreality.xyz/posts/85e3e1e6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="doreality">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DoReality">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML&CSS 基础篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-17 22:43:54 / 修改时间：23:05:26" itemprop="dateCreated datePublished" datetime="2023-04-17T22:43:54+08:00">2023-04-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index"><span itemprop="name">Development</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>原版课程请访问：<a target="_blank" rel="noopener" href="https://codewithmosh.com/">Code With Mosh</a></li>
+<li>B 站中文字幕版：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rK4y1W7XZ/?p=7&amp;share_source=copy_web&amp;vd_source=9fbcc6c828dc945d8ee14b34a7922c47">HTML&amp;CSS 基础篇 - Mosh</a></li>
+</ul>
+<span id="more"></span>
+<h2 id="HTML：关注-Semantic">HTML：关注 Semantic</h2>
+<p><strong>!!!</strong> 出现  BUG 先去验证 Validation<br>
+- <a target="_blank" rel="noopener" href="https://validator.w3.org/">HTML Validator</a><br>
+- <a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">CSS Validator</a></p>
+<h3 id="语义-HTML">语义 HTML</h3>
+<p><strong>SemanticHTML</strong> 不要在 HTML 中使用 <code>&lt;b&gt;</code> 和 <code>&lt;i&gt;</code></p>
+<ul>
+<li>因为 HTML 不再负责样式，而只专注于文档的结构；</li>
+<li>如果需要强调内容，可以使用 <code>&lt;em&gt;</code> 和 <code>&lt;strong&gt;</code>，然后用 CSS 修改样式。</li>
+</ul>
+<p><strong>SemanticHTML</strong> 每个页面有且只有一个 <code>&lt;h1&gt;</code>，根据文档结构使用标题标签</p>
+<ul>
+<li>例如，在 <code>&lt;h1&gt;</code> 后使用 <code>&lt;h2&gt;</code>，而不是根据字号选择 <code>&lt;h4&gt;</code> 之类的。样式用 CSS 修改。</li>
+</ul>
+<h3 id="转义字符">转义字符</h3>
+<p><code>&amp;;</code> 转义字符；<code>&amp;copy;</code>，<code>&amp;nbsp;</code>（不换行的空格）</p>
+<pre><code> 如 `my&amp;nbsp;dog`，`my dog` 会一直在网页的同一行中显示。
+</code></pre>
+<h3 id="a">a</h3>
+<p><code>&lt;a&gt;&lt;/a&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">download</span>&gt;</span>下载链接的内容<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:dieofreality@gmail.com&quot;</span>&gt;</span>发邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>新页面打开<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#id&quot;</span>&gt;</span>跳转到id标签位置<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Back to Top<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#top&quot;</span>&gt;</span>Back to Top<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="img">img</h3>
+<p><code>&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">	<span class="attribute">object-fit</span>: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="video">video</h3>
+<p><code>&lt;video src=&quot;&quot;&gt;&lt;/video&gt;</code>，<code>&lt;audio&gt;&lt;/audio&gt;</code></p>
+<p>HTML 的布尔值：出现在标签里，表示「真」；没出现则表示「假」。</p>
+<ul>
+<li><code>controls</code>：播放按钮，用户可以控制</li>
+<li><code>autoplay</code>：自动播放</li>
+<li><code>loop</code>：循环播放</li>
+</ul>
+<p>仍然有浏览器（OperaMini）不支持 <code>&lt;video&gt;</code> 标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span>&gt;</span></span><br><span class="line">	Your broswer doesn&#x27;t support videos.</span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ol-ul-dl">ol / ul / dl</h3>
+<p><code>&lt;ol&gt;</code> <code>&lt;ul&gt;</code> <code>&lt;dl&gt;</code></p>
+<p><code>ol&gt;li*3</code> 自动生成（Zen Coding）</p>
+<blockquote>
+<p>Description Lists, for implementing gloceries and descibing metadata</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>Description Term: HTML<span class="tag">&lt;<span class="name">dt</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>Description Details: </span><br><span class="line">		HyperText Markup Language</span><br><span class="line">	<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>Cascading Style Sheets<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>some text<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>something else<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="table">table</h3>
+<p><code>&lt;table&gt;</code></p>
+<p><strong>SemanticHTML</strong> 为了 SEO 和阅读器，使用 <code>&lt;thead&gt;</code> ，<code>&lt;tbody&gt;</code> 和 <code>&lt;tfoot&gt;</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">th</span>&gt;</span>head lable<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">td</span>&gt;</span>table date cell<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tfoot</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tfoot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span>	</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span>,</span><br><span class="line"><span class="selector-tag">td</span>,</span><br><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid grey;</span><br><span class="line">	<span class="attribute">border-collapse</span>: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通用容器元素">通用容器元素</h3>
+<p><code>&lt;div&gt;</code> ，<code>&lt;span&gt;</code></p>
+<p>block level 元素会占据一整行！！！<br>
+inline 的 <code>&lt;span&gt;</code> 适合修饰文本之类的</p>
+<h3 id="语义容器元素">语义容器元素</h3>
+<p><strong>SemanticHTML</strong></p>
+<ul>
+<li><code>&lt;article&gt;</code>：block，独立、自述的内容片段</li>
+<li><code>&lt;figure&gt;</code>：block，文章搭配的插图，可以包裹 <code>&lt;img&gt;</code> 并在上下加上 <code>&lt;figcaption</code> 图片描述。</li>
+<li><code>&lt;mark&gt;</code>：inline，背景 <code>yellow</code> 高亮</li>
+<li><code>&lt;time&gt;</code>：inline，<code>&lt;time datetime=&quot;2023-03-06 15:00&gt;2023年3月6日，下午3点&lt;/time&gt;&quot;</code></li>
+</ul>
+<h3 id="页面的基本结构">页面的基本结构</h3>
+<p><strong>SemanticHTML</strong></p>
+<ul>
+<li><code>main</code>：表示页面的主要内容，每个页面只能有一个，否则验证会有问题</li>
+<li><code>section</code>：给相关内容分组，可以放在 <code>main</code> 中，也可以放在 <code>article</code> 中</li>
+<li><code>header</code>，<code>footer</code>：表示内容的开始/结束，可以用于页面、<code>section</code> 或者 <code>article</code></li>
+<li><code>aside</code>：表示和主体内容不相关的部分</li>
+</ul>
+<p>一种语义元素应用的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">ul</span>&gt;</span> <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">aside</span>&gt;</span> <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="CSS">CSS</h2>
+<h3 id="样式表优先级">样式表优先级</h3>
+<p>使用 CSS：样式优先级，inline 最高，嵌入其次，外部最低。</p>
+<ol>
+<li>Embedded CSS：<code>&lt;head&gt; &lt;style&gt;&lt;/style&gt; &lt;/head&gt;</code></li>
+<li>External CSS <em>Seperation of Concerns</em>：<code>&lt;head&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;.css&quot;&gt;&lt;/head&gt;</code></li>
+<li>Inline CSS：<code>&lt;p style=&quot;color:red;&quot;&gt;&lt;/p&gt;</code></li>
+</ol>
+<h3 id="Normalize-CSS">Normalize CSS</h3>
+<p>由于不同浏览器的渲染效果不同，开发时要保持 CSS 一致化。</p>
+<h3 id="Selector">Selector</h3>
+<h4 id="基本选择器">基本选择器</h4>
+<ul>
+<li>Tag：<code>body &#123;&#125;</code></li>
+<li>Class：<code>.food &#123;&#125;</code></li>
+<li>Id：<code>#product &#123;&#125;</code></li>
+<li>Attribute（不常用）：<code>a[href^=&quot;https&quot;][href$=&quot;.com&quot;] &#123;&#125;</code></li>
+</ul>
+<h4 id="关系选择器">关系选择器</h4>
+<p><strong>Fragile</strong> （不要这么用，修改时会很麻烦）</p>
+<ul>
+<li>选择内部全部后代（子孙）：<code>.product p</code></li>
+<li>选择内部直接后代（子）：<code>.product &gt; p</code></li>
+<li>选择同级相邻第一个：<code>.product + p</code></li>
+<li>选择同级下方的全部：<code>.product ~ p</code></li>
+</ul>
+<h4 id="伪类选择器">伪类选择器</h4>
+<ul>
+<li><strong>Fragile</strong> 子元素第一个：<code>article :first-child &#123;&#125;</code></li>
+<li>子元素中每种类型的第一个：<code>article :first-of-type &#123;&#125;</code></li>
+<li>该类型作为子元素时（作为内部每个块级元素的子元素，都可以匹配一次）：<code>article p:first-child</code>，<code>article p:first-of-type</code></li>
+<li>选中某些行：<code>ul li:nth-child(odd)</code> 奇数行，<code>table tr:nth-child(3n)</code>（<code>thead</code>，<code>tbody</code> 和 <code>tfoot</code> 分别计算自己的行数，从 1 开始）</li>
+<li>未访问：<code>a:link</code></li>
+<li>访问过：<code>a:visited</code></li>
+<li>悬停：<code>a:hover, a:focus &#123;&#125;</code> 用 Tab 访问时也可以改变样式</li>
+</ul>
+<h4 id="伪元素选择器">伪元素选择器</h4>
+<ul>
+<li><code>::first-letter</code></li>
+<li><code>::first-line</code></li>
+<li><code>::selection &#123;backgroud-color: deeppink; &#125;</code></li>
+<li><code>::after</code></li>
+<li><code>::before &#123; content: '...'; &#125;</code></li>
+</ul>
+<p>（性能差一点，但是暂时不考虑性能；标签移动后，效果可能会破坏。）</p>
+<blockquote>
+<p>Premature optimization is the ROOT of ALL evils. – Donald Knuth<br>
+过早优化是一切问题的根源。</p>
+</blockquote>
+<h3 id="选择器优先级">选择器优先级</h3>
+<ol>
+<li>ID (1, 0, 0)</li>
+<li>Class &amp; Attribute (0, 1, 0)</li>
+<li>Element (0, 0, 1)</li>
+</ol>
+<ul>
+<li>不好的做法：<code>h1 &#123; color:red !important &#125;</code>，<code>!important</code> 会破坏优先级</li>
+<li>好的做法：多种选择器叠加：<code>h1#product</code>，<code>.highlight#product</code></li>
+</ul>
+<p>但是也不能过于依赖，会造成很难读的情况</p>
+<h3 id="CSS-继承">CSS 继承</h3>
+<ul>
+<li>不要继承：<code>color: initial;</code></li>
+<li>显式继承：<code>border: inherit;</code></li>
+</ul>
+<h3 id="Color">Color</h3>
+<p><a target="_blank" rel="noopener" href="https://colorpicker.me/">Color Picker</a></p>
+<ul>
+<li>rgb(R, G, B)</li>
+<li>rgba(R, G, B, Transparency(0-1))</li>
+<li>hex: <code>#xxxxxx</code></li>
+<li>hsl(色相, 饱和度%, 亮度%)</li>
+<li>hsl(53deg 50% 60%)</li>
+<li>hsla( , %, %, 0-1)</li>
+</ul>
+<h3 id="渐变">渐变</h3>
+<p><a target="_blank" rel="noopener" href="https://cssgradient.io/">CSS 渐变生成器</a></p>
+<ul>
+<li><code>background: linear-gradient(to top/right/bottom/left | 45deg, red, green, blue);</code></li>
+<li><code>linear-gradient(to right, red 10%, green 50%)</code> 百分比表示 红色 从0到10% 和绿色从 50% 到 100% 到范围内实色填充，其他区域渐变</li>
+<li><code>radial-gradient(circle at top left, white, yellow)</code></li>
+</ul>
+<h3 id="Shapes">Shapes</h3>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/the-shapes-of-css/">CSS Shapes</a></p>
+<ul>
+<li><code>box-shadow: 10px 20px 5px blue</code> right bottom radius</li>
+<li><code>text-shadow: 同上</code></li>
+<li>rgba(0, 0, 0, 0.2) 带不透明度调节到阴影可以更好融合到背景里</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/9bb3bd63.html" rel="prev" title="使用 GitHub Actions 自动添加 TOC 到 README">
+      <i class="fa fa-chevron-left"></i> 使用 GitHub Actions 自动添加 TOC 到 README
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%EF%BC%9A%E5%85%B3%E6%B3%A8-Semantic"><span class="nav-number">1.</span> <span class="nav-text">HTML：关注 Semantic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89-HTML"><span class="nav-number">1.1.</span> <span class="nav-text">语义 HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a"><span class="nav-number">1.3.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img"><span class="nav-number">1.4.</span> <span class="nav-text">img</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video"><span class="nav-number">1.5.</span> <span class="nav-text">video</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ol-ul-dl"><span class="nav-number">1.6.</span> <span class="nav-text">ol &#x2F; ul &#x2F; dl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table"><span class="nav-number">1.7.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%AE%B9%E5%99%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.8.</span> <span class="nav-text">通用容器元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%AE%B9%E5%99%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.9.</span> <span class="nav-text">语义容器元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">1.10.</span> <span class="nav-text">页面的基本结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.1.</span> <span class="nav-text">样式表优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Normalize-CSS"><span class="nav-number">2.2.</span> <span class="nav-text">Normalize CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selector"><span class="nav-number">2.3.</span> <span class="nav-text">Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.2.</span> <span class="nav-text">关系选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.3.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.4.</span> <span class="nav-text">伪元素选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.4.</span> <span class="nav-text">选择器优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E7%BB%A7%E6%89%BF"><span class="nav-number">2.5.</span> <span class="nav-text">CSS 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Color"><span class="nav-number">2.6.</span> <span class="nav-text">Color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E5%8F%98"><span class="nav-number">2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shapes"><span class="nav-number">2.8.</span> <span class="nav-text">Shapes</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doreality</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doreality</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
