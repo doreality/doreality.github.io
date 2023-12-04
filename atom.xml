@@ -6,7 +6,7 @@
   <link href="https://doreality.xyz/atom.xml" rel="self"/>
   
   <link href="https://doreality.xyz/"/>
-  <updated>2023-10-26T10:37:06.866Z</updated>
+  <updated>2023-12-04T15:28:44.044Z</updated>
   <id>https://doreality.xyz/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何使用 Hexo 草稿</title>
+    <link href="https://doreality.xyz/posts/2696c415.html"/>
+    <id>https://doreality.xyz/posts/2696c415.html</id>
+    <published>2023-12-04T15:28:43.000Z</published>
+    <updated>2023-12-04T15:28:44.044Z</updated>
+    
+    <content type="html"><![CDATA[<p>当出现新的点子，或者一篇文章还没写完，不想发布，Hexo 可以使用草稿。</p><span id="more"></span><h2 id="创建草稿">创建草稿</h2><p>在博客目录下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$hexo</span> new draft &lt;title&gt;</span><br></pre></td></tr></table></figure><p>会存放在 <code>source/_drafts</code> 目录中，创建草稿时，文章没有日期时间信息。</p><h2 id="查看草稿">查看草稿</h2><p>在本地预览时，可以查看：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$hexo</span> s --draft</span><br></pre></td></tr></table></figure><h2 id="发布草稿">发布草稿</h2><p>将草稿移到 <code>_posts</code> 目录，可以发布。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$hexo</span> publish &lt;file&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;当出现新的点子，或者一篇文章还没写完，不想发布，Hexo 可以使用草稿。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
+    
+    
+    <category term="Hexo" scheme="https://doreality.xyz/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>不小心丢掉了环境变量PATH（~/.zshrc）该怎么办</title>
     <link href="https://doreality.xyz/posts/1d2fe0ab.html"/>
     <id>https://doreality.xyz/posts/1d2fe0ab.html</id>
     <published>2023-10-26T09:56:33.000Z</published>
-    <updated>2023-10-26T10:37:06.866Z</updated>
+    <updated>2023-12-04T15:20:51.276Z</updated>
     
     <content type="html"><![CDATA[<p>写在前面：重要文件一定要备份！备份！备份！</p><span id="more"></span><p>问题：<code>~/.zshrc</code> 被清空</p><p>具体原因：配置环境变量时，输入命令 <code>export PATH=&quot;$PATH:&quot;</code> 时，把 <code>$</code> 符号漏掉了，顺手 <code>source ~/.zshrc</code> ，还把同时开的其他终端tab关掉了。</p><p>好，吧。所有的 oh-my-zsh 丢掉了，PATH 消失，一些命令 alias 配置也没了。</p><p>其实能补救的很少，但是也有很多情况能再挣扎一下。</p><h2 id="几个命令">几个命令</h2><p>查看使用的shell是 <code>bash</code> 还是 <code>zsh</code>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$0</span></span><br></pre></td></tr></table></figure><p>查看 PATH 内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure><p>查看历史（内容和<code>~/.zsh_history</code>一致）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">history</span></span><br></pre></td></tr></table></figure><h2 id="几个补救方案">几个补救方案</h2><ul><li>如果刚 <code>export</code> 还没有 <code>source</code>，那么关掉这个shell，就会还原。</li><li>如果 <code>export</code> 且 <code>source</code> 了，但是同时开了其他的shell窗口或者标签页，或者 VS Code/IDE 等环境的终端环境，在它们中用 <code>echo $PATH</code> 查看你之前的 PATH，进行保存备份，重新修改到 <code>~/.zshrc</code></li></ul><p>另外，<code>~/.zprofile</code> 中也保存了一些环境，我的 <code>homebrew</code> 和 Java 还有系统各种 <code>bin</code> 都在里面，只能说是不幸中的万幸，在 <code>.zshrc</code> 消失后，这些还在 PATH 里。</p><p>所以我丢掉的是用 oh-my-zsh 进行的主题配置，Pyenv / Conda 的环境，还有一些我可能暂时想不起来也用不到的配置……</p><h2 id="总结">总结</h2><ul><li>重要的配置文件，修改的时候要再三小心！！！</li><li>永远给自己留后路！！！</li></ul><h2 id="附-zshrc-目前的配置">附 .zshrc 目前的配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Path to your oh-my-zsh configuration.</span></span><br><span class="line"><span class="built_in">export</span> ZSH=<span class="variable">$HOME</span>/.oh-my-zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set name of the theme to load.</span></span><br><span class="line"><span class="comment"># Look in ~/.oh-my-zsh/themes/</span></span><br><span class="line"><span class="comment"># Optionally, if you set this to &quot;random&quot;, it&#x27;ll load a random theme each</span></span><br><span class="line"><span class="comment"># time that oh-my-zsh is loaded.</span></span><br><span class="line"><span class="built_in">export</span> ZSH_THEME=<span class="string">&quot;arrow&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set list of themes to pick from when loading at random</span></span><br><span class="line"><span class="comment"># Setting this variable when ZSH_THEME=random will cause zsh to load</span></span><br><span class="line"><span class="comment"># a theme from this variable instead of looking in $ZSH/themes/</span></span><br><span class="line"><span class="comment"># If set to an empty array, this variable will have no effect.</span></span><br><span class="line"><span class="comment"># ZSH_THEME_RANDOM_CANDIDATES=( &quot;robbyrussell&quot; &quot;agnoster&quot; )</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to use case-sensitive completion.</span></span><br><span class="line"><span class="comment"># CASE_SENSITIVE=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to use hyphen-insensitive completion.</span></span><br><span class="line"><span class="comment"># Case-sensitive completion must be off. _ and - will be interchangeable.</span></span><br><span class="line"><span class="comment"># HYPHEN_INSENSITIVE=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment one of the following lines to change the auto-update behavior</span></span><br><span class="line"><span class="comment"># zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span></span><br><span class="line"><span class="comment"># zstyle &#x27;:omz:update&#x27; mode auto      # update automatically without asking</span></span><br><span class="line"><span class="comment"># zstyle &#x27;:omz:update&#x27; mode reminder  # just remind me to update when it&#x27;s time</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to change how often to auto-update (in days).</span></span><br><span class="line"><span class="comment"># zstyle &#x27;:omz:update&#x27; frequency 13</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line if pasting URLs and other text is messed up.</span></span><br><span class="line"><span class="comment"># DISABLE_MAGIC_FUNCTIONS=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to disable colors in ls.</span></span><br><span class="line"><span class="comment"># DISABLE_LS_COLORS=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to disable auto-setting terminal title.</span></span><br><span class="line"><span class="comment"># DISABLE_AUTO_TITLE=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to enable command auto-correction.</span></span><br><span class="line"><span class="comment"># ENABLE_CORRECTION=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line to display red dots whilst waiting for completion.</span></span><br><span class="line"><span class="comment"># You can also set it to another string to have that shown instead of the default red dots.</span></span><br><span class="line"><span class="comment"># e.g. COMPLETION_WAITING_DOTS=&quot;%F&#123;yellow&#125;waiting...%f&quot;</span></span><br><span class="line"><span class="comment"># Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)</span></span><br><span class="line"><span class="comment"># COMPLETION_WAITING_DOTS=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line if you want to disable marking untracked files</span></span><br><span class="line"><span class="comment"># under VCS as dirty. This makes repository status check for large repositories</span></span><br><span class="line"><span class="comment"># much, much faster.</span></span><br><span class="line"><span class="comment"># DISABLE_UNTRACKED_FILES_DIRTY=&quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following line if you want to change the command execution time</span></span><br><span class="line"><span class="comment"># stamp shown in the history command output.</span></span><br><span class="line"><span class="comment"># You can set one of the optional three formats:</span></span><br><span class="line"><span class="comment"># &quot;mm/dd/yyyy&quot;|&quot;dd.mm.yyyy&quot;|&quot;yyyy-mm-dd&quot;</span></span><br><span class="line"><span class="comment"># or set a custom format using the strftime function format specifications,</span></span><br><span class="line"><span class="comment"># see &#x27;man strftime&#x27; for details.</span></span><br><span class="line"><span class="comment"># HIST_STAMPS=&quot;mm/dd/yyyy&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Would you like to use another custom folder than $ZSH/custom?</span></span><br><span class="line"><span class="comment"># ZSH_CUSTOM=/path/to/new-custom-folder</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Which plugins would you like to load?</span></span><br><span class="line"><span class="comment"># Standard plugins can be found in $ZSH/plugins/</span></span><br><span class="line"><span class="comment"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span></span><br><span class="line"><span class="comment"># Example format: plugins=(rails git textmate ruby lighthouse)</span></span><br><span class="line"><span class="comment"># Add wisely, as too many plugins slow down shell startup.</span></span><br><span class="line">plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># PATH</span></span><br><span class="line">PATH=/opt/<span class="built_in">local</span>/bin:/opt/<span class="built_in">local</span>/sbin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/opt/homebrew/bin:/usr/<span class="built_in">local</span>/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin</span><br><span class="line"><span class="built_in">export</span> MAVEN_HOME=/Users/codes/apache-maven-3.9.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$MAVEN_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 Conda 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/anaconda3/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 pyenv 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PYENV_ROOT=<span class="string">&quot;<span class="variable">$HOME</span>/.pyenv&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PYENV_ROOT</span>/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init --path)</span>&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PYENV_ROOT</span>/shims:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- alias ----</span></span><br><span class="line"><span class="comment"># use &#x27;code&#x27; to open VS Code</span></span><br><span class="line"><span class="built_in">alias</span> code=<span class="string">&quot;/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code&quot;</span></span><br></pre></td></tr></table></figure><h3 id="conda-activate">conda activate</h3><p>使用 <code>conda activate</code> 可能会提示你命令不能用，根据提示执行下面命令就行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conda init zsh</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -33,6 +54,8 @@
     <category term="Q&amp;A" scheme="https://doreality.xyz/categories/Q-A/"/>
     
     
+    <category term="Environment" scheme="https://doreality.xyz/tags/Environment/"/>
+    
     <category term="zsh" scheme="https://doreality.xyz/tags/zsh/"/>
     
   </entry>
@@ -42,7 +65,7 @@
     <link href="https://doreality.xyz/posts/d202f7b7.html"/>
     <id>https://doreality.xyz/posts/d202f7b7.html</id>
     <published>2023-04-25T12:56:37.000Z</published>
-    <updated>2023-04-25T13:06:01.962Z</updated>
+    <updated>2023-12-04T15:19:14.333Z</updated>
     
     <content type="html"><![CDATA[<p>折腾：怎么同时用 Conda 和 Pyenv，最好不冲突。</p><p>之前已经在用 pyenv 了，新安装了 Anaconda。结果打开 conda 使用的还是 pyenv，混乱了——我在 PyCharm 配置了新环境，发现使用的是 conda 但是解释器还是用的 pyenv。</p><span id="more"></span><p>为了保证激活 conda 时，环境是 conda 的而不是 pyenv 的，需要在 .zshrc 里，把 conda 相关的环境变量放在 pyenv 的前面。</p><ol><li>打开终端</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi .zshrc</span><br></pre></td></tr></table></figure><ol start="2"><li>加到最后（<code>shift + g</code> 直接到尾行，<code>dd</code> 删除当前行并拷贝到剪贴板，<code>p</code> 在下一行粘贴）</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 Conda 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/opt/anaconda3/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 pyenv 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PYENV_ROOT=<span class="string">&quot;<span class="variable">$HOME</span>/.pyenv&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PYENV_ROOT</span>/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init --path)</span>&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PYENV_ROOT</span>/shims:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>保存退出，刷新一下。不行就关掉终端</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure><ol start="4"><li>验证</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) $ <span class="built_in">which</span> python</span><br><span class="line">(bash) $ conda deactivate</span><br><span class="line">$ <span class="built_in">which</span> python</span><br></pre></td></tr></table></figure><p>第一个显示的是 conda，第二个显示的是 pyenv，就 OK</p>]]></content>
     
@@ -52,12 +75,14 @@
     
     
     
-    <category term="Q&amp;A" scheme="https://doreality.xyz/categories/Q-A/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Python" scheme="https://doreality.xyz/tags/Python/"/>
     
     <category term="Pyenv" scheme="https://doreality.xyz/tags/Pyenv/"/>
+    
+    <category term="Environment" scheme="https://doreality.xyz/tags/Environment/"/>
     
     <category term="Conda" scheme="https://doreality.xyz/tags/Conda/"/>
     
@@ -80,9 +105,9 @@
     <category term="Git" scheme="https://doreality.xyz/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://doreality.xyz/tags/Git/"/>
-    
     <category term="GitHub" scheme="https://doreality.xyz/tags/GitHub/"/>
+    
+    <category term="Git" scheme="https://doreality.xyz/tags/Git/"/>
     
   </entry>
   
@@ -117,7 +142,7 @@
     <link href="https://doreality.xyz/posts/9bb3bd63.html"/>
     <id>https://doreality.xyz/posts/9bb3bd63.html</id>
     <published>2023-04-02T15:14:35.000Z</published>
-    <updated>2023-04-07T16:43:26.053Z</updated>
+    <updated>2023-12-04T15:17:17.165Z</updated>
     
     <content type="html"><![CDATA[<p>在 <code>git push</code> 时，给 <code>main</code> 分支下的 <code>README.md</code> 自动生成目录！</p><span id="more"></span><ol><li>找到 Repo 的 「Settings」-「Actions」-「General」-「Workflow permissions」，修改为 <code>Read and write permissions</code></li><li>在 Repo 的 「Actions」中，新建 workflow<ul><li>选择 「set up a workflow yourself」</li></ul></li><li>配置，可以命名为 <code>toc.yml</code>：  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>]</span><br><span class="line">    <span class="attr">paths:</span> [<span class="string">&#x27;README.md&#x27;</span>]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>]</span><br><span class="line">    <span class="attr">paths:</span> [<span class="string">&#x27;README.md&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">curl</span> <span class="string">https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc</span> <span class="string">-o</span> <span class="string">gh-md-toc</span></span><br><span class="line">          <span class="string">chmod</span> <span class="string">a+x</span> <span class="string">gh-md-toc</span></span><br><span class="line">          <span class="string">./gh-md-toc</span> <span class="string">--insert</span> <span class="string">--no-backup</span> <span class="string">README.md</span></span><br><span class="line">          <span class="string">rm</span> <span class="string">-f</span> <span class="string">./gh-md-toc</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">stefanzweifel/git-auto-commit-action@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">commit_message:</span> <span class="string">Auto</span> <span class="string">update</span> <span class="string">markdown</span> <span class="string">TOC</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li>Commit 后，目录中生成 <code>.github/workflow/toc.yml</code>。</li></ol><p>之后再 push 的时候，就会自动调用 workflow 在 <a href="http://README.md">README.md</a> 生成目录了。</p><p>注意：一定要把「Settings」里的读写打开，否则会生成失败。</p>]]></content>
     
@@ -126,7 +151,7 @@
     
     
     
-    <category term="Tools" scheme="https://doreality.xyz/categories/Tools/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="GitHub" scheme="https://doreality.xyz/tags/GitHub/"/>
@@ -163,7 +188,7 @@
     <link href="https://doreality.xyz/posts/47012712.html"/>
     <id>https://doreality.xyz/posts/47012712.html</id>
     <published>2022-07-15T02:40:15.000Z</published>
-    <updated>2023-04-07T16:07:20.037Z</updated>
+    <updated>2023-12-04T15:17:13.108Z</updated>
     
     <content type="html"><![CDATA[<p>终端的命令提示符样式定制：macOS / Linux</p><span id="more"></span><p>如果使用的是 oh-my-zsh，不同的主题就可以对应不同的命令提示符配置，但是要个性化配置可以参考如下：</p><ul><li><p><a href="https://blog.csdn.net/S_gy_Zetrov/article/details/80158409?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-80158409-blog-119827463.pc_relevant_vip_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-80158409-blog-119827463.pc_relevant_vip_default&amp;utm_relevant_index=2">oh-my-zsh修改主题添加全路径显示</a></p></li><li><p><a href="https://blog.csdn.net/nyist_zxp/article/details/108089181">Linux 终端命令提示符总结</a></p></li></ul>]]></content>
     
@@ -172,7 +197,7 @@
     
     
     
-    <category term="Tools" scheme="https://doreality.xyz/categories/Tools/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="oh-my-zsh" scheme="https://doreality.xyz/tags/oh-my-zsh/"/>
@@ -184,7 +209,7 @@
     <link href="https://doreality.xyz/posts/66790ec6.html"/>
     <id>https://doreality.xyz/posts/66790ec6.html</id>
     <published>2022-07-15T02:37:48.000Z</published>
-    <updated>2022-07-15T03:01:00.058Z</updated>
+    <updated>2023-12-04T15:17:06.533Z</updated>
     
     <content type="html"><![CDATA[<p>修改终端上显示的主机名。</p><span id="more"></span><ul><li><a href="https://blog.csdn.net/HDFQQ188816190/article/details/116521499">Mac 修改主机名、计算机名、本地主机名、xcode作者名、终端前缀</a></li></ul>]]></content>
     
@@ -193,7 +218,7 @@
     
     
     
-    <category term="Tools" scheme="https://doreality.xyz/categories/Tools/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="macOS" scheme="https://doreality.xyz/tags/macOS/"/>
@@ -205,19 +230,21 @@
     <link href="https://doreality.xyz/posts/4f8c09df.html"/>
     <id>https://doreality.xyz/posts/4f8c09df.html</id>
     <published>2022-06-24T14:38:56.000Z</published>
-    <updated>2023-04-07T16:26:27.910Z</updated>
+    <updated>2023-12-04T15:18:51.839Z</updated>
     
-    <content type="html"><![CDATA[<p>怎么从终端进入一个 Python 的虚拟环境 <code>venv</code>？</p><span id="more"></span><ol><li>进入</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$source</span> <span class="string">&quot;the venv root path&quot;</span>/bin/activate</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>怎么从终端进入一个 Python 的虚拟环境 <code>venv</code>？</p><span id="more"></span><ol><li>进入</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> <span class="string">&quot;the venv root path&quot;</span>/bin/activate</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;怎么从终端进入一个 Python 的虚拟环境 &lt;code&gt;venv&lt;/code&gt;？&lt;/p&gt;</summary>
     
     
     
-    <category term="Development" scheme="https://doreality.xyz/categories/Development/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Python" scheme="https://doreality.xyz/tags/Python/"/>
+    
+    <category term="Environment" scheme="https://doreality.xyz/tags/Environment/"/>
     
   </entry>
   
@@ -226,7 +253,7 @@
     <link href="https://doreality.xyz/posts/4594a661.html"/>
     <id>https://doreality.xyz/posts/4594a661.html</id>
     <published>2022-06-23T08:29:36.000Z</published>
-    <updated>2023-04-07T16:12:27.062Z</updated>
+    <updated>2023-12-04T15:18:28.763Z</updated>
     
     <content type="html"><![CDATA[<p>完全删除 mac 中的不同版本的 Python</p><span id="more"></span><ul><li><a href="http://t.zoukankan.com/zhangchenliang-p-8204543.html">Mac 删除/卸载 自己安装的python</a></li></ul>]]></content>
     
@@ -235,10 +262,12 @@
     
     
     
-    <category term="Development" scheme="https://doreality.xyz/categories/Development/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Python" scheme="https://doreality.xyz/tags/Python/"/>
+    
+    <category term="Environment" scheme="https://doreality.xyz/tags/Environment/"/>
     
   </entry>
   
@@ -268,9 +297,9 @@
     <link href="https://doreality.xyz/posts/e30c74da.html"/>
     <id>https://doreality.xyz/posts/e30c74da.html</id>
     <published>2022-06-20T03:10:51.000Z</published>
-    <updated>2023-04-07T16:37:13.576Z</updated>
+    <updated>2023-12-04T15:18:55.115Z</updated>
     
-    <content type="html"><![CDATA[<p>管理电脑上不同版本的 Python：</p><ul><li>参考：<a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a></li><li>环境：macOS + Homebrew + Zsh</li></ul><span id="more"></span><h2 id="安装-Pyenv">安装 Pyenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> update</span><br><span class="line"><span class="variable">$brew</span> install pyenv</span><br></pre></td></tr></table></figure><ul><li>如果 <code>brew</code> 出现了 <code>git</code> 的报错：<a href="https://doreality.xyz/posts/74a7d1c5.html">解决 Homebrew 出现 git 报错</a></li></ul><h2 id="设置-Shell">设置 Shell</h2><ol><li>添加 <code>$PYENV_ROOT</code> 到 <code>$PATH</code></li><li>添加 <code>pyenv</code> 为 shell 命令</li><li>安装 <code>pyenv</code> 到 shell function</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;eval &quot;$(pyenv init -)&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure><ol start="4"><li>设置完毕，重启 shell</li></ol><h2 id="安装指定版本的-Python">安装指定版本的 Python</h2><ol><li>首先安装依赖：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> install openssl readline sqlite3 xz zlib tcl-tk</span><br></pre></td></tr></table></figure><ol start="2"><li>安装 Python</li></ol><p>例如安装 Python 3.6.10：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.6.10</span><br></pre></td></tr></table></figure><p>然后经过漫长的等待，出现下列语句表示安装成功：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installed Python-3.6.15 to /Users/doreality/.pyenv/versions/3.6.15</span><br></pre></td></tr></table></figure><h2 id="使用-Pyenv">使用 Pyenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> versions <span class="comment"># 查看已安装的版本</span></span><br><span class="line"><span class="variable">$pyenv</span> global 3.6.15 <span class="comment"># 指定全局模式下的 Python 版本为 3.6.15</span></span><br><span class="line"><span class="variable">$pyenv</span> <span class="built_in">local</span> 3.10.10 <span class="comment"># 指定当前目录下的 Python 版本为 3.10.10</span></span><br><span class="line"><span class="variable">$pyenv</span> uninstall 3.6.15 <span class="comment"># 删除 3.6.15 版本</span></span><br></pre></td></tr></table></figure><h2 id="Pyenv-virtualenv">Pyenv virtualenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> virtualenv 3.6.15 venv3615 <span class="comment"># 创建一个虚拟环境</span></span><br><span class="line"><span class="variable">$pyenv</span> activate venv3615 <span class="comment"># 进入该虚拟环境</span></span><br><span class="line"><span class="variable">$pyevn</span> deactivate venv3615 <span class="comment"># 退出</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>管理电脑上不同版本的 Python：</p><ul><li>参考：<a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a></li><li>环境：macOS + Homebrew + Zsh</li></ul><span id="more"></span><h2 id="安装-Pyenv">安装 Pyenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> update</span><br><span class="line"><span class="variable">$brew</span> install pyenv</span><br></pre></td></tr></table></figure><ul><li>如果 <code>brew</code> 出现了 <code>git</code> 的报错：<a href="https://doreality.xyz/posts/74a7d1c5.html">解决 Homebrew 出现 git 报错</a></li></ul><h2 id="设置-Shell">设置 Shell</h2><ol><li>添加 <code>$PYENV_ROOT</code> 到 <code>$PATH</code></li><li>添加 <code>pyenv</code> 为 shell 命令</li><li>安装 <code>pyenv</code> 到 shell function</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;eval &quot;$(pyenv init -)&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure><ol start="4"><li>设置完毕，重启 shell</li></ol><h2 id="安装指定版本的-Python">安装指定版本的 Python</h2><ol><li>首先安装依赖：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> install openssl readline sqlite3 xz zlib tcl-tk</span><br></pre></td></tr></table></figure><ol start="2"><li>安装 Python</li></ol><p>例如安装 Python 3.6.10：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.6.10</span><br></pre></td></tr></table></figure><p>然后经过漫长的等待，出现下列语句表示安装成功：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installed Python-3.6.15 to /Users/doreality/.pyenv/versions/3.6.15</span><br></pre></td></tr></table></figure><h2 id="使用-Pyenv">使用 Pyenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> versions <span class="comment"># 查看已安装的版本</span></span><br><span class="line"><span class="variable">$pyenv</span> global 3.6.15 <span class="comment"># 指定全局模式下的 Python 版本为 3.6.15</span></span><br><span class="line"><span class="variable">$pyenv</span> <span class="built_in">local</span> 3.10.10 <span class="comment"># 指定当前目录下的 Python 版本为 3.10.10</span></span><br><span class="line"><span class="variable">$pyenv</span> uninstall 3.6.15 <span class="comment"># 删除 3.6.15 版本</span></span><br></pre></td></tr></table></figure><h2 id="Pyenv-虚拟环境">Pyenv 虚拟环境</h2><p>想在现有的Python版本基础上，创建某个虚拟环境。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个虚拟环境，名为 myenv</span></span><br><span class="line"><span class="variable">$pyenv</span> virtualenv 3.6.15 myenv </span><br><span class="line"><span class="comment"># 进入</span></span><br><span class="line"><span class="variable">$pyenv</span> activate myenv</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line"><span class="variable">$pyevn</span> deactivate myenv</span><br><span class="line"><span class="comment"># 删除</span></span><br><span class="line"><span class="variable">$pyenv</span> uninstall myenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 Pyenv 管理的所有虚拟环境</span></span><br><span class="line"><span class="variable">$pyenv</span> uninstall --all</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;管理电脑上不同版本的 Python：&lt;/p&gt;
@@ -281,10 +310,14 @@
     
     
     
-    <category term="Development" scheme="https://doreality.xyz/categories/Development/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Python" scheme="https://doreality.xyz/tags/Python/"/>
+    
+    <category term="Pyenv" scheme="https://doreality.xyz/tags/Pyenv/"/>
+    
+    <category term="Environment" scheme="https://doreality.xyz/tags/Environment/"/>
     
   </entry>
   
@@ -358,7 +391,7 @@
     <link href="https://doreality.xyz/posts/3b78b4cb.html"/>
     <id>https://doreality.xyz/posts/3b78b4cb.html</id>
     <published>2022-05-22T12:57:29.000Z</published>
-    <updated>2023-04-07T16:09:40.379Z</updated>
+    <updated>2023-12-04T15:19:41.566Z</updated>
     
     <content type="html"><![CDATA[<p>GDB 和 LLDB 常用命令汇总，随用随查。</p><span id="more"></span><ul><li><p>参考： LCTHW - Learn C The Hard Way</p></li><li><p>格式：<code>完整命令</code> | <code>缩写</code></p></li></ul><h2 id="GDB">GDB</h2><p>GDB = GNU Debugger</p><h3 id="小技巧">小技巧</h3><ol><li><p><code>gdb --args</code></p><ul><li>Shell 中使用</li><li>传入参数</li></ul></li><li><p><code>thread apply all bt</code></p><ul><li>GDB 中使用</li><li>查看所有线程的调用栈情况</li></ul></li><li><p><code>gdb --batch --ex r --ex bt --ex q --args</code></p><ul><li>Shell 中使用，后面加可执行程序，例如 <code>./test</code></li><li>运行程序，如果出错（Bomb）会输出栈回溯（Stack Backtrace）信息</li><li>简易版 Valgrind</li></ul></li></ol><h3 id="常用命令">常用命令</h3><ol><li><p><code>run [args]</code> | <code>r</code></p><ul><li>Start your program with <code>[args]</code>.</li></ul></li><li><p><code>break [file:]function</code> | <code>b</code></p><ul><li>Set a break point at <code>[file:]function</code>.</li></ul></li><li><p><code>backtrace</code> | <code>bt</code></p><ul><li>Dump a backtrace of the current calling stack.</li></ul></li><li><p><code>print expr</code> | <code>p</code></p><ul><li>Print the value of <code>expr</code>.</li></ul></li><li><p><code>continue</code> | <code>c</code></p><ul><li>Continue running the program.</li></ul></li><li><p><code>next</code> | <code>n</code></p><ul><li>Next line, but step <strong>over</strong> function calls.</li></ul></li><li><p><code>step</code> | <code>s</code></p><ul><li>Next line, but step <strong>into</strong> function calls.</li></ul></li><li><p><code>quit</code> | <code>q</code></p><ul><li>Exit GDB.</li></ul></li><li><p><code>help</code> | <code>h</code></p><ul><li>List the types of commands. You can then get help on the class of command as well as the command.</li></ul></li><li><p><code>cd, pwd, make</code></p><ul><li>This is just like running these commands in your shell.</li></ul></li><li><p><code>shell</code></p><ul><li>Quickly start a shell so you can do other things.</li></ul></li><li><p><code>clear</code></p><ul><li>Clear a breakpoint.</li></ul></li><li><p><code>info break</code>, <code>info watch</code></p><ul><li>Show information about breakpoints and watchpoints.</li></ul></li><li><p><code>attach pid</code></p><ul><li>Attach to a running process so you can debug it.</li></ul></li><li><p><code>detach</code></p><ul><li>Detach from the process.</li></ul></li><li><p><code>list</code></p><ul><li>List out the next ten source lines. Add a - to list the previous ten lines.</li></ul></li></ol><h2 id="LLDB">LLDB</h2><p>The <em>LLDB</em> Debugger (LLDB) is the debugger component of the LLVM (<strong>L</strong>ow <strong>L</strong>evel <strong>V</strong>irtual <strong>M</strong>achine) project.</p><ol><li><p><code>run [args]</code> | <code>r</code></p><ul><li>Start your program with <code>[args]</code>.</li></ul></li><li><p><code>breakpoint set --name [file:]function</code> | <code>b</code></p><ul><li>Set a break point at <code>[file:]function</code>.</li></ul></li><li><p><code>thread backtrace</code> | <code>bt</code></p><ul><li>Dump a backtrace of the current calling stack.</li></ul></li><li><p><code>print expr</code> | <code>p</code></p><ul><li>Print the value of <code>expr</code>.</li></ul></li><li><p><code>continue</code> | <code>c</code></p><ul><li>Continue running the program.</li></ul></li><li><p><code>next</code> | <code>n</code></p><ul><li>Next line, but step over function calls.</li></ul></li><li><p><code>step</code> | <code>s</code></p><ul><li>Next line, but step into function calls. Shorthand is s.</li></ul></li><li><p><code>quit</code> | <code>q</code></p><ul><li>Exit LLDB.</li></ul></li><li><p><code>help</code> | <code>h</code></p><ul><li>List the types of commands. You can then get help on the class of command as well as the command itself.</li></ul></li><li><p><code>cd, pwd, make</code></p><ul><li>just like running these commands in your shell.</li></ul></li><li><p><code>shell</code></p><ul><li>Quickly start a shell so you can do other things.</li></ul></li><li><p><code>clear</code></p><ul><li>Clear a breakpoint.</li></ul></li><li><p><code>info break, info watch</code></p><ul><li>Show information about breakpoints and watchpoints.</li></ul></li><li><p><code>attach -p pid</code></p><ul><li>Attach to a running process so you can debug it.</li></ul></li><li><p><code>detach</code></p><ul><li>Detach from the process.</li></ul></li><li><p><code>list</code></p><ul><li>List out the next ten source lines. Add a - to list the previous ten sources.</li></ul></li></ol>]]></content>
     
@@ -367,7 +400,7 @@
     
     
     
-    <category term="Development" scheme="https://doreality.xyz/categories/Development/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="GDB" scheme="https://doreality.xyz/tags/GDB/"/>
@@ -381,7 +414,7 @@
     <link href="https://doreality.xyz/posts/8e3c74d.html"/>
     <id>https://doreality.xyz/posts/8e3c74d.html</id>
     <published>2022-05-22T12:34:37.000Z</published>
-    <updated>2023-04-07T16:09:29.433Z</updated>
+    <updated>2023-12-04T15:19:44.274Z</updated>
     
     <content type="html"><![CDATA[<p>Valgrind：用于内存调试、内存泄漏检测以及性能分析。</p><span id="more"></span><ul><li>环境：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$uname</span> -a</span><br><span class="line">Linux ddafb7ecb5fe 5.10.104-linuxkit <span class="comment">#1 SMP PREEMPT Thu Mar 17 17:05:54 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux</span></span><br></pre></td></tr></table></figure><h2 id="源码-tar-bz2-安装">源码 tar.bz2 安装</h2><ol><li><p>官网下载源代码：<a href="https://valgrind.org/downloads/">https://valgrind.org/downloads/</a></p></li><li><p>进入下载路径，解压到当前目录：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tar</span> -xjvf valgrind-3.19.0.tar.bz2</span><br></pre></td></tr></table></figure></li><li><p>进入解压后的目录 <code>valgrind-3.19.0</code>，配置和安装：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> valgrind-3.19.0/</span><br><span class="line"></span><br><span class="line"><span class="comment"># a) 设置环境（需要标准的autoconf工具）</span></span><br><span class="line"><span class="comment"># apt-get install autoconf</span></span><br><span class="line">$./autogen.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># b) 配置 Valgrind，常用参数：--prefix=安装路径</span></span><br><span class="line"><span class="comment"># 这里/root/Valgrind 是我的Docker的路径，虚拟机或者真机自行选择</span></span><br><span class="line">$./configure --prefix=/root/Valgrind</span><br><span class="line"></span><br><span class="line"><span class="comment"># c) 编译安装</span></span><br><span class="line"><span class="variable">$make</span></span><br><span class="line"><span class="variable">$make</span> install</span><br></pre></td></tr></table></figure></li><li><p>验证是否安装成功：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$valgrind</span> ls -l</span><br><span class="line">==23775== Memcheck, a memory error detector</span><br><span class="line">==23775== Copyright (C) 2002-2015, and GNU GPLd, by Julian Seward et al.</span><br><span class="line">==23775== Using Valgrind-3.11.0 and LibVEX; rerun with -h <span class="keyword">for</span> copyright info</span><br><span class="line">==23775== Command: ls -l</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
@@ -390,7 +423,7 @@
     
     
     
-    <category term="Development" scheme="https://doreality.xyz/categories/Development/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Linux" scheme="https://doreality.xyz/tags/Linux/"/>
@@ -430,7 +463,7 @@
     <link href="https://doreality.xyz/posts/20e330e7.html"/>
     <id>https://doreality.xyz/posts/20e330e7.html</id>
     <published>2022-04-10T03:35:30.000Z</published>
-    <updated>2023-04-07T16:27:49.296Z</updated>
+    <updated>2023-12-04T15:17:49.582Z</updated>
     
     <content type="html"><![CDATA[<p>Markdown 流程图、框图、甘特图、各种图。</p><span id="more"></span><ul><li><p><code>mermaid</code>: <a href="https://www.jianshu.com/p/7864c1cf5660">Markdown语法之绘制流程图</a></p></li><li><p><code>flow</code>: <a href="https://www.jianshu.com/p/f28c94cf1204">MarkDown flow流程图示例</a></p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;mermaid</span><br><span class="line">graph TD</span><br><span class="line">    start[开始] -.描述.-&gt; input[输入A,B,C]</span><br><span class="line">    input --描述--&gt; conditionA&#123;A是否大于B&#125;</span><br><span class="line">    conditionA -- YES --&gt; conditionC&#123;A是否大于C&#125;</span><br><span class="line">    conditionA -- NO --&gt; conditionB&#123;B是否大于C&#125;</span><br><span class="line">    conditionC -- YES --&gt; printA[输出A]</span><br><span class="line">    conditionC -- NO --&gt; printC[输出C]</span><br><span class="line">    conditionB -- YES --&gt; printB[输出B]</span><br><span class="line">    conditionB -- NO --&gt; printC[输出C]</span><br><span class="line">    printA &#x3D;&#x3D;&gt; stop[结束]</span><br><span class="line">    printC --&gt; stop</span><br><span class="line">    printB &#x3D;&#x3D; 描述 &#x3D;&#x3D;&gt; stop</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;flow</span><br><span class="line">start&#x3D;&gt;start: 开始</span><br><span class="line">input&#x3D;&gt;inputoutput: 输入</span><br><span class="line">operation&#x3D;&gt;operation: 操作</span><br><span class="line">condition&#x3D;&gt;condition: 操作出错？</span><br><span class="line">output&#x3D;&gt;inputoutput: 输出</span><br><span class="line">error&#x3D;&gt;operation: 请重新输入</span><br><span class="line">end&#x3D;&gt;end: 结束</span><br><span class="line"></span><br><span class="line">start-&gt;input</span><br><span class="line">input-&gt;operation</span><br><span class="line">operation-&gt;condition</span><br><span class="line">condition(no,bottom)-&gt;output</span><br><span class="line">condition(yes)-&gt;error(top)-&gt;input</span><br><span class="line">output-&gt;end</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -439,31 +472,10 @@
     
     
     
-    <category term="Tools" scheme="https://doreality.xyz/categories/Tools/"/>
+    <category term="Memos" scheme="https://doreality.xyz/categories/Memos/"/>
     
     
     <category term="Markdown" scheme="https://doreality.xyz/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cousera 视频快速加载</title>
-    <link href="https://doreality.xyz/posts/c400d692.html"/>
-    <id>https://doreality.xyz/posts/c400d692.html</id>
-    <published>2022-03-12T09:39:08.000Z</published>
-    <updated>2023-04-07T15:30:42.558Z</updated>
-    
-    <content type="html"><![CDATA[<p>学一些 Coursera 但是视频缓冲好慢。</p><span id="more"></span><h2 id="配置-DNS">配置 DNS</h2><ol><li>找到 <code>hosts</code>：<ul><li><code>C:\Windows\System32\drivers\etc</code> （Windows）</li><li><code>/etc/hosts</code> （macOS/Linux，Finder-「前往」-「前往文件夹」-<code>/private/etc</code>）</li></ul></li><li>添加如下内容：(不能直接添加就拷贝一份文件到外面，修改之后覆盖原来的）   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># coursera</span><br><span class="line">13.249.162.18 d3njjcbhbojbot.cloudfront.net # 网站</span><br><span class="line">18.65.219.131 d3c33hcgiwev3.cloudfront.net  # 视频</span><br></pre></td></tr></table></figure><ul><li>两个查询 DNS 的网站，可以找到想访问网址对应的各种 DNS 服务器的 IP：<ul><li><a href="https://ping.eu/nslookup/">https://ping.eu/nslookup/</a></li><li><a href="http://ping.chinaz.com/">http://ping.chinaz.com/</a></li></ul></li></ul></li><li>输入的如下网址得到相应的IP：<ul><li>网站：<code>d3njjcbhbojbot.cloudfront.net</code></li><li>视频：<code>d3c33hcgiwev3.cloudfront.net</code></li><li>可以尝试 ping 一下这些 IP，找到速度比较快的添加到 <code>hosts</code> 中即可。</li></ul></li><li>刷新 DNS，然后重新打开 Coursera即可<br>在命令行 or 终端里输入下面的命令：   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line"><span class="variable">$ipconfig</span> /flushdns</span><br><span class="line"><span class="comment"># macOS</span></span><br><span class="line"><span class="variable">$dscacheutil</span> -flushcache</span><br></pre></td></tr></table></figure></li><li>可以再 ping 一下网站和视频对应的链接，看一看 IP 是否成功。</li></ol><h2 id="参考">参考</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/144498122">Coursera视频打不开终极办法</a></li><li><a href="http://121.196.169.103/archives/coursera%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Cousera视频无法播放问题解决</a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;学一些 Coursera 但是视频缓冲好慢。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Tools" scheme="https://doreality.xyz/categories/Tools/"/>
-    
-    
-    <category term="DNS" scheme="https://doreality.xyz/tags/DNS/"/>
     
   </entry>
   
