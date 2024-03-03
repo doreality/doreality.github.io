@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/vvfavi.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/vvfavi.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/vvfavi.png">
+  <link rel="mask-icon" href="/images/vvfavi.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doreality.xyz","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="课程请访问：Code With Mosh 个人学习代码 最终效果：Moshify">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML&amp;CSS 实战篇">
+<meta property="og:url" content="https://doreality.xyz/posts/34e7d423.html">
+<meta property="og:site_name" content="DoReality">
+<meta property="og:description" content="课程请访问：Code With Mosh 个人学习代码 最终效果：Moshify">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-03T12:43:44.000Z">
+<meta property="article:modified_time" content="2024-03-03T12:46:53.567Z">
+<meta property="article:author" content="doreality">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://doreality.xyz/posts/34e7d423.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTML&CSS 实战篇 | DoReality</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="DoReality" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">DoReality</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://doreality.xyz/posts/34e7d423.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="doreality">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DoReality">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML&CSS 实战篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-03 20:43:44 / 修改时间：20:46:53" itemprop="dateCreated datePublished" datetime="2024-03-03T20:43:44+08:00">2024-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index"><span itemprop="name">Development</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>课程请访问：<a target="_blank" rel="noopener" href="https://codewithmosh.com/">Code With Mosh</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/doreality/moshify">个人学习代码</a></li>
+<li>最终效果：<a target="_blank" rel="noopener" href="https://doreality-moshified.vercel.app/">Moshify</a></li>
+</ul>
+<span id="more"></span>
+<h3 id="Introduction">Introduction</h3>
+<p>使用HTML+CSS，构造一个虚拟的云服务商 Moshify</p>
+<p><a target="_blank" rel="noopener" href="https://www.moshified.com/">https://www.moshified.com/</a></p>
+<h3 id="Prerequisites">Prerequisites</h3>
+<ul>
+<li>Semantic HTML</li>
+<li>Basic CSS properties</li>
+<li>Selectors &amp; pseudo-selectors</li>
+<li>CSS box model</li>
+<li>Absolute &amp; relative positioning</li>
+<li>Flex &amp; Grid layout</li>
+<li>Media queries</li>
+<li>Responsive images</li>
+<li>Transformations</li>
+<li>Transitions</li>
+</ul>
+<h3 id="How-to-Take-This-Course">How to Take This Course</h3>
+<ul>
+<li>Tools you need</li>
+<li>Setting up the project</li>
+<li>Coding lessons</li>
+</ul>
+<p>学习方式：</p>
+<ul>
+<li>先看最终结果 -&gt; 自己做 -&gt; 再看视频是怎么做的</li>
+<li>先看最终结果 -&gt; 跟随视频一步一步做</li>
+</ul>
+<h3 id="Tools-You-Need">Tools You Need</h3>
+<ul>
+<li>Browser
+<ul>
+<li>Chrome, Chrome Dev Tools</li>
+<li>Firefox</li>
+</ul>
+</li>
+<li>Code Editor
+<ul>
+<li>VS Code</li>
+</ul>
+</li>
+<li>Extensions
+<ul>
+<li>HTML CSS Support</li>
+<li>CSS Peek</li>
+<li>Prettier -&gt; format on save</li>
+<li>Highlight Matching Tag</li>
+<li>Todo Highlight</li>
+<li>Live Server</li>
+</ul>
+</li>
+<li>Git <a target="_blank" rel="noopener" href="https://git-scm.com">https://git-scm.com</a></li>
+</ul>
+<h3 id="Setting-Up-the-Project">Setting Up the Project</h3>
+<p>moshify</p>
+<ul>
+<li>index.html （!，然后添加CSS的link）</li>
+<li>css
+<ul>
+<li>normalize.css (google search: normalize css)</li>
+<li>styles.css (all styles for this project)</li>
+</ul>
+</li>
+</ul>
+<p>Git</p>
+<blockquote>
+<p>Commit: Initial commit.</p>
+</blockquote>
+<p>之后每次实现一个功能，进行提交，要写详细的说明。</p>
+<p>在 Moshify 文件夹里有 fonts，icons，images 和设计文件 psd，安装字体和PS。</p>
+<h3 id="Essential-Photoshop-Skills">Essential Photoshop Skills</h3>
+<ul>
+<li>缩放工具：
+<ul>
+<li>Z 放大</li>
+<li>Z+alt 缩小</li>
+</ul>
+</li>
+<li>空格 按住空格，可以拖拽画布</li>
+<li>【颜色】吸管工具 I 取色（alt+单击：切换工具；右键单击，查看所有工具；shit+i，遍历工具）</li>
+<li>【字体】字体工具 T（pt单位是point，用于印刷；网页设计使用px像素）
+<ul>
+<li>首选项-单位与标尺，把字体单位设置为【像素】</li>
+<li>离字体近处选择，否则点击空白会创建新的文本框</li>
+</ul>
+</li>
+<li>【距离】I 中的标尺工具
+<ul>
+<li>测量长宽、内外边距的像素值</li>
+</ul>
+</li>
+</ul>
+<h3 id="Identifying-the-Components">Identifying the Components</h3>
+<p>components contain other components and elements</p>
+<p>观察页面，考虑和识别有哪些组件。</p>
+<p>navigation bar:  menu(inline list)</p>
+<p>banner / hero component:</p>
+<p>button</p>
+<p>input field with a button</p>
+<p>inline list &gt; badge</p>
+<p>card:</p>
+<ul>
+<li>elements: internal, (title, price, billing cycle), make no sense out of the component</li>
+<li>list with green ticks</li>
+<li>button</li>
+<li>3 cols grid</li>
+</ul>
+<p>icon-round</p>
+<p>link component</p>
+<p>grid component 2 cols -&gt; mobile 1 col</p>
+<p>media object / component: an image on the left side, a heading, some texts</p>
+<p>quote component + image =&gt; card component =&gt; testimonial</p>
+<p>callout component: encourage people to take action</p>
+<p>footer: list without bullet, inline list</p>
+<hr>
+<p>为了创建界面，首先创建所有的独立组件</p>
+<p>当所有组件在mobile和standard都显示正确后，</p>
+<p>组合成页面</p>
+<p>组件库，就可以创建其他页面了</p>
+<h3 id="Color-Palette-配色方案">Color Palette 配色方案</h3>
+<p>首先要定义三种颜色：</p>
+<ul>
+<li>Primary 主要色</li>
+<li>Secondary 次要色</li>
+<li>Accent 强调色</li>
+</ul>
+<p>观察设计稿，中性蓝色作为Primary，浅蓝色作为Secondary，橙色作为Accent</p>
+<p>使用CSS变量定义配色，就可以多处复用了。</p>
+<p>字体颜色：</p>
+<ul>
+<li>标题：深紫色</li>
+<li>正文文本（body text）：浅紫色</li>
+</ul>
+<p>其中，设计稿中有一处正文出现了不同的颜色，有可能是设计师出错了。</p>
+<p>为了保持一致性，合并这种颜色，使用正文的浅紫色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --<span class="attribute">color</span>-primary: <span class="number">#2584ff</span>;</span><br><span class="line">  --<span class="attribute">color</span>-secondary: <span class="number">#00d9ff</span>;</span><br><span class="line">  --<span class="attribute">color</span>-accent: <span class="number">#ff3400</span>;</span><br><span class="line">  --<span class="attribute">color</span>-headings: <span class="number">#1b0760</span>;</span><br><span class="line">  --<span class="attribute">color</span>-<span class="selector-tag">body</span>: <span class="number">#918ca4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到此，可以向git仓库提交一次。点击changes，可以对比文件的修改。</p>
+<p>在每次完成一个任务后，都可以提交一次，添加详细的说明。这样在查看历史记录时，可以清晰地看出修改的目的和内容。</p>
+<blockquote>
+<p>Commit: Define the color palette.</p>
+</blockquote>
+<h3 id="Typography">Typography</h3>
+<p>All about fonts and sizes.</p>
+<ol>
+<li>先看mobile设计稿：Mobile first</li>
+<li>然后在为宽屏调整样式</li>
+</ol>
+<p>使用的字体都是Inter，只有在引言部分人名的字体不一致，为了保持一致性，不使用这种字体。（多导入一种字体，就会增加页面的下载成本）</p>
+<p>设计稿中使用的字重（Regular, bold, semibold, light, medium）样式过多（有可能是故意设计的，也有可能是设计师无意造成的），为了一致性和减少下载的负担，选择 regular 和 bold</p>
+<p>在Google fonts中找到inter，复制：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://fonts.googleapis.com&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://fonts.gstatic.com&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line">&lt;link</span><br><span class="line">  href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap&quot;</span><br><span class="line">  rel=&quot;stylesheet&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>在 body 选择器添加 <code>font-family</code> 样式，可以继承到子元素。</p>
+<p>快速创建标题：<code>h$&#123;Heading $&#125;*3</code>，可以创建：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Heading 1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Heading 2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>Heading 3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在提交代码之前，要review一下，再提交。</p>
+<blockquote>
+<p>Define the styles of the fonts.</p>
+</blockquote>
+<p>接下来创建组件。</p>
+<h3 id="Links">Links</h3>
+<p>设计 media query 的时候，两种选择，要么合并写在前面的 media query 中，要么单独写一个。</p>
+<p>前者的缺点是，让样式设置和逻辑分区远离了，修改起来麻烦。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">1024px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.link-arrow</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.5rem</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>单独写一个的好处是，可以对不同的组件设置不同的 breakpoint</li>
+<li>方便修改</li>
+<li>即使对于不同组件多写一行 media query，也不影响样式表的大小，不属于repeat</li>
+</ul>
+<p>当组件写好后，把组件相关的 html 放在 components/ 文件夹，作为模板，以防后面忘记。</p>
+<p>components/links.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;link-arrow&quot;</span>&gt;</span>Learn More<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Badges">Badges</h3>
+<p>有两种大小的 badge（徽章、标记），并且每一种大小也有不同的颜色。</p>
+<p>使用OOCSS，分离结构和外观。</p>
+<p><code>.badge</code> 负责结构部分，描述圆角、内边距、字体</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于空间有限的元素来说，不换行特别重要。</li>
+</ul>
+<p><code>.badge--primary</code></p>
+<p><code>.badge--secondary</code></p>
+<p><code>.badge--small</code></p>
+<h3 id="Lists">Lists</h3>
+<p>先找到列表有哪些：</p>
+<ul>
+<li>水平（或者说inline）的 badge 列表</li>
+<li>带有绿色对勾的垂直列表</li>
+<li>导航栏菜单的水平列表</li>
+<li>页尾的目录列表</li>
+</ul>
+<p>再看有什么共性，作为基础的样式类 <code>.list</code></p>
+<ul>
+<li>都没有默认的bullet point样式：<code>list-style: none;</code></li>
+<li>字体颜色是 heading 的颜色</li>
+</ul>
+<p>然后设置水平列表 <code>.list--inline .list__item</code>（这里使用了BEM命名规则）</p>
+<ul>
+<li>水平列表字体是 bold，但是我们不想把它应用到所有的列表</li>
+<li>留到后面做整个部分的组件时再设置。</li>
+</ul>
+<h3 id="Icons">Icons</h3>
+<p><a target="_blank" rel="noopener" href="https://svgsprit.es/">https://svgsprit.es/</a></p>
+<p>sprite.svg 是一个XML文件，每个 symbol 标签是一个 icon，id用于引用，path标签定义一条曲线。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">symbol</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 64 64&quot;</span> <span class="attr">id</span>=<span class="string">&quot;computer&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;m13.293 14.293-3 3a1 1 0 0 0 0 1.414l3 3 1.414-1.414-2.293-2.293 2.293-2.293z&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在html中引用的时候，注意路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">&quot;images/sprite.svg#snap&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>设置样式：<code>.icon--primary</code></p>
+<ul>
+<li>因为现在不需要别的颜色，就先不设置了。</li>
+<li><strong>不要解决不存在的问题</strong>，我们要跟随当前的设计，也不是为了给别人做一个组件库。</li>
+</ul>
+<p>给 icon 设置背景 <code>.icon-container</code>，单个短横线是为了分隔不同的单词，这是一个新的类，而不是 BEM 的 modifier。</p>
+<p>使用像素设置大小，是想要图标在不同设备上都有相同的大小。</p>
+<p>背景可以用 <code>inline-flex</code> 弹性布局</p>
+<h3 id="Buttons">Buttons</h3>
+<p>考虑 <code>&lt;button&gt;</code> 和 <code>&lt;a&gt;</code> anchor</p>
+<p>Always test your code as you go, don’t assume that your code is always going to work.</p>
+<p>hover 效果的颜色怎么存储：</p>
+<ul>
+<li>color palette 污染</li>
+<li>直接存放，会导致有的颜色定义在配色中，有的存放在各个地方</li>
+</ul>
+<p>可以使用css预处理器，例如SASS，SCSS</p>
+<p><code>background: lighten(primary, 10%)</code> 当代码编译后，会变成实际的颜色。</p>
+<p>暂时先硬编码（假设是后续不会大幅度变更网站的设计）</p>
+<p>设置 block 按钮的时候，button 元素默认设置了 <code>box-sizing: border-box</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*,</span><br><span class="line">*<span class="selector-pseudo">::after</span>,</span><br><span class="line">*<span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Inputs">Inputs</h3>
+<p>本项目里的input，带有一个button，并且input域有阴影。</p>
+<p>先实现一个基础的input，再组合成输入域。</p>
+<p>阴影也不是每个input都需要的，再后面页面部分的具体实现中再添加，先只设置一个border。</p>
+<p>placeholder 使用伪元素设置 <code>::placeholder</code></p>
+<h3 id="Input-Groups">Input Groups</h3>
+<p>虽然是输入框，但是是 div 包含的 input 和 button</p>
+<p><code>.input-group</code> 设置为弹性布局</p>
+<p><code>.input-group .input</code> 设置 <code>flex-grow: 1</code> 可以让输入框占满所有可用的空间。</p>
+<h3 id="Cards">Cards</h3>
+<p>观察 Card 设计：</p>
+<ul>
+<li>圆角边框</li>
+<li>有一个header，可以变换背景色</li>
+<li>有一个白色的主体</li>
+<li>有阴影</li>
+</ul>
+<p>临时设置一个容器 <code>&lt;div style=&quot;width:50%; padding: 4rem;&quot;&gt;&lt;/div&gt;</code> 方便用来观察效果。</p>
+<h3 id="Plans">Plans</h3>
+<p>根据设计稿进行分区实现和调节。</p>
+<p>考察眼力的环节，注意边距的大小。</p>
+<h3 id="Popular-Badge">Popular Badge</h3>
+<p>mosh实现的版本，把popular标签当作 header 伪类元素，在用相对定位的时候，标签上面的一点会被plan容器遮盖掉。</p>
+<p>所以把popular标签直接当做plan的伪元素，放在header的前面，再用相对布局就可以完全显示出来，也不影响边距等设定。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.plan--popular</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.plan--popular</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">url</span>(<span class="string">../images/popular.svg</span>);</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">5.5px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">5%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>.plan--popular</code> 设置为相对定位之后，无论标签在 <code>.plan--popular .card__header::before</code> 还是 <code>.plan--popular::before</code> 都是可以的</li>
+<li>但是 <code>.plan--popular .card__header</code> 不能设置为相对定位，因为前面为了圆角边框设置过 <code>overflow: hidden</code></li>
+</ul>
+<p>对于 <code>position: absolute</code> 的祖先元素：</p>
+<blockquote>
+<p>The element is positioned relative to its closest positioned ancestor (if any) or to the initial <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block">containing block</a>.</p>
+</blockquote>
+<p>绝对定位的参考是离它最近的有 <code>position</code> 设置的祖先元素（都没设置的话，就是初始块，应该就是 <code>&lt;body&gt;</code>）。</p>
+<p>所以 popular 标签可以放在<code>.plan--popular::before</code> （child） 也可以放在 <code>.plan--popular .card__header::before</code> （grandchild），只要那个设置 <code>position</code> 的祖先元素是 <code>.plan--popular</code>，就可以显示多出的像素了。</p>
+<h3 id="Media-Objects">Media Objects</h3>
+<p>先把基础的  <code>media</code></p>
+<ul>
+<li><code>media-image</code></li>
+<li><code>media-body</code>
+<ul>
+<li><code>media-title</code></li>
+<li>文字描述</li>
+</ul>
+</li>
+</ul>
+<p>三个部分的布局做好。</p>
+<p>黑色背景等设计整个部分的时候，通过继承来得到。</p>
+<p>字色和字号到时再一起调整。</p>
+<p>logo部分，颜色不能被css修改：svg中预设了<code>fill</code>属性，删掉就好了。</p>
+<h3 id="Quotes">Quotes</h3>
+<p>只需要包含：文本、作者、组织机构，不需要包含图片，因为使用quotes的时候不一定有图片，因为可能引用某个文章、或者什么。</p>
+<p>quotes 做好之后和一个图片组合</p>
+<p>然后放在一个card里，形成一个testimonial component，推荐组件。</p>
+<p>对于html标签中表达引用的：</p>
+<ul>
+<li><code>&lt;q&gt;&lt;/q&gt;</code> inline</li>
+<li><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code> block</li>
+</ul>
+<p>对于引用出处的部分，可以使用 media 组件，但是设置样式的时候，可以独立一个类 <code>.quote__author</code> 而不用嵌套 <code>.quote .media__header</code>：</p>
+<ul>
+<li>好处是，如果以后要删除 media 组件，需要重构这部分css</li>
+</ul>
+<p>横线的位置上移：使用相对位置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.quote__line</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.quote</span> <span class="selector-class">.media__image</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>media组件中的image，是设置了上外边距10px，而这里要把图像恢复到原来的位置。避免继续使用 <code>.quote .media__image</code> 这种会把两个组件嵌套的设置。</p>
+<ul>
+<li>？但是在plan组件设置的时候，也嵌套定义了card的特殊样式。嵌套或者不嵌套的边界在哪儿？</li>
+</ul>
+<h3 id="Grids">Grids</h3>
+<p>在mobile情况下，都只显示一列</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.grid--1x2</span> &#123;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">1</span>fr);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">1024px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.grid--1x3</span> &#123;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Testimonials">Testimonials</h3>
+<p>到此，已经有了Testimonial推荐组件所需的构造块了。</p>
+<p>创建一下结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid grid--1x2&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/testimonial.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;A happy, smiling customer&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px; background: gold&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>先测试一下是否可行，之后再替换quote，避免一开始就太复杂。</p>
+<h3 id="Callouts">Callouts</h3>
+<p>按钮在grid里拉伸了，是因为 <code>.grid</code> 的 <code>justify-items</code> 和 <code>align-items</code> 默认都是拉伸的 <code>stretch</code></p>
+<p>对网格元素修改，使用 <code>justify-self</code> 和 <code>align-self</code> 属性。</p>
+<p>调节按钮的内边距，不在布局的位置修改，而是新建一个skin方便复用。</p>
+<p>让内容拉伸，填满空白；让按钮只占据它需要的宽度 <code>auto</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.callout</span> <span class="selector-class">.grid--1x2</span> &#123;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Collapsibles">Collapsibles</h3>
+<p>mobile 的页尾导航是可折叠格式</p>
+<p>同个网站生成的 SVG sprite 跟mosh用的不一样，拿参考素材里的就对了。</p>
+<p>对于这个折叠组件，初始状态是只有header，且chevron指向右侧（原始图像是指向下方，要逆时针旋转90度）。</p>
+<p>展开时，使用 <code>collapsible--expanded</code> 类设置样式</p>
+<p>隐藏内容使用 <code>display:none</code>，但是 <code>display</code> 不能作为过渡的属性，替代的方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.collapsible__content</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.collapsible--expanded</span> <span class="selector-class">.collapsible__content</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>max-height</code> 可以根据内容来决定实际的 <code>height</code>，而不是直接限定死。</li>
+<li>添加 <code>opacity</code> 作为过渡，可以体现更好的动画效果</li>
+</ul>
+<p>到这里，只构造可折叠块的结构，而不关心它的skin。一方面网页里可能不会有其他部分跟footer相同的collapsible，其次这应该属于整个底部导航模块的内容。</p>
+<p><code>collapsible</code> 只在 JS 中使用到，没有定义样式。</p>
+<h3 id="Blocks">Blocks</h3>
+<p>整个页面分为几个块 blocks / 分区 sections，有黑色背景，白色背景，有斜切的，也有水平的。</p>
+<p>除了全局变量，可以设置 scope of custom properties，本身可以用，后代的元素也可使用：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  --<span class="attribute">padding</span>-vertical: <span class="number">6rem</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="built_in">var</span>(--padding-vertical) <span class="number">2rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block--skewed-right</span> &#123;</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--padding-vertical) + <span class="number">4rem</span>);</span><br><span class="line">  <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0%</span> <span class="number">0%</span>, <span class="number">100%</span> <span class="number">0%</span>, <span class="number">100%</span> <span class="number">100%</span>, <span class="number">0%</span> <span class="number">80%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现向右下斜切，并且使用 <code>calc()</code> 函数计算新的下边距。</li>
+</ul>
+<p>根据设计稿，确定内容的最大宽度为 1140px，如果屏幕再宽，也保持不变：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1140px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于黑色背景，可以嵌套内部的元素；白色/无背景，可以直接添加到 <code>block</code> 一级的类。</li>
+<li><code>margin: 0 auto;</code> 表示上下边距为0，左右边距自适应，可以保持1140px居中</li>
+</ul>
+<h3 id="Navigation-Bars">Navigation Bars</h3>
+<p>导航栏有三个元素，logo，图标（toggler button），无序列表。</p>
+<p>在standard模式下，图标可以隐藏。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.nav__list</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>让 ul 占据 100% parent元素的宽度，就可以用 flex-wrap 换行。</li>
+<li>space-between 让两头的元素靠边</li>
+</ul>
+<p>设置 toggler 在导航展开和未展开的样式，可以用双类选择器，可以保证只选中这一种组合的时候，产生效果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span><span class="selector-class">.collapsible--expanded</span> <span class="selector-class">.nav__toggler</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，可以组装了！</p>
+<h3 id="Hero">Hero</h3>
+<p>我发现 container 在 mobile 上应该有一个 max-width 570px 的设置</p>
+<p>设置样式的时候，先放通用样式的类名，再针对具体的模块设置类名，进行样式的覆盖。</p>
+<p>例如对于 block__header 一般是mobile和standard都是居中的，但是hero组件的standard是居左的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;block block--dark block--skewed-left hero&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Optimizing-Images">Optimizing Images</h3>
+<p>对于hero部分的图像，最大宽度只能显示 1140/2 = 570px，而原图有1500+px宽度，900KB 大小</p>
+<p>在standard上也只会显示不超过500px宽度</p>
+<p>而对于DPR &gt; 1的高分屏，使用的物理像素是逻辑像素的n倍，也就是Retina display，我们能提供的也只是 1140（2x）的图像。</p>
+<p>使用ps进行缩放：</p>
+<ul>
+<li>1140px宽：700+KB</li>
+<li>570px宽：200+KB</li>
+</ul>
+<p>然后进一步优化，可以转换为webp格式</p>
+<ul>
+<li>2x: 100+ KB</li>
+<li>1x: 40+ KB</li>
+</ul>
+<p>firefox的开发者工具（cmd+opt+i）可以选择不同DPR的屏幕效果来观察</p>
+<h3 id="Domain-Block">Domain Block</h3>
+<p>修改 btn 中的icon大小，可以通过设置一个btn中的icon类，来调整，以便有很多button需要icon时，可以复用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn</span> <span class="selector-class">.icon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>给 input 加阴影：</p>
+<ol>
+<li>使用工具类 <code>box-shadow</code>，例如 Tailwind 就是这样，有大量工具类 utility class，但是工具类越多，会让HTML负担更多跟样式相关的内容，远离了初衷</li>
+<li>使用特定的选择器 <code>.block-domain .input-group</code></li>
+</ol>
+<h3 id="Plans-Block">Plans Block</h3>
+<p>Q：pad 和 mobile 显示card的时候，popular标签会悬空在外面，</p>
+<p>原因是 <code>max-width</code> 限制之后，用如下代码给 card 元素添加了外边距，而plan元素的实际大小仍是原来的大小。plan是popular标签的相对位置的参考元素，所以导致popular标签没有在card的固定位置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block-plans</span> <span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而把该属性改到 plan 元如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block-plans</span> <span class="selector-class">.plan</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>card和plan 的宽度都被限制为300多像素，而无法达到500像素。需要一个 <code>width: 100%</code> 保证500px能达到，且同时响应式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block-plans</span> <span class="selector-class">.plan</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>还有一个问题，不同plan的card body里有不同的内容，列表项个数也不同，怎么能控制让它们显示的高度时候是相同的呢？</p>
+<p>查看元素，发现 plan 组件的高度都是相同的，只是内部的card高度不同，所以给 <code>.card</code>增加了 <code>height: 100%</code> 成功让卡片相同了。</p>
+<p>并且由于网格布局，其中一个card高度增加，其他也会一起增加。达到了card高度相同的目的。</p>
+<p>接下来，修改内部的button让它保持在底部，可以使用flex布局。</p>
+<p>添加了两个弹性布局，先是让<code>card__body</code>部分占满card/plan的下半部，使用 <code>flex-grow:1</code>；然后对于列表和按钮，使用 <code>justify-content: space-between</code> 保持在两端的边距相同。</p>
+<h3 id="Features-Block">Features Block</h3>
+<p>适合做一个 feature 的语义元素是 <code>&lt;article&gt;</code></p>
+<p>在grid布局或者flex布局，默认元素的顺序 <code>order</code> 从0开始，如果修改一个元素顺序，就会重新排序</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.feature</span><span class="selector-pseudo">:nth-of-type</span>(even) <span class="selector-class">.feature__content</span> &#123;</span><br><span class="line">    <span class="attribute">order</span>: <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过修改偶数feature中的content的<code>order</code>可以实现在宽屏时，grid布局顺序颠倒</p>
+<h3 id="Showcase-Block">Showcase Block</h3>
+<p>ipad 的图超出了container的界限，在移动设备上，可以缩放，响应式；而在宽屏时，固定大小，如果超出屏幕就溢出，显示600+像素，我们选择700px为基准的1x像素。</p>
+<p><code>.block--dark block__heading</code> 的是否有必要修改成 <code>.block--dark h1</code> 这种的？其实在 <code>block__heading</code> 中定义了一些样式，所以用上之后不仅仅只是把黑色背景下的标题变白色。我感觉有点没必要删掉。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.block-showcase</span> <span class="selector-class">.grid</span> &#123;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.block-showcase__image</span> &#123;</span><br><span class="line">    justify-self: end;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.block-showcase__image</span> &gt; <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: auto;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">700px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意修改的是 <code>&lt;picture&gt;</code> 还是 <code>&lt;img&gt;</code>，<code>width</code> 只能设置到 <code>&lt;img&gt;</code> 上</li>
+</ul>
+<p>对于 media object 列表，可以借助 <code>&lt;ul&gt;</code> 进行语义标签。</p>
+<p>对于文字选中时效果，可以设置为更显眼的样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--color-primary);</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Testimonials-Block">Testimonials Block</h3>
+<h3 id="Footer">Footer</h3>
+<p>Grid 布局</p>
+<h3 id="Putting-it-All-Together">Putting it All Together</h3>
+<p>导航栏放在 <code>&lt;header&gt;</code>中</p>
+<p>在单独构建每一个组件的最后，都要在不同分辨率的设备上进行测试。</p>
+<p>在开发者工具中，有 320px 的小型移动设备，也要测试宽屏的设备。</p>
+<h3 id="Troubleshooting-Layout-Issues">Troubleshooting Layout Issues</h3>
+<p>排版到domain块的时候，搜索按钮在小屏幕上出现了排版问题。</p>
+<p>把问题分解得越小越好，越容易找到问题。</p>
+<p>创建一个测试的页面 <code>playground.html</code></p>
+<p>通过删除不同的块，来缩小问题出现的范围。</p>
+<p>最后按钮的排版错误，是因为 <code>input</code> 组件使用了 <code>flex-grow:1</code> 但是却没有设置宽度，宽度就变成了chrome默认的宽度，导致超出了 <code>input-group</code> 的范围。</p>
+<p>设置 <code>width: 0</code> 来让 flex 布局自动修改宽度，就可以了。</p>
+<p>按钮的宽度在不同的屏幕上也可以设置 <code>vw</code> 单位来修改。</p>
+<h3 id="Animations">Animations</h3>
+<p>使用一个 JS 库：AOS</p>
+<h3 id="Search-Engine-Optimization">Search Engine Optimization</h3>
+<p><code>&lt;head&gt;</code> 标签里的内容，帮助搜索引擎优化</p>
+<ul>
+<li><code>&lt;title&gt;</code> 展示在页面的tab里和搜索引擎的标题</li>
+<li><code>meta:desc</code> -&gt; <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;</code> 在搜索引擎中展示在标题下面</li>
+</ul>
+<p>The Open Graph protocol  <a target="_blank" rel="noopener" href="https://ogp.me/">https://ogp.me/</a></p>
+<p>在分享页面的时候，会看到一个网页的预览图</p>
+<ul>
+<li><code>&lt;meta property=&quot;og:&quot; content=&quot;&quot;&gt;</code></li>
+</ul>
+<h3 id="HTML-and-CSS-Validation">HTML and CSS Validation</h3>
+<p>footer 忘记用语义标签，然后把 footer 中的header修改掉就可以了。</p>
+<h3 id="Building-for-Production">Building for Production</h3>
+<p>发布到生产环境之前，需要使用 build tool</p>
+<ul>
+<li>Combine CSS and JS files：可以减少客户端向服务器的HTTP请求</li>
+<li>Minify JS/CSS files：会删除所有的注释、换行、空格和不必要的字符，从而减少assets的体积，发送给用户更小的文件</li>
+<li>Optimize images：除了用PS和在线converter中优化图片体积，使用打包工具可以在命令行中完成</li>
+</ul>
+<p>Build Tools:</p>
+<ul>
+<li>Webpack：最常用的，但是需要很多设置</li>
+<li>Rollup</li>
+<li>Parcel <a target="_blank" rel="noopener" href="https://parceljs.org/">https://parceljs.org/</a>  零配置</li>
+</ul>
+<p>使用 Parcel 来打包我们的网站：</p>
+<p>首先，初始化 package：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+<p>然后会在目录中出现一个文件 <code>package.json</code></p>
+<p>然后将 Parcel 作为第三方库安装进来：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D parcel-bundler@1.12.4</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-D</code> 参数的含义是 development environment dependency，只在开发环境使用，而不会推送到生产环境，即不会发送给客户端</li>
+</ul>
+<p>安装好之后会自动配置在 <code>package.json</code> 中，只要有了该配置文件，每次都可以重新下载依赖，所以打包发布的时候不用包含 <code>node_modules/</code> 目录，这其中包含的都是第三方库，因为我们只安装了parcel，所以现在其中的库都是parcel和parcel依赖的库。</p>
+<p>@1.12.4 会报错 <code>Invalid Version: undefined</code> 更新到 @1.12.5 就可以正常启动了</p>
+<ol>
+<li>使用项目内的parcel <code>node_modules/.bin/parcel index.html</code></li>
+<li>使用全局的parcel，先安装 <code>npm i -g parcel-bundler</code>，然后项目内 <code>parcel index.html</code></li>
+</ol>
+<p>parcel 的开发服务器也支持 live reloading，热更新，当项目文件修改时，就会重新打包并展示。</p>
+<p>当 parcel 构建项目的时候，会创建两个目录</p>
+<ul>
+<li><code>.cache/</code></li>
+<li><code>dist/</code></li>
+</ul>
+<p>在 <code>.gitignore</code> 中进行设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_modules&#x2F;</span><br><span class="line">dist&#x2F;</span><br><span class="line">.cache&#x2F;</span><br></pre></td></tr></table></figure>
+<p>使用 parcel 打包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parcel build index.html</span><br></pre></td></tr></table></figure>
+<ul>
+<li>报错：<code>/Users/doreality/codes/projects/Moshify/index.html: tree.render is not a function</code>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67087634/parcel-js-tree-render-is-not-a-function">https://stackoverflow.com/questions/67087634/parcel-js-tree-render-is-not-a-function</a></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>使用命令：<code>parcel build index.html --no-minify</code> 可以成功build，但是好像index也没有压缩</li>
+<li>通过在根目录下添加 <code>.htmlnanorc.js</code>，成功构建了，index也压缩了。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="string">&quot;minifySvg&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构建后生成的文件在 <code>dist/</code> 中，对于每个文件都有若干个版本，每个版本标注了唯一的标识符。是为了避免caching，避免客户端缓存，而在后续网页修改时无法看到更新的结果。</p>
+<p>无论是开发环境还是生产环境的文件，都保存在 <code>dist/</code> 中。</p>
+<p>删除目录后再执行一次 <code>parcel build index.html</code> 就只会生成一个版本的压缩文件了。</p>
+<h3 id="Deployment">Deployment</h3>
+<p><a target="_blank" rel="noopener" href="https://app.netlify.com">https://app.netlify.com</a></p>
+<ul>
+<li>注册不太顺利，GitHub账户要身份验证，先不管了</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://vercel.com">https://vercel.com</a></p>
+<ul>
+<li>试试这个</li>
+<li>成功了 <a target="_blank" rel="noopener" href="https://doreality-moshified.vercel.app/">https://doreality-moshified.vercel.app/</a></li>
+<li>修改代码推送上去之后，也会自动构建发布。</li>
+<li>而且自动更新到了 GitHub 仓库中</li>
+</ul>
+<p>GitHub pages 可以显示静态的</p>
+<h3 id="Measuring-the-Site’s-Performance">Measuring the Site’s Performance</h3>
+<p><a target="_blank" rel="noopener" href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a></p>
+<p>83 87 100 92 -&gt; 88 95 100 100</p>
+<p>首先看 Accessibility 无障碍：</p>
+<ul>
+<li>aria: accessible reach internet application</li>
+<li><code>aria-label</code> 可以让屏幕阅读器读出来。</li>
+<li><a target="_blank" rel="noopener" href="https://accessibilityinsights.io/">https://accessibilityinsights.io/</a></li>
+</ul>
+<p>对于 Performance 性能部分，几乎是不能拿到满分，除非不考虑网站的可维护性。</p>
+<p>SEO 部分，修改了logo的链接有描述性的文字</p>
+<p>Lighthouse 扩展 chrome开发者工具，可以在本地测试性能。但是本地运行的是没有优化过的CSS和JS</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/f6dad03c.html" rel="prev" title="HTML&CSS 进阶篇">
+      <i class="fa fa-chevron-left"></i> HTML&CSS 进阶篇
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prerequisites"><span class="nav-number">2.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Take-This-Course"><span class="nav-number">3.</span> <span class="nav-text">How to Take This Course</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-You-Need"><span class="nav-number">4.</span> <span class="nav-text">Tools You Need</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Setting-Up-the-Project"><span class="nav-number">5.</span> <span class="nav-text">Setting Up the Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Essential-Photoshop-Skills"><span class="nav-number">6.</span> <span class="nav-text">Essential Photoshop Skills</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Identifying-the-Components"><span class="nav-number">7.</span> <span class="nav-text">Identifying the Components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Color-Palette-%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88"><span class="nav-number">8.</span> <span class="nav-text">Color Palette 配色方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typography"><span class="nav-number">9.</span> <span class="nav-text">Typography</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Links"><span class="nav-number">10.</span> <span class="nav-text">Links</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Badges"><span class="nav-number">11.</span> <span class="nav-text">Badges</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lists"><span class="nav-number">12.</span> <span class="nav-text">Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Icons"><span class="nav-number">13.</span> <span class="nav-text">Icons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buttons"><span class="nav-number">14.</span> <span class="nav-text">Buttons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inputs"><span class="nav-number">15.</span> <span class="nav-text">Inputs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Groups"><span class="nav-number">16.</span> <span class="nav-text">Input Groups</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cards"><span class="nav-number">17.</span> <span class="nav-text">Cards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plans"><span class="nav-number">18.</span> <span class="nav-text">Plans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Popular-Badge"><span class="nav-number">19.</span> <span class="nav-text">Popular Badge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Media-Objects"><span class="nav-number">20.</span> <span class="nav-text">Media Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quotes"><span class="nav-number">21.</span> <span class="nav-text">Quotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grids"><span class="nav-number">22.</span> <span class="nav-text">Grids</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testimonials"><span class="nav-number">23.</span> <span class="nav-text">Testimonials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Callouts"><span class="nav-number">24.</span> <span class="nav-text">Callouts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collapsibles"><span class="nav-number">25.</span> <span class="nav-text">Collapsibles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blocks"><span class="nav-number">26.</span> <span class="nav-text">Blocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigation-Bars"><span class="nav-number">27.</span> <span class="nav-text">Navigation Bars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hero"><span class="nav-number">28.</span> <span class="nav-text">Hero</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-Images"><span class="nav-number">29.</span> <span class="nav-text">Optimizing Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Domain-Block"><span class="nav-number">30.</span> <span class="nav-text">Domain Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plans-Block"><span class="nav-number">31.</span> <span class="nav-text">Plans Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Features-Block"><span class="nav-number">32.</span> <span class="nav-text">Features Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Showcase-Block"><span class="nav-number">33.</span> <span class="nav-text">Showcase Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testimonials-Block"><span class="nav-number">34.</span> <span class="nav-text">Testimonials Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Footer"><span class="nav-number">35.</span> <span class="nav-text">Footer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Putting-it-All-Together"><span class="nav-number">36.</span> <span class="nav-text">Putting it All Together</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Troubleshooting-Layout-Issues"><span class="nav-number">37.</span> <span class="nav-text">Troubleshooting Layout Issues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animations"><span class="nav-number">38.</span> <span class="nav-text">Animations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-Engine-Optimization"><span class="nav-number">39.</span> <span class="nav-text">Search Engine Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-and-CSS-Validation"><span class="nav-number">40.</span> <span class="nav-text">HTML and CSS Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Building-for-Production"><span class="nav-number">41.</span> <span class="nav-text">Building for Production</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment"><span class="nav-number">42.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Measuring-the-Site%E2%80%99s-Performance"><span class="nav-number">43.</span> <span class="nav-text">Measuring the Site’s Performance</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">doreality</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doreality</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
